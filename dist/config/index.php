@@ -54,13 +54,7 @@
                         <li class="nav-item"><a class="nav-link" href="#lavado">Lavado</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">ZNE (Zona No Estèril)</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio_despacho">ZE (Zona Estèril)</a></li>
-                        <!--
-                        <li class="nav-item"><a class="nav-link" href="#about">ZE (Zona Estèril)</a></li>
-                        -->
                         <li class="nav-item"><a class="nav-link" href="#team">Despacho</a></li>
-                        <!--
-                        <li class="nav-item"><a class="nav-link" href="#contact">Indices</a></li>
-                        -->
                     </ul>
                 </div>
             </div>
@@ -70,7 +64,8 @@
             <div class="container">
                 <div class="masthead-subheading">Sistema Inteligente de Trazabilidad para RUMEDs (Unidad de Reprocesamiento de Dispositivos Médicos) </div>
                 <div class="masthead-heading text-decoration-underline">TrazALEM</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#lavado">Tell Me More</a>
+                <!-- <a class="btn btn-primary btn-xl text-uppercase" href="#lavado">Tell Me More</a>
+                -->
             </div>
         </header>
         <!-- lavado-->
@@ -78,7 +73,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Lavado</h2>
-                    <h3 class="section-subheading text-muted">Ârea Sucia.</h3>
+                    <h3 class="section-subheading text-muted">Área Sucia.</h3>
                 </div>
                 <div class="row text-center">
                     <div class="col-md-4">
@@ -327,8 +322,8 @@
      <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">Contactanos</h2>
+                    <h3 class="section-subheading text-muted">Si requiere de información llenar el siguiente formulario </h3>
                 </div>
                 <!-- * * * * * * * * * * * * * * *-->
                 <!-- * * SB Forms Contact Form * *-->
@@ -342,26 +337,26 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <input class="form-control" id="name" type="text" placeholder="Su Nombre*" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Un Nombre es requerido.</div>
                             </div>
                             <div class="form-group">
                                 <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                <input class="form-control" id="email" type="email" placeholder="Su correo email *" data-sb-validations="required,email" />
+                                <div class="invalid-feedback" data-sb-feedback="email:required">Un email es valido.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email no valido.</div>
                             </div>
                             <div class="form-group mb-md-0">
                                 <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                <input class="form-control" id="phone" type="tel" placeholder="Tu Teléfono *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">Un Teléfono es requerido.</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-textarea mb-md-0">
                                 <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                <textarea class="form-control" id="message" placeholder="Su Mesage *" data-sb-validations="required"></textarea>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Un mensaje es requerido.</div>
                             </div>
                         </div>
                     </div>
@@ -419,10 +414,10 @@
                                     <p class="item-intro text-muted"> Tipo de programa 121°, 134°, B&D, VACIO.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/m1.jpg" alt="..." />
                                     <form action="/action_page.php">
-                                    <label for="fcode">CÓDIGO:</label>
-                                    <input type="text" id="fcode" name="fcode" value="Ingrese el código">
-                                    <input type="submit" value="BUSCAR">
+                                        <label for="fcode">CÓDIGO:</label>
+                                        <input type="text" id="fcode" name="fcode" placeholder="Ingreso el código*">
                                         <table class="table table-bordered text-center">
+                                            <input type="submit" value="BUSCAR">
                                             <tr class="bg-dark text-white">
                                                 <td>ID</td>
                                                 <td>DESCRIPCION</td>
@@ -434,31 +429,90 @@
                                                 <td><input type="checkbox" id="vehicle_3" name="vehicle_3" value="BoaSDt"></td>
                                             </tr>
                                         </table>
+                                        <table class="table table-bordered text-center">
+                                            <tr class="bg-dark text-white">
+                                                <td>TIPO TEMPERATURA</td>
+                                                <td>TIPO DE CARGA</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <form action="/action_page.php">
+                                                        <label for="temperature">Elegir Temperatura:</label>
+                                                        <select name="temperature" id="temperature">
+                                                            <option value="121°C">121°C</option>
+                                                            <option value="134°C">134°C</option>
+                                                        </select>
+                                                    <!--   <br><br>
+                                                    <input type="submit" value="Submit"> -->
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <form action="/action_page.php">
+                                                        <label for="temperature">Elegir Carga:</label>
+                                                        <select name="temperature" id="temperature">
+                                                            <option value="Estándar">Estándar </option>
+                                                            <option value="Estándar ">Estándar </option>
+                                                            <option value="Contendores ">Contendores </option>
+                                                            <option value="Rapid ">Rapid 121°C</option>
+                                                            <option value="Esporas ">Esporas </option>
+                                                        </select>
+                                                    <!--   <br><br>
+                                                    <input type="submit" value="Submit"> -->
+                                                    </form>
+                                                </td>
+                                            </tr> 
+                                        </table>
+                                        <table class="table table-bordered text-center">
+                                            <tr class="bg-dark text-white">
+                                                    <td>INCLUYE BIOLÓGICO</td>
+                                                    <td>LOTE DE ESTERILIZACIÓN</td>
+                                                    <td>TIEMPO DE EXPIRACIÓN</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <form action="/action_page.php">
+                                                        <label for="Biologico">INCLUIR BIOLOGICO: </label>
+                                                        <select name="biologic" id="biologic">
+                                                            <option value="SI"> SI   </option>
+                                                            <option value="NO"> NO   </option>
+                                                        </select>
+                                                    <!--   <br><br>
+                                                    <input type="submit" value="Submit"> -->
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <strong>LOTE:</strong>
+                                                    <input type="text" id="flote" name="flote" placeholder="Ingrese # lote del proceso"><br/>
+                                                </td>
+                                                <td>
+                                                    <form action="/action_page.php">
+                                                        <label for="time_expiration">EXPIRACIÓN: </label>
+                                                        <select name="time_exp" id="time_exp">
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                        </select>
+                                                        <label for="meses">MES(ES) </label>
+                                                    <!--   <br><br>
+                                                    <input type="submit" value="Submit"> -->
+                                                    </form>
+                                                </td>
+                                            </tr>  
+                                        </table>
                                     </form>
-
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>INCLUIR:</strong><br/><br/>
-                                            <strong>INDICADOR BIOLÓGICO:</strong>
-                                            <br/>
-                                            <input type="radio" name="Biologico_steam" value="Si" checked="checked">SI     
-                                            <input type="radio" name="Biologico_steam" value="No">NO<br/> <br/>
-                                        </li>
                                         <li>
                                             <strong>OPERADOR:</strong>
-                                            <input type="text" id="operator" name="operator"><br/><br/>
-                                        </li>
-                                        <li>
-                                            <strong>LOTE:</strong>
-                                            <input type="text" id="flote" name="flote" value="Ingrese el código"><br/>
+                                            <input type="text" id="operator" placeholder="Ingrese sus nombres*"><br/><br/>
                                         </li>
                                     </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
+                                    <button class="btn btn-primary text-uppercase" data-bs-dismiss="modal" type="button">
                                         CERRAR 
                                     </button>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
+                                    <i class="fas fa-xmark me-1"></i> 
                                         IMPRIMIR
                                     </button>
                                 </div>
@@ -482,16 +536,9 @@
                                     <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/c2.jpg" alt="..." />
                                     <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Explore
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Graphic Design
-                                        </li>
-                                    </ul>
+                                    
+                                    
+                                    
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-xmark me-1"></i>
                                         Close Project
@@ -516,17 +563,10 @@
                                     <h2 class="text-uppercase">Project Name</h2>
                                     <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/m3.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Finish
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Identity
-                                        </li>
-                                    </ul>
+                                    
+                                    
+                                    
+                                    
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-xmark me-1"></i>
                                         Close Project
@@ -551,17 +591,11 @@
                                     <h2 class="text-uppercase">Project Name</h2>
                                     <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/b&d4.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Lines
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Branding
-                                        </li>
-                                    </ul>
+                                    
+                                    
+
+
+
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-xmark me-1"></i>
                                         Close Project
@@ -587,16 +621,11 @@
                                     <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/m5.jpg" alt="..." />
                                     <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Southwest
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Website Design
-                                        </li>
-                                    </ul>
+
+
+
+
+
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-xmark me-1"></i>
                                         Close Project
