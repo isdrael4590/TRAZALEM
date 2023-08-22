@@ -1,0 +1,44 @@
+services:
+  app:
+    ports: 
+     - "80:80" 
+    build: 
+      context: .
+      dockerfile: app/Dockerfile
+    networks:
+      - backnet
+    depends_on:
+      - db
+    volumes:
+      - ./code:/var/www/html
+  db:
+    image: mysql:8
+    restart: always
+    healthcheck:
+      test: ['CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 --password="$$(cat /run/secrets/db-password)" --silent']
+      interval: 3s
+      retries: 5
+      start_period: 30s
+    secrets:
+      - db_password
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backnet
+    environment:
+      - MYSQL_DATABASE=example
+      - MYSQL_ROOT_PASSWORD=/run/secrets/db_password
+    expose:
+      - 3306
+      - 33060
+
+
+volumes:
+  db-data:
+
+secrets:
+  db_password:
+    file: ./db/password.txt
+
+networks:
+  backnet:
