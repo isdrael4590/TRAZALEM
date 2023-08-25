@@ -1,0 +1,10 @@
+  services:
+    adminer:
+      image: adminer
+      restart: always
+      ports:
+        - 8080:8080
+      networks:
+        - backend
+    app:
+        command: php -e -S 0.0.0.0:3000 -t .

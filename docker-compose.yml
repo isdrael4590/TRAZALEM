@@ -1,10 +1,9 @@
+version: "3"
 services:
   app:
-    build: 
-      context: .
-      dockerfile: app/Dockerfile
+    build: app
     networks:
-      - backnet
+      - backend
     depends_on:
       - db
     command: php -S 0.0.0.0:3000 -t .
@@ -26,7 +25,7 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     networks:
-      - backnet
+      - backend
     environment:
       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_root_password
       - MYSQL_PORT=${MYSQL_PORT}
@@ -34,15 +33,13 @@ services:
       - MYSQL_PASSWORD_FILE=/run/secrets/db_password
       - MYSQL_DATABASE=${MYSQLDB_DATABASE}
     expose:
-      - ${MYSQL_PORT}
-      - 33060
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-    networks:
-      - backnet
+      - ${MYSQL_PORT} # Puerto por  defecto
+      - 33060 # Puerto para comunicación TLS
+    healthcheck: # verifica que el contenedor esté activo
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
 volumes:
   db-data:
@@ -52,5 +49,6 @@ secrets:
     file: db/root_password.txt
   db_password:
     file: db/user_password.txt
+
 networks:
-  backnet:
+  backend:
