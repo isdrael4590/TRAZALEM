@@ -1,6 +1,13 @@
 # syntax=docker/dockerfile:1
-FROM php:8.2-apache
-COPY .docker/apache/vhost.conf /etc/apache2/sites-available/000-default.conf
-COPY code/ /var/www/html/
+FROM php:8.2
+# prepare install
+RUN apt-get update --fix-missing
+RUN apt-get install -y build-essential libssl-dev zlib1g-dev libpng-dev libjpeg-dev libfreetype6-dev
 
-RUN chown -R www-data:www-data /var/www/html/ && a2enmod rewrite
+# install zip extension
+RUN apt-get install -y libzip-dev && docker-php-ext-install zip
+
+# install mysql extension
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+COPY app/code/ /usr/src/app
+WORKDIR /usr/src/app

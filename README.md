@@ -15,3 +15,6 @@ LAS ETAPAS A DESARRLLARSE.
 ```bash
 echo passwd_secreto > db/password.txt
 ```
+
+- Prueba Página [http://localhost:3000/dist/config/index.php](http://localhost:3000/dist/config/index.php)
+- Prueba DB [http://localhost:3000/dist/config/connection.php](http://localhost:3000/dist/config/connection.php)

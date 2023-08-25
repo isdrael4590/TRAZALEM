@@ -1,11 +1,13 @@
 <?php
-    $servername="localhost";
-    $username="root";
-    $password="";
-    $db_rumed="rumed_code";
-    
+    $servername="db";
+    $username=getenv('MYSQL_USER');
+    // Read the secret value from the file
+    $password = trim(file_get_contents('/run/secrets/db_root_password'));
+    $dbname=getenv('MYSQL_DATABASE');
+    $port=getenv('MYSQL_PORT');
+
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=$db_rumed", $password, $dbname);
+        $conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username, $password);
         echo("conexion exitosa");
     } catch (Exception $e){
         echo $e ->getMessage();
