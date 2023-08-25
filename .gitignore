@@ -133,4 +133,4 @@ dist
 .pnp.*
 
 # Evita que el Password se suba a GH
-db/*
+db/*txt
