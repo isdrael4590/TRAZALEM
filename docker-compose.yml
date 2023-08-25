@@ -12,9 +12,8 @@ services:
      - "3000:3000" 
     secrets:
       - db_password
-      - db_root_password
     environment:
-      - MYSQL_PASSWORD=/run/secrets/db_root_password
+      - MYSQL_PASSWORD_FILE=/run/secrets/db_password
       - MYSQL_USER=${MYSQLDB_USER}
       - MYSQL_DATABASE=${MYSQLDB_DATABASE}
       - MYSQL_PORT=${MYSQL_PORT}
@@ -22,8 +21,8 @@ services:
     image: mysql:8
     restart: always
     secrets:
-      - db_password
       - db_root_password
+      - db_password
     volumes:
       - db-data:/var/lib/mysql
     networks:

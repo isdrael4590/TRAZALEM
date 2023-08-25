@@ -2,7 +2,7 @@
     $servername="db";
     $username=getenv('MYSQL_USER');
     // Read the secret value from the file
-    $password = trim(file_get_contents('/run/secrets/db_root_password'));
+    $password = trim(file_get_contents(getenv('MYSQL_PASSWORD_FILE')));
     $dbname=getenv('MYSQL_DATABASE');
     $port=getenv('MYSQL_PORT');
 
