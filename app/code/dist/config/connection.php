@@ -6,11 +6,12 @@
     $dbname=getenv('MYSQL_DATABASE');
     $port=getenv('MYSQL_PORT');
 
-    try {
-        $conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username, $password);
-        echo("conexion exitosa");
-    } catch (Exception $e){
-        echo $e ->getMessage();
+    /* Creando una nueva conexión a la base de datos. */
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    /* Comprobando si hay un error de conexión. */
+    if ($conn->connect_error) {
+        die('Error de conexion ' . $conn->connect_error);
     }
 
 
