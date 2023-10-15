@@ -22,8 +22,9 @@ services:
     secrets:
       - db_root_password
       - db_password
-    volumes:
-      - db-data:/var/lib/mysql
+    volumes:    
+      #- db-data:/var/lib/mysql
+      - ${PWD}/db/fresh_db/:/docker-entrypoint-initdb.d/
     networks:
       - backend
     environment:
@@ -43,6 +44,7 @@ services:
 
 volumes:
   db-data:
+
 
 secrets:
   db_root_password:
