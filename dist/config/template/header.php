@@ -1,23 +1,35 @@
-<?php
-$url_base="http://localhost:3000/TRAZALEM/dist/config/";?>
+
+<!--$url_base="http://localhost:3000/TRAZALEM/dist/config/";-->
+
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+        <!-- ADAPTACION -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <!-- FIN ADAPTACION -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="author" content="FJACOME" />
         <title>Trazabilidad - ALEM</title>
         <!-- Favicon-->
-        <link rel="icon" type="ifavcon_1.ico" href="assets/ifavcon_1.ico" />
+        <link rel="icon" type="ifavcon.ico" href="assets/ifavcon_1.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
+        
         <link href="css/styles.css" rel="stylesheet" />
+        
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+        <script defer src="template/qrcode.min.js"></script>
+
+        <script defer src="template/app_qr.js"></script>
     </head>
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -50,3 +62,4 @@ $url_base="http://localhost:3000/TRAZALEM/dist/config/";?>
                 -->
             </div>
         </header>
+    <body id="page-top">

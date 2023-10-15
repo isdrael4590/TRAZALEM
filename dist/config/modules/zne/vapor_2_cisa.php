@@ -3,8 +3,14 @@
 
 #$state_bd_rumed=$conn -> prepare("SELECT*FROM coderumed");
 #$state_bd_rumed->execute();
-#$code_rumed=$state_bd_rumed->fetchALL(PDO:: FETCH_ASSOC);
+#$code_bd_rumed=$state_bd_rumed->fetchALL(PDO:: FETCH_ASSOC);
 
+#if ($code_bd_rumed>0) {
+#	// show the publishers
+#	foreach ($code_bd_rumed as $code_bd_rumed) {
+#    #echo $code_bd_rumed['CODE'] . '<br>';
+#	}
+#}
 
 ?>        
         <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">

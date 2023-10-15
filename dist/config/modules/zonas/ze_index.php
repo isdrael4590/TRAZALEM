@@ -5,11 +5,12 @@
                     <h3 class="section-subheading text-muted">Instrumental a registrar.</h3>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                    <div class="col-lg-4 col-sm-7 mb-4 mb-sm-0">
                         <!-- Portfolio item 5-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
-                                <?php include("modules/ze_module/result_ciclo.php") ?>
+                            <?php include("modules/ze_module/result_ciclo.php") ?>
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                                
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -21,11 +22,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                    <div class="col-lg-4 col-sm-7 mb-4 mb-sm-0">
                         <!-- Portfolio item 6-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                                <?php include("modules/ze_module/rendimiento.php") ?>
+                            <?php include("modules/ze_module/rendimiento.php") ?>
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal7">
+                               
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>

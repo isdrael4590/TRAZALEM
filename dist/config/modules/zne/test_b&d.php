@@ -1,4 +1,4 @@
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
@@ -14,6 +14,7 @@
                                             <table class="table table-bordered text-center">
                                                 <tr class="bg-dark text-white">
                                                     <td>ELEGIR EQUIPO DE VAPOR</td>
+                                                    <td>LOTE DE CICLO B&D</td>
                                                     <td>NÚMERO DE LOTE</td>
                                                     <td>VALIDACIÓN DE FUNCIONALIDAD_PRUEBA B&D</td>
                                                 </tr>
@@ -28,8 +29,12 @@
                                                         <input type="submit" value="Submit"> -->
                                                     </td>
                                                     <td>
-                                                    <strong># LOTE_B&D:</strong>
-                                                        <input type="text" id="lote_b&d" name="lote_b&d" placeholder=" # lote"><br/>
+                                                        <strong># LOTE_Ciclo B&D:</strong>
+                                                        <input type="text" id="ciclo_b&d" name="ciclo_b&d" placeholder=" # lote B&D"><br/>
+                                                    </td>
+                                                    <td>
+                                                        <strong># LOTE_B&D:</strong>
+                                                            <input type="text" id="lote_b&d" name="lote_b&d" placeholder=" # lote"><br/>
                                                     </td>
                                                     <td> 
                                                          <label for="check_b&d">ESTADO:</label><br/>

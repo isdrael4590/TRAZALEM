@@ -6,11 +6,11 @@
                     <h3 class="section-subheading text-muted">Elegir el procedimiento a realizar.</h3>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="col-lg-4 col-sm-7 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
+                            <?php include("modules/zne/vapor_1.php") ?>
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <?php include("modules/zne/vapor_1.php") ?>
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -22,11 +22,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="col-lg-4 col-sm-7 mb-4">
                         <!-- Portfolio item 2-->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
                             <?php include("modules/zne/vapor_2_cisa.php") ?>    
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
                             <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -38,10 +38,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="col-lg-4 col-sm-7 mb-4">
                         <!-- Portfolio item 3-->
                         <div class="portfolio-item">
+                            <?php include("modules/zne/hpo_1.php") ?>
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                               
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -53,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                    <div class="col-lg-4 col-sm-7 mb-4 mb-lg-0">
                         <!-- Portfolio item 4 bowie and dick-->
                         <div class="portfolio-item">
                             <?php include("modules/zne/test_b&d.php") ?> 
@@ -69,7 +71,22 @@
                             </div>
                         </div>
                     </div>
-                    
+                    <div class="col-lg-4 col-sm-7 mb-4 mb-lg-0">
+                        <!-- Portfolio item 5 bowie and dick-->
+                        <div class="portfolio-item">
+                            <?php include("modules/zonas/qr_generator.php") ?> 
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/qr_generator.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">GENERADOR DE ETIQUETAS</div>
+                                <div class="portfolio-caption-subheading text-muted">Genera aquí la etiqueta previo ingresar al equipo</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
