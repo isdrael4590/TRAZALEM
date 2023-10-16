@@ -9,4 +9,6 @@
       depends_on:
         - db
     app:
-        command: php -e -S 0.0.0.0:3000 -t .
+      volumes:
+      - ${PWD}/app/code:/usr/src/app
+      
