@@ -1,10 +1,10 @@
-<?php 
+{{--<?php
 include("connection.php");
 
 
 
 
-?>        
+?>*/ --}}
         <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -38,34 +38,34 @@ include("connection.php");
                                                         <strong>LOTE:</strong>
                                                         <input type="text" id="flote" name="flote" placeholder="Ingrese # lote del proceso"><br/>
                                                     </td>
-                                                </tr>  
+                                                </tr>
                                             </table>
                                             <table class="table table-bordered text-center">
-                                                <form id='form_code_instrumental' name ='form_code_instrumental' >  
+                                                <form id='form_code_instrumental' name ='form_code_instrumental' >
                                                     <tr>
                                                         <label for="code">LEER CÓDIGO:</label>
-                                                        <input type="text" id="code_rumed_input" name="code_rumed_input" placeholder="Ingreso de paquetes*" value= "<?php if (isset($_GET["CODE"])){echo $_GET["CODE"];}?>" >    
+                                                        <input type="text" id="code_rumed_input" name="code_rumed_input" placeholder="Ingreso de paquetes*" value= "<?php if (isset($_GET["CODE"])){echo $_GET["CODE"];}?>" >
                                                         <input type="submit" name='btnSubmit_code' value="GARGAR" >
                                                     </tr>
                                                     <tr class="bg-dark text-white">
-                                                        <td>ID</td>                                                    
+                                                        <td>ID</td>
                                                         <td>QR LEIDO</td>
                                                         <td>CODE</td>
                                                         <td>DESCRIPCION</td>
                                                     </tr>
-                                            
+
                                                     <tr class="user_input">
 
                                                     </tr>
-                                                    
+
                                                 </form>
                                             </table>
                                     <!--  </form>-->
                                         <button class="btn btn-primary text-uppercase" data-bs-dismiss="modal" type="button">
-                                            CERRAR 
+                                            CERRAR
                                         </button>
                                         <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i> 
+                                        <i class="fas fa-xmark me-1"></i>
                                             IMPRIMIR
                                         </button>
                                     </div>

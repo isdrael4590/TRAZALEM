@@ -19,7 +19,7 @@
                             <i class="fas fa-angle-double-down fa-stack-1x fa-inverse"></i>
                         </span>
                         <h4 class="my-3">Ingreso Instrumental</h4>
-                        <p class="text-muted">Se registra el ingreso del instrumental de las diferentes àreas del Hospital</p>
+                        <p class="text-muted">Se registra el ingreso del instrumental de las diferentes áreas del Hospital</p>
                     </div>
 
                     <div class="col-md-4">

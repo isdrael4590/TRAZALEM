@@ -9,7 +9,7 @@
                     <div class="col-lg-4 col-sm-7 mb-4">
                         <!-- Portfolio item 1-->
                         <div class="portfolio-item">
-                            <?php include("modules/zne/vapor_1.php") ?>
+                            @include("zonas.zne.vapor_1")
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
@@ -25,7 +25,7 @@
                     <div class="col-lg-4 col-sm-7 mb-4">
                         <!-- Portfolio item 2-->
                         <div class="portfolio-item">
-                            <?php include("modules/zne/vapor_2_cisa.php") ?>    
+                            @include("zonas.zne.vapor_2_cisa")
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
                             <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
@@ -41,9 +41,9 @@
                     <div class="col-lg-4 col-sm-7 mb-4">
                         <!-- Portfolio item 3-->
                         <div class="portfolio-item">
-                            <?php include("modules/zne/hpo_1.php") ?>
+                            @include("zonas.zne.hpo_1")
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
-                               
+
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -58,7 +58,7 @@
                     <div class="col-lg-4 col-sm-7 mb-4 mb-lg-0">
                         <!-- Portfolio item 4 bowie and dick-->
                         <div class="portfolio-item">
-                            <?php include("modules/zne/test_b&d.php") ?> 
+                            @include("zonas.zne.test_b&d")
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
@@ -74,7 +74,7 @@
                     <div class="col-lg-4 col-sm-7 mb-4 mb-lg-0">
                         <!-- Portfolio item 5 bowie and dick-->
                         <div class="portfolio-item">
-                            <?php include("modules/zonas/qr_generator.php") ?> 
+                            @include("zonas.qr_generator")
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
@@ -90,4 +90,3 @@
                 </div>
             </div>
         </section>
-        

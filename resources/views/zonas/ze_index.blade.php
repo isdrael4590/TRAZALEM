@@ -8,9 +8,9 @@
                     <div class="col-lg-4 col-sm-7 mb-4 mb-sm-0">
                         <!-- Portfolio item 5-->
                         <div class="portfolio-item">
-                            <?php include("modules/ze_module/result_ciclo.php") ?>
+                            @include("ze_module.result_ciclo")
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
-                                
+
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
@@ -25,9 +25,9 @@
                     <div class="col-lg-4 col-sm-7 mb-4 mb-sm-0">
                         <!-- Portfolio item 6-->
                         <div class="portfolio-item">
-                            <?php include("modules/ze_module/rendimiento.php") ?>
+                            @include("ze_module.rendimiento")
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal7">
-                               
+
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>

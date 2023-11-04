@@ -25,7 +25,7 @@ Sistema de trazabilidad de reprocesamiento de material en centrales de esteriliz
     cp .env.example .env
     ```
 
-5. Inicie los contenedores con el comando `docker compose up -d --build` o desde la aplicación de escritorio de Windows.
+5. Inicie los contenedores con el comando `./vendor/bin/sail up`.
 
 ## Desarrollo
 
