@@ -16,7 +16,7 @@ Sistema de trazabilidad de reprocesamiento de material en centrales de esteriliz
 3. Instale las dependencias de software necesarias para correr el proyecto, por ejemplo para Ubuntu:
 
     ```bash
-    sudo apt update && sudo apt install php composer php-gd php-curl
+    sudo apt update && sudo apt install composer php php-curl php-dom php-gd 
     ```
 
 4. Para iniciar con las opciones de desarrollo o correr los contenedores, instale las dependencias de PHP proyecto a través del siguiente comando:
