@@ -34,10 +34,12 @@ Sistema de trazabilidad de reprocesamiento de material en centrales de esteriliz
 6. El proyecto utiliza la herramienta [sail](https://laravel.com/docs/8.x/sail) de Laravel para gestionar los contenedores, para iniciar el desarollo, inice los contenedores con el siguiente comando:
 
     ```bash
+    sudo chown -R $USER: .
     ./vendor/bin/sail up -d
     ./vendor/bin/sail artisan up
-    ./vendor/bin/sail artisan key:generate
+    ./vendor/bin/sail artisan key:generate # En otro terminal
     ```
+
 7. El proyecto correra y estará disponible en la dirección [http://localhost](http://localhost)
 
 ## Problemas conocidos
@@ -48,3 +50,14 @@ Por favor, desactive el servidor Apache con el siguiente comando(En Ubuntu)
     ```bash
     sudo systemctl stop apache2
     ```
+
+- El contenedor `trazalem-mysql` no puede iniciar por el siguiente error `Error response from daemon: driver failed programming external connectivity on endpoint trazalem-mysql-1 (e04ce5302d35b11e855ba9742e965594c610d166d078edf0ce7ebedd5d2da20c): Error starting userland proxy: listen tcp4 0.0.0.0:3306: bind: address already in use`
+Por favor, desactive el servidor local de MySQL con el siguiente comando(En Ubuntu):
+
+    ```bash
+    sudo systemctl stop mysql
+    ```
+
+    O cambie la variable de entorno `DB_HOST` a la dirección del servidor que contiene la base datos.
+
+- Se presenta el siguiente erro: `mysqld: File './binlog.index' not found (OS errno 13 - Permission denied)`, por favor, haga respaldo de la base de datos y escriba el siguiente comando en consola para resetear el contenido de los contenedores: `docker compose down --volumes &&  ./vendor/bin/sail up`
