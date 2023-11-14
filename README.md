@@ -31,7 +31,15 @@ Sistema de trazabilidad de reprocesamiento de material en centrales de esteriliz
     cp .env.example .env
     ```
 
-6. El proyecto utiliza la herramienta [sail](https://laravel.com/docs/8.x/sail) de Laravel para gestionar los contenedores, para iniciar el desarollo, inice los contenedores con el siguiente comando:
+6. Las contraseñas de MySQL son almacenadas a través de [Docker secrets](`https://docs.docker.com/compose/use-secrets/`) por seguridad. Antes de iniciar el programa, es necesario crear dos archivos en la carpeta `database/credenciales` llamados `root_password.txt` y `user_password.txt` para establecer las constraseñas de MySQL, use cualquier editor de texto para realizar esta tarea o con el siguiente comando en Linux.
+
+    ```bash
+    mkdir database/credenciales
+    echo ejemplo_contraseña_root_secreto > database/credenciales/root_password.txt
+    echo ejemplo_contraseña_user_secreto > database/credenciales/user_password.txt
+    ```
+
+7. El proyecto utiliza la herramienta [sail](https://laravel.com/docs/8.x/sail) de Laravel para gestionar los contenedores, para iniciar el desarollo, inice los contenedores con el siguiente comando:
 
     ```bash
     sudo chown -R $USER: .
@@ -40,8 +48,8 @@ Sistema de trazabilidad de reprocesamiento de material en centrales de esteriliz
     ./vendor/bin/sail artisan key:generate # En otro terminal
     ```
 
-7. Para inicializar las bases de datos por primera vez, se recomienda utilizar el comando `./vendor/bin/sail artisan migrate:fresh --seed`
-8. El proyecto correra y estará disponible en la dirección [http://localhost](http://localhost)
+8. Para inicializar las bases de datos por primera vez, se recomienda utilizar el comando `./vendor/bin/sail artisan migrate:fresh --seed`
+9. El proyecto correra y estará disponible en la dirección [http://localhost](http://localhost)
 
 ## Desarrollo de la aplicación
 
