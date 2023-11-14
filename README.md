@@ -39,8 +39,20 @@ Sistema de trazabilidad de reprocesamiento de material en centrales de esteriliz
     ./vendor/bin/sail artisan up
     ./vendor/bin/sail artisan key:generate # En otro terminal
     ```
+
 7. Para inicializar las bases de datos por primera vez, se recomienda utilizar el comando `./vendor/bin/sail artisan migrate:fresh --seed`
 8. El proyecto correra y estará disponible en la dirección [http://localhost](http://localhost)
+
+## Desarrollo de la aplicación
+
+### Inspección de la base de datos
+
+Al inicializar con `sail` el proyecto, automáticamente se inicializa el contenedor [adminer](https://www.adminer.org/) que se puede usar para inspeccionar la base de datos, esta disponible en el siguiente url [http://localhost:8080/](http://localhost:8080/) y se puede acceder con las siguientes credenciales(las credenciales que empienzan con `$` son las que se encuentran en el archivo `.env`):
+
+- *Server*: `$DB_HOST`
+- *Username*: `$DB_USERNAME`
+- *Password*: `$DB_PASSWORD`
+- *Database*: `$DB_DATABASE`
 
 ## Problemas conocidos
 
