@@ -39,8 +39,8 @@ Sistema de trazabilidad de reprocesamiento de material en centrales de esteriliz
     ./vendor/bin/sail artisan up
     ./vendor/bin/sail artisan key:generate # En otro terminal
     ```
-
-7. El proyecto correra y estará disponible en la dirección [http://localhost](http://localhost)
+7. Para inicializar las bases de datos por primera vez, se recomienda utilizar el comando `./vendor/bin/sail artisan migrate:fresh --seed`
+8. El proyecto correra y estará disponible en la dirección [http://localhost](http://localhost)
 
 ## Problemas conocidos
 

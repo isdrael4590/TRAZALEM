@@ -14,14 +14,12 @@ class CreateCoderumedsTable extends Migration
     public function up()
     {
         Schema::create('coderumeds', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->string('product_code');
             $table->string('name');
             $table->string('category');
             $table->string('area');
             $table->string('detalls');
-
-
             $table->timestamps();
         });
     }
