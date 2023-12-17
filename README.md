@@ -1,66 +1,83 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# TRAZAlem
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema de trazabilidad de reprocesamiento de material en centrales de esterilización
 
-## About Laravel
+## Dependencias de Software
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Docker
+- [PHP v8.2](https://www.php.net/)
+- [PHP Composer](https://getcomposer.org/)
+- [Laravel 8](https://laravel.com/)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Instalación
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. Instale Docker Engine para su plataforma como se explica en el siguiente [link](https://docs.docker.com/engine/install/)
+2. Clone los archivos de este repositorio, por ejemplo con `git clone git@github.com:isdrael4590/TRAZALEM.git`
+3. Instale las dependencias de software necesarias para correr el proyecto, por ejemplo para Ubuntu:
 
-## Learning Laravel
+    ```bash
+    sudo apt update && sudo apt install composer php php-curl php-dom php-gd 
+    ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+4. Para iniciar con las opciones de desarrollo o correr los contenedores, instale las dependencias de PHP proyecto a través del siguiente comando:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+    ```bash
+    composer update
+    ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. Los contenedores utilizan [variables de entorno](https://docs.docker.com/compose/environment-variables/set-environment-variables/) para establecer valores globales de funcionamiento, en la primera configuración, por favor haga una copia del archivo `.env.example` y renombrelo como `.env` y editelo si es necesario, un ejemplo como se hace en Linux sería de la siguiente forma:
 
-## Laravel Sponsors
+    ```bash
+    cp .env.example .env
+    ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+6. Las contraseñas de MySQL son almacenadas a través de [Docker secrets](`https://docs.docker.com/compose/use-secrets/`) por seguridad. Antes de iniciar el programa, es necesario crear dos archivos en la carpeta `database/credenciales` llamados `root_password.txt` y `user_password.txt` para establecer las constraseñas de MySQL, use cualquier editor de texto para realizar esta tarea o con el siguiente comando en Linux.
 
-### Premium Partners
+    ```bash
+    mkdir database/credenciales
+    echo ejemplo_contraseña_root_secreto > database/credenciales/root_password.txt
+    echo ejemplo_contraseña_user_secreto > database/credenciales/user_password.txt
+    ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+7. El proyecto utiliza la herramienta [sail](https://laravel.com/docs/8.x/sail) de Laravel para gestionar los contenedores, para iniciar el desarollo, inice los contenedores con el siguiente comando:
 
-## Contributing
+    ```bash
+    sudo chown -R $USER: .
+    ./vendor/bin/sail up -d
+    ./vendor/bin/sail artisan up
+    ./vendor/bin/sail artisan key:generate # En otro terminal
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+8. Para inicializar las bases de datos por primera vez, se recomienda utilizar el comando `./vendor/bin/sail artisan migrate:fresh --seed`
+9. El proyecto correra y estará disponible en la dirección [http://localhost](http://localhost)
 
-## Code of Conduct
+## Desarrollo de la aplicación
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Inspección de la base de datos
 
-## Security Vulnerabilities
+Al inicializar con `sail` el proyecto, automáticamente se inicializa el contenedor [adminer](https://www.adminer.org/) que se puede usar para inspeccionar la base de datos, esta disponible en el siguiente url [http://localhost:8080/](http://localhost:8080/) y se puede acceder con las siguientes credenciales(las credenciales que empienzan con `$` son las que se encuentran en el archivo `.env`):
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- *Server*: `$DB_HOST`
+- *Username*: `$DB_USERNAME`
+- *Password*: `$DB_PASSWORD`
+- *Database*: `$DB_DATABASE`
 
-## License
+## Problemas conocidos
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- El contenedor `trazalem-laravel.test-1` no puede iniciar por el siguiente error `Error response from daemon: driver failed programming external connectivity on endpoint trazalem-laravel.test-1 (67b23e08d5ce30af77f98658cc73d76c01ed8a1c1ac892e4eb7891e3ef0a3d93): Error starting userland proxy: listen tcp4 0.0.0.0:80: bind: address already in use`
+Por favor, desactive el servidor Apache con el siguiente comando(En Ubuntu)
+
+    ```bash
+    sudo systemctl stop apache2
+    ```
+
+- El contenedor `trazalem-mysql` no puede iniciar por el siguiente error `Error response from daemon: driver failed programming external connectivity on endpoint trazalem-mysql-1 (e04ce5302d35b11e855ba9742e965594c610d166d078edf0ce7ebedd5d2da20c): Error starting userland proxy: listen tcp4 0.0.0.0:3306: bind: address already in use`
+Por favor, desactive el servidor local de MySQL con el siguiente comando(En Ubuntu):
+
+    ```bash
+    sudo systemctl stop mysql
+    ```
+
+    O cambie la variable de entorno `DB_HOST` a la dirección del servidor que contiene la base datos.
+
+- Se presenta el siguiente erro: `mysqld: File './binlog.index' not found (OS errno 13 - Permission denied)`, por favor, haga respaldo de la base de datos y escriba el siguiente comando en consola para resetear el contenido de los contenedores: `docker compose down --volumes &&  ./vendor/bin/sail up`
