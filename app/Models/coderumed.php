@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class coderumed extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'coderumed_id',
+        'name_coderumed',
+        'join_date_coderumed',
+        'category',
+        'area',
+        'detalls',
+    ];
 }
