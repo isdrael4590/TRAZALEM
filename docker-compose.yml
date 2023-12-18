@@ -101,9 +101,12 @@ services:
             - '/dev/shm:/dev/shm'
         networks:
             - sail
-    adminer:
-      image: adminer
+    phpmyadmin:
+      image: phpmyadmin
       restart: always
+      volumes:
+        - './extra/cfg/apache2.conf:/etc/apache2/apache2.conf'
+        - './extra/cfg/ports.conf:/etc/apache2/ports.conf'
       ports:
         - 8080:8080
       networks:
