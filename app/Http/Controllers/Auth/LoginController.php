@@ -58,46 +58,40 @@ class LoginController extends Controller
     /** login page to check database table users */
     public function authenticate(Request $request)
     {
-        $request->validate([
-            'email'    => 'required|string',
-            'password' => 'required|string',
+        $validated = $request->validate([
+            'email'    => 'required|email',
+            'password' => 'required|min:8',
         ]);
-        try {
-            $username = $request->email;
-            $password = $request->password;
 
-            $dt         = Carbon::now();
-            $todayDate  = $dt->toDayDateTimeString();
-            
-            if (Auth::attempt(['email' => $username,'password' => $password,'status' =>'Active'])) {
-                /** get session */
-                $user = Auth::User();
-                Session::put('name', $user->name);
-                Session::put('email', $user->email);
-                Session::put('user_id', $user->user_id);
-                Session::put('join_date', $user->join_date);
-                Session::put('phone_number', $user->phone_number);
-                Session::put('status', $user->status);
-                Session::put('role_name', $user->role_name);
-                Session::put('avatar', $user->avatar);
-                Session::put('position', $user->position);
-                Session::put('department', $user->department);
-                
-                $activityLog = ['name'=> Session::get('name'),'email'=> $username,'description' => 'Has log in','date_time'=> $todayDate,];
-                DB::table('activity_logs')->insert($activityLog);
-                
-                Toastr::success('Login successfully :)','Success');
-                return redirect()->intended('home');
-            } else {
-                Toastr::error('fail, WRONG USERNAME OR PASSWORD :)','Error');
-                return redirect('login');
-            }
-        }catch(\Exception $e) {
-            \Log::info($e);
-            DB::rollback();
-            Toastr::error('Add new employee fail :)','Error');
-            return redirect()->back();
+        $todayDate  = Carbon::now()->toDayDateTimeString();
+        if(auth()->attempt($validated))
+        {
+            /** get session */
+            $user = Auth::User();
+            Session::put('name', $user->name);
+            Session::put('email', $user->email);
+            Session::put('user_id', $user->user_id);
+            Session::put('join_date', $user->join_date);
+            Session::put('phone_number', $user->phone_number);
+            Session::put('status', $user->status);
+            Session::put('role_name', $user->role_name);
+            Session::put('avatar', $user->avatar);
+            Session::put('position', $user->position);
+            Session::put('department', $user->department);
+
+            $activityLog = ['name'=> Session::get('name'),'email'=> $request->email,'description' => 'Has log in','date_time'=> $todayDate,];
+            DB::table('activity_logs')->insert($activityLog);
+
+            Toastr::success('Acceso exitoso','Éxito');
+            request()->session()->regenerate();
+            redirect()->route('dashboard');
+
         }
+        else{
+            Toastr::error('Nombre de usuario o contraseña no encontrados, intente de nuevo por favor','Error');
+            return redirect('login');
+        }
+
     }
 
     /** logout and forget session */
