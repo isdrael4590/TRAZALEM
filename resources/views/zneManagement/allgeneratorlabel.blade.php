@@ -102,7 +102,9 @@
                                     </div>
                                     <div class="col-sm-6"> 
                                         <label>FECHA DE ELABORACION</label>
-                                        <input class="form-control" type="text" id="e_fecha_elaboracion" name="fecha_elaboracion" >
+                                        
+                                        <input type="text" class="form-control datetimepicker @error('start_date') is-invalid @enderror" name="fecha_elaboracion" value="{{ old('start_date') }}"id="fecha_elaboracion">
+                                       
                                     </div>
                                 </div>
                                  <!-- /biologico -->

@@ -327,8 +327,7 @@
             });
         });
     </script>
-
-    {{-- update js --}}
+        {{-- update js --}}
     <script>
         $(document).on('click','.testbowieUpdate',function()
         {
@@ -344,7 +343,7 @@
 
     {{-- delete js --}}
     <script>
-        $(document).on('click','.testDelete',function()
+        $(document).on('click','.testbowieDelete',function()
         {
             var _this = $(this).parents('tr');
             $('.e_machine_id').val(_this.find('.machine_id').data('machine_id'));

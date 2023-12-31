@@ -141,17 +141,7 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
 
     });
 
-    //----------------------TEST DE BOWIE-------------------//
-    Route::controller(testbowieController::class)->group(function(){
-        Route::get('testbowie', 'testbowie')->middleware('auth')->name('testbowie');
-        Route::post('form/testbowie/save', 'testbowieSaveRecord')->name('form/testbowie/save');
-        Route::post('form/apply/testbowie/save', 'applytestbowieSaveRecord')->name('form/apply/testbowie/save');
- 
 
-
-
-
-    });
 
 
     

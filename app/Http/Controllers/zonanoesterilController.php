@@ -80,7 +80,7 @@ class zonanoesterilController extends Controller
             $lote_machine   = $request->lote_machine;
             $lote_bd       = $request->lote_bd;
             $date_done_bd       = $request->date_done_bd;
-            return view('zneManagement.allgeneratorlabel', compact('testbowie'));  
+             
 
         /** search for equipo */
         if(!empty($machine_id)) {
