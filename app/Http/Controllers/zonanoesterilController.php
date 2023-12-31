@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\coderumed;
+use App\Models\temporal_rumed;
 use Illuminate\Http\Request;
 use App\Models\testbowie;
 use Brian2694\Toastr\Facades\Toastr;
@@ -78,7 +80,7 @@ class zonanoesterilController extends Controller
             $lote_machine   = $request->lote_machine;
             $lote_bd       = $request->lote_bd;
             $date_done_bd       = $request->date_done_bd;
-            
+            return view('zneManagement.allgeneratorlabel', compact('testbowie'));  
 
         /** search for equipo */
         if(!empty($machine_id)) {
@@ -273,6 +275,47 @@ class zonanoesterilController extends Controller
         return view('zneManagement.testbowie_activity_log',compact('activityLogtestbowie'));
     }
 
+
+
+
+    /**------------------------------------------------------ */
+
+
+    public function allgeneratorlabel(){
+
+        return view(('zneManagement.allgeneratorlabel'));
+    }
+
+
+    public function SelectCoderumed()
+    {
+        $coderumedselect = DB::table('coderumed')->get();
+        $temporarycoderumed = DB::table('temporary_code_prev_qr')->get();
+        return view('zneManagement.allgeneratorlabel',compact('coderumedselect', 'temporarycoderumed'));
+    }
+
+   public function TemporarySelecRumed(Request $request_temp_rumed)
+   {
+    $request_temp_rumed->validate([
+        'coderumed_id'=> 'required|string|max:255',
+        'name_coderumed'=> 'required|string|max:255',
+    ]);
+    DB::beginTransaction();
+    try{
+        $temporal_rumed = new temporal_rumed;
+
+        $temporal_rumed->coderumed_id           =$request_temp_rumed->coderumed_id;
+        $temporal_rumed->name_coderumed         =$request_temp_rumed->name_coderumed;
+        $temporal_rumed->save();
+        DB::commit();
+        Toastr::success('CODIGO INSERTADO', 'EXITOSO');
+        return redirect()->route('zneManagement.allgeneratorlabel');
+    }catch(\Exception $e){
+        DB::rollback();
+        Toastr::error('FALLO EL INGRESAR EL CODIGO:)','Error');
+            return redirect()->back();
+    }
+   }
 
 
 }

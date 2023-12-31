@@ -128,7 +128,7 @@
                             <div class="row">
                                 <div class="col-sm-6"> 
                                     <label>Lote a esterilizar</label>
-                                    <input class="form-control" type="text" id="lote_machine" name="lote_machine" placeholDeleteder="Ingrese el LOTE del equipo">
+                                    <input class="form-control" type="text" id="e_lote_machine" name="lote_machine" placeholDeleteder="Ingrese el LOTE del equipo">
                                 </div>
                                 <div class="col-sm-6"> 
                                     <label>Lote del insumo</label>

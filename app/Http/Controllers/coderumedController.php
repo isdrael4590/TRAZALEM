@@ -8,6 +8,7 @@ use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\coderumed;
 use Carbon\Carbon;
+use Session;
 
 class coderumedController extends Controller
 {
@@ -18,7 +19,7 @@ class coderumedController extends Controller
             $coderumed      = DB::table('coderumed')->get();
         
             return view('coderumedManagement.allcoderumedcontrol',compact('coderumed'));
-        
+            return view('zneManagement.allgeneratorlabel',compact('coderumed'));
         
     }
  
@@ -251,6 +252,6 @@ class coderumedController extends Controller
         }
     }
 
-
+    
 
 }

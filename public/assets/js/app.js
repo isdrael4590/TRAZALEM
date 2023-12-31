@@ -212,55 +212,55 @@ $(document).ready(function() {
 	
 	// Multiselect
 
-	if($('#customleave_select').length > 0) {
-		$('#customleave_select').multiselect();
+	if($('#package_rumed_select').length > 0) {
+		$('#package_rumed_select').multiselect();
 	}
-	if($('#edit_customleave_select').length > 0) {
-		$('#edit_customleave_select').multiselect();
+	if($('#edit_package_rumed_select').length > 0) {
+		$('#edit_package_rumed_select').multiselect();
 	}
 
-	// Leave Settings button show
+	// labelqr Settings button show
 	
-	$(document).on('click', '.leave-edit-btn', function() {
-		$(this).removeClass('leave-edit-btn').addClass('btn btn-white leave-cancel-btn').text('Cancel');
-		$(this).closest("div.leave-right").append('<button class="btn btn-primary leave-save-btn" type="submit">Save</button>');
+	$(document).on('click', '.labelqr-edit-btn', function() {
+		$(this).removeClass('labelqr-edit-btn').addClass('btn btn-white labelqr-cancel-btn').text('Cancel');
+		$(this).closest("div.labelqr-right").append('<button class="btn btn-primary labelqr-save-btn" type="submit">Save</button>');
 		$(this).parent().parent().find("input").prop('disabled', false);
 		return false;
 	});
-	$(document).on('click', '.leave-cancel-btn', function() {
-		$(this).removeClass('btn btn-white leave-cancel-btn').addClass('leave-edit-btn').text('Edit');
-		$(this).closest("div.leave-right").find(".leave-save-btn").remove();
+	$(document).on('click', '.labelqr-cancel-btn', function() {
+		$(this).removeClass('btn btn-white labelqr-cancel-btn').addClass('labelqr-edit-btn').text('Edit');
+		$(this).closest("div.labelqr-right").find(".labelqr-save-btn").remove();
 		$(this).parent().parent().find("input").prop('disabled', true);
 		return false;
 	});
 	
-	$(document).on('change', '.leave-box .onoffswitch-checkbox', function() {
+	$(document).on('change', '.labelqr-box .onoffswitch-checkbox', function() {
 		var id = $(this).attr('id').split('_')[1];
 		if ($(this).prop("checked") == true) {
-			$("#leave_"+id+" .leave-edit-btn").prop('disabled', false);
-			$("#leave_"+id+" .leave-action .btn").prop('disabled', false);
+			$("#labelqr_"+id+" .labelqr-edit-btn").prop('disabled', false);
+			$("#labelqr_"+id+" .labelqr-action .btn").prop('disabled', false);
 		}
 	    else {
-			$("#leave_"+id+" .leave-action .btn").prop('disabled', true);	
-			$("#leave_"+id+" .leave-cancel-btn").parent().parent().find("input").prop('disabled', true);
-			$("#leave_"+id+" .leave-cancel-btn").closest("div.leave-right").find(".leave-save-btn").remove();
-			$("#leave_"+id+" .leave-cancel-btn").removeClass('btn btn-white leave-cancel-btn').addClass('leave-edit-btn').text('Edit');
-			$("#leave_"+id+" .leave-edit-btn").prop('disabled', true);
+			$("#labelqr_"+id+" .labelqr-action .btn").prop('disabled', true);	
+			$("#labelqr_"+id+" .labelqr-cancel-btn").parent().parent().find("input").prop('disabled', true);
+			$("#labelqr_"+id+" .labelqr-cancel-btn").closest("div.labelqr-right").find(".labelqr-save-btn").remove();
+			$("#labelqr_"+id+" .labelqr-cancel-btn").removeClass('btn btn-white labelqr-cancel-btn').addClass('labelqr-edit-btn').text('Edit');
+			$("#labelqr_"+id+" .labelqr-edit-btn").prop('disabled', true);
 		}
 	});
 	
-	$('.leave-box .onoffswitch-checkbox').each(function() {
+	$('.labelqr-box .onoffswitch-checkbox').each(function() {
 		var id = $(this).attr('id').split('_')[1];
 		if ($(this).prop("checked") == true) {
-			$("#leave_"+id+" .leave-edit-btn").prop('disabled', false);
-			$("#leave_"+id+" .leave-action .btn").prop('disabled', false);
+			$("#labelqr_"+id+" .labelqr-edit-btn").prop('disabled', false);
+			$("#labelqr_"+id+" .labelqr-action .btn").prop('disabled', false);
 		}
 	    else {
-			$("#leave_"+id+" .leave-action .btn").prop('disabled', true);	
-			$("#leave_"+id+" .leave-cancel-btn").parent().parent().find("input").prop('disabled', true);
-			$("#leave_"+id+" .leave-cancel-btn").closest("div.leave-right").find(".leave-save-btn").remove();
-			$("#leave_"+id+" .leave-cancel-btn").removeClass('btn btn-white leave-cancel-btn').addClass('leave-edit-btn').text('Edit');
-			$("#leave_"+id+" .leave-edit-btn").prop('disabled', true);
+			$("#labelqr_"+id+" .labelqr-action .btn").prop('disabled', true);	
+			$("#labelqr_"+id+" .labelqr-cancel-btn").parent().parent().find("input").prop('disabled', true);
+			$("#labelqr_"+id+" .labelqr-cancel-btn").closest("div.labelqr-right").find(".labelqr-save-btn").remove();
+			$("#labelqr_"+id+" .labelqr-cancel-btn").removeClass('btn btn-white labelqr-cancel-btn').addClass('labelqr-edit-btn').text('Edit');
+			$("#labelqr_"+id+" .labelqr-edit-btn").prop('disabled', true);
 		}
 	});
 	

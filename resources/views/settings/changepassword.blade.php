@@ -18,7 +18,7 @@
                     <li><a href="salary-settings.html"><i class="la la-money"></i><span>Salary Settings</span></a></li>
                     <li><a href="notifications-settings.html"><i class="la la-globe"></i><span>Notifications</span></a></li>
                     <li class="active"><a href="{{ route('change/password') }}"><i class="la la-lock"></i><span>Change Password</span></a></li>
-                    <li><a href="leave-type.html"><i class="la la-cogs"></i><span>Leave Type</span></a></li>
+                    <li><a href="labelqr-type.html"><i class="la la-cogs"></i><span>Leave Type</span></a></li>
                     <li><a href="toxbox-setting.html"><i class="la la-comment"></i><span>ToxBox Settings</span></a></li>
                     <li><a href="cron-setting.html"><i class="la la-rocket"></i><span>Cron Settings</span></a></li>
                 </ul>
