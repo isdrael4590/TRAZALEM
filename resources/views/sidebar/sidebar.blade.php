@@ -86,16 +86,17 @@
                         
                         <li><a class="{{set_active(['zneManagement/all/testbowie','zneManagement'])}}" href="{{ route('zneManagement') }}">Prueba de BOWIE & DICK <span class="badge badge-pill bg-primary float-right">1</span></a></li>
                         
-                        <li><a  href="{{ route('coderumedManagement') }}">Generaciòn de QR <span class="badge badge-pill bg-primary float-right">1</span></a></li>
-                        @if (Auth::user()->role_name=='Admin')
+                        <li><a class="{{set_active(['all/generatorlabel','zneManagement'])}}" href="{{ route('all/generatorlabel') }}"> GENERADOR DE QR <span class="badge badge-pill bg-primary float-right">1</span></a></li>
+
+                      
                        
                         @if (Auth::user()->role_name=='Admin')
                         <li><a class="{{set_active(['testbowie/activity/log'])}}" href="{{ route('testbowie/activity/log') }}">Resgistro Activ. TEST BOWIE&DICK </a></li>
-                   @endif
+                         @endif
 
                           
                        
-                        @endif
+                        
                     </ul>
                 </li>
                 <li>---------////////////////////////---------</li>

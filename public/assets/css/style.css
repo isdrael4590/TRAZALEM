@@ -27,7 +27,7 @@ Version      : 3.6
 18. Edit Profile
 19. Chat
 20. Focus Label
-21. Leave
+21. labelqr
 22. Employee
 23. Events
 24. Profile
@@ -53,7 +53,7 @@ Version      : 3.6
 44. Jobs
 45. Job Details
 46. Notification Settings
-47. Leave Settings
+47. labelqr Settings
 48. Termination
 49. Loader
 50. Payroll Items
@@ -2009,12 +2009,12 @@ table.dataTable thead > tr > td.sorting {
 .dash-statistics .stats-list {
 	height: auto;
 }
-.leave-info-box {
+.labelqr-info-box {
 	border: 1px solid #e5e5e5;
 	padding: 15px;
 	margin-bottom: 15px;
 }
-.leave-info-box:last-child {
+.labelqr-info-box:last-child {
 	margin-bottom: 0;
 }
 .load-more a {
@@ -3182,7 +3182,7 @@ table.dataTable thead > tr > td.sorting {
 }
 
 /*-----------------
-	21. Leave
+	21. labelqr
 -----------------------*/
 
 .filter-row .btn {
@@ -5818,32 +5818,32 @@ table.table-inbox tbody tr.checked {
 }
 
 /*-----------------
-	47. Leave Settings
+	47. labelqr Settings
 -----------------------*/
 
-.leave-item {
+.labelqr-item {
 	max-width: 653px;
 }
-.leave-row {
+.labelqr-row {
     display: flex;
     margin-bottom: 15px;
 }
 .carry-forward-itemview {
     margin-bottom: 15px;
 }
-.earned-leave-itemview {
+.earned-labelqr-itemview {
     margin-bottom: 15px;
 }
-.leave-row .leave-left {
+.labelqr-row .labelqr-left {
     flex: 1 1 auto;
 }
-.leave-row .leave-left .input-box {
+.labelqr-row .labelqr-left .input-box {
     max-width: 410px;
 }
-.leave-item .form-group {
+.labelqr-item .form-group {
 	margin-bottom: 0;
 }
-.leave-right {
+.labelqr-right {
     align-items: center;
     display: flex;
     flex: 0 0 200px;
@@ -5852,56 +5852,56 @@ table.table-inbox tbody tr.checked {
     min-height: 44px;
     text-align: right;
 }
-.leave-right .btn {
+.labelqr-right .btn {
     min-height: 44px;
     min-width: 75px;
 }
-.leave-right .btn + .btn {
+.labelqr-right .btn + .btn {
 	margin-left: 10px;
 }
-.leave-edit-btn {
+.labelqr-edit-btn {
     color: #216ef4;
     background-color: transparent;
     border: 0;
     padding: 0 6px;
 	transition: unset;
 }
-.leave-edit-btn[disabled] {
+.labelqr-edit-btn[disabled] {
     cursor: not-allowed;
     opacity: 0.65;
 }
-.leave-inline-form {
+.labelqr-inline-form {
     align-items: center;
     display: flex;
     min-height: 44px;
 }
-.leave-header {
+.labelqr-header {
     align-items: center;
     color: #212536;
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
-.leave-header .title {
+.labelqr-header .title {
     flex: 1 1 auto;
 }
-.leave-header .leave-action {
+.labelqr-header .labelqr-action {
     flex: 1 1 auto;
     text-align: right;
 }
-.leave-table .l-name {
+.labelqr-table .l-name {
 	width: 200px;
 }
-.leave-table .l-days {
+.labelqr-table .l-days {
 	width: 140px;
 }
-.leave-box .subtitle {
+.labelqr-box .subtitle {
     color: #8e8e8e;
     font-size: 14px;
     font-weight: normal;
     margin: 5px auto 0 5px;
 }
-.leave-duallist {
+.labelqr-duallist {
     background-color: #f9f9f9;
     border: 1px solid #e3e3e3;
     display: block;
@@ -5911,7 +5911,7 @@ table.table-inbox tbody tr.checked {
     display: flex;
     justify-content: space-between;
 }
-.btn.leave-delete-btn {
+.btn.labelqr-delete-btn {
     font-weight: 500;
     margin-left: 10px;
     min-height: 30px;
@@ -8408,7 +8408,7 @@ ul.comment-list li ul.children {
 	.account-wrapper {
 		padding: 15px;
 	}
-	.leave-right {
+	.labelqr-right {
 		flex: 0 0 auto;
 	}
 	.pagination-lg .page-link {
@@ -8430,16 +8430,16 @@ ul.comment-list li ul.children {
 	.submit-section .submit-btn {
 		margin: 0 0 10px !important;
 	}
-	.leave-row {
+	.labelqr-row {
 		display: block;
 	}
-	.leave-box .subtitle {
+	.labelqr-box .subtitle {
 		display: none;
 	}
-	.leave-right {
+	.labelqr-right {
 		margin-top: 20px;
 	}
-	.leave-inline-form {
+	.labelqr-inline-form {
 		display: block;
 	}
 	.page-header .breadcrumb {

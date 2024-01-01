@@ -4,33 +4,30 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCoderumedsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('coderumeds', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->string('product_code');
-            $table->string('name');
-            $table->string('category');
-            $table->string('area');
-            $table->string('detalls');
+            $table->string('coderumed_id');
+            $table->string('name_coderumed');
+            $table->string('join_date_coderumed');
+            $table->string('category')->nullable();
+            $table->string('area')->nullable();
+            $table->string('detalls')->nullable();
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {
         Schema::dropIfExists('coderumeds');
     }
-}
+};

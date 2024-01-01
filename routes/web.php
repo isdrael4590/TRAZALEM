@@ -130,28 +130,18 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
     //----------------------TEST DE BOWIE-------------------//
     Route::controller(zonanoesterilController::class)->group(function(){
         Route::get('zneManagement','index')->middleware('auth')->name('zneManagement');
-
+        Route::get('all/generatorlabel','allgeneratorlabel')->middleware('auth')->name('all/generatorlabel');
         Route::post('testbowie/add/save', 'addNewtestbowie')->name('testbowie/add/save');
         Route::post('testbowie/delete', 'deleteTestbowie')->middleware('auth')->name('testbowie/delete');
         Route::post('form/apply/testbowie/update', 'updateTestbowie')->name('form/apply/testbowie/update');
         Route::get('get-testbowie-data', 'gettesbowieData')->name('get-testbowie-data'); 
         Route::get('testbowie/activity/log', 'activityLogtestbowie')->middleware('auth')->name('testbowie/activity/log');
-       
-        
+        Route::post('add/coderumed/temporary', 'TemporarySelecRumed')->name('add/coderumed/temporary');
+        Route::get('all/generatorlabel', 'SelectCoderumed')->middleware('auth')->name('all/generatorlabel');
 
     });
 
-    //----------------------TEST DE BOWIE-------------------//
-    Route::controller(testbowieController::class)->group(function(){
-        Route::get('testbowie', 'testbowie')->middleware('auth')->name('testbowie');
-        Route::post('form/testbowie/save', 'testbowieSaveRecord')->name('form/testbowie/save');
-        Route::post('form/apply/testbowie/save', 'applytestbowieSaveRecord')->name('form/apply/testbowie/save');
- 
 
-
-
-
-    });
 
 
     

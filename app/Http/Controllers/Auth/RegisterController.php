@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Hash;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;

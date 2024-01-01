@@ -9,18 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('coderumed', function (Blueprint $table) {
+        Schema::create('temporary_code_prev_qr', function (Blueprint $table) {
             $table->id();
             $table->string('coderumed_id');
-            $table->string('name_coderumed');  
-            $table->string('join_date_coderumed')->unique();
-            $table->string('category')->nullable();;
-            $table->string('area')->nullable();;
-            $table->string('detalls')->nullable();;
-
-
+            $table->string('name_coderumed');
             $table->timestamps();
         });
     }
@@ -30,6 +24,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coderumed');
+        Schema::dropIfExists('temporary_code_prev_qr');
     }
 };

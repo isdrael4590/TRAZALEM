@@ -126,7 +126,7 @@
         <!-- /Add User Modal -->
 				
         <!-- Edit User Modal -->
-        <div id="edit_coderumed" class="modal custom-modal fade" role="dialog">
+
             <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -172,7 +172,66 @@
                 </div>
             </div>
         </div>
+        <div id="edit_coderumed" class="modal custom-modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar paquete</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('coderumed/update') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-sm-6"> 
+                                    <div class="form-group">
+                                        <label>Nombre del paquete</label>
+                                        <input class="form-control" type="text" name="name_coderumed" id="e_name_coderumed" value="" />
+                                    </div>
+                                </div>
+                            
+                                <div class="col-sm-6"> 
+                                    <label>CODIGO RUMED</label>
+                                    <input class="form-control" type="text" name="coderumed_id" id="e_coderumed_id" value=""/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6"> 
+                                    <div class="form-group">
+                                        <label>AREA DEL PAQUETE</label>
+                                        <input class="form-control" type="text" name="area" id="e_area" value="" />
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6"> 
+                                    <label>CATEGORIA DEL PAQUETE</label>
+                                    <input class="form-control" type="text" name="category" id="e_category" value=""/>
+                                </div>
+                            </div>
 
+                            <div class="row">
+                                <div class="col-sm-6"> 
+                                    <div class="form-group">
+                                        <label>DETALLES DEL PAQUETE</label>
+                                        <input class="form-control" type="text" name="detalls" id="e_detalls" value="" />
+                                    </div>
+                                </div>
+                                
+                               
+                            </div>
+
+   
+                           
+                            <div class="submit-section">
+                                <button type="submit" class="btn btn-primary submit-btn">ACTUALIZAR</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 				
         <!-- Delete User Modal -->
         <div class="modal custom-modal fade" id="delete_coderumed" role="dialog">
@@ -180,7 +239,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="form-header">
-                            <h3>ELIMINAR USUARIO</h3>
+                            <h3>ELIMINAR PAQUETE</h3>
                             <p>Estas seguro de Eliminar?</p>
                         </div>
                         <div class="modal-btn delete-action">
@@ -284,7 +343,7 @@
         $(document).on('click','.coderumedUpdate',function()
         {
             var _this = $(this).parents('tr');
-            $('#e_id').val(_this.find('.coderumed_id').text());
+            $('#e_coderumed_id').val(_this.find('.coderumed_id').text());
             $('#e_name_coderumed').val(_this.find('.name_coderumed').text());
             $('#e_area').val(_this.find('.area').text());
             $('#e_category').val(_this.find('.category').text());
