@@ -33,7 +33,7 @@ class coderumedController extends Controller
             'name_coderumed' => 'required|string|max:255',
             'category' => 'required|string|max:255',
             'area' => 'required|string|max:255',
-            'detalls' => 'required|string|max:255',
+            'detalls' => 'nullable|string|max:255',
         ]);
         DB::beginTransaction();
         try {
