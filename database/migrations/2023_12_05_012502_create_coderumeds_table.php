@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('coderumed', function (Blueprint $table) {
-            $table->id();
+        Schema::create('coderumeds', function (Blueprint $table) {
+            $table->id()->autoIncrement();
             $table->string('coderumed_id');
-            $table->string('name_coderumed');  
+            $table->string('name_coderumed');
             $table->string('join_date_coderumed');
-            $table->string('category')->nullable();;
-            $table->string('area')->nullable();;
-            $table->string('detalls')->nullable();;
-
-
+            $table->string('category')->nullable();
+            $table->string('area')->nullable();
+            $table->string('detalls')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coderumed');
+        Schema::dropIfExists('coderumeds');
     }
 };
