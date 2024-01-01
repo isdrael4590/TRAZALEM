@@ -84,7 +84,7 @@ class LoginController extends Controller
 
             Toastr::success('Acceso exitoso','Éxito');
             request()->session()->regenerate();
-            redirect()->route('dashboard');
+            redirect()->intended('home');
 
         }
         else{
