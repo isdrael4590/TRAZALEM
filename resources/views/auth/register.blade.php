@@ -12,12 +12,12 @@
                     <div class="account-wrapper">
                         <h3 class="account-title">Registro</h3>
                         <p class="account-subtitle">Acceso al sistema TRAZALEM</p>
-                        
+
                         <!-- Account Form -->
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <div class="form-group">
-                                <label>NOMBRE</label>
+                                <label>Nombre usuario</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Ingrese su nombre">
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -26,7 +26,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Correo electrònico</label>
+                                <label>Correo electrónico</label>
                                 <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Ingrese su email">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">

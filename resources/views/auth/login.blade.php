@@ -18,7 +18,7 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group">
-                                <label>Correo electrònico </label>
+                                <label>Correo electrónico </label>
                                 <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Ingrese su correo">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="col-auto">
                                         <a class="text-muted" href="{{ route('forget-password') }}">
-                                            Olvido su contraseña?
+                                            Olvidó su contraseña?
                                         </a>
                                     </div>
                                 </div>

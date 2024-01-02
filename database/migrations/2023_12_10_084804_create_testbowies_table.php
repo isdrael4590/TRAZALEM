@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up()
     {
-            Schema::create('testbowie', function (Blueprint $table) {
+            Schema::create('testbowies', function (Blueprint $table) {
                 $table->id();
                 $table->string('machine_id');
-                $table->string('lote_machine');  
-                $table->string('lote_bd');  
-                $table->string('date_done_bd')->unique();
+                $table->string('lote_machine');
+                $table->string('lote_bd');
+                $table->date('date_done_bd')->unique();
                 $table->string('validation_bd')->nullable();;
                 $table->string('operator')->nullable();;
                 $table->string('observation')->nullable();;

@@ -28,28 +28,20 @@ class coderumedController extends Controller
     /** save new coderumed */
     public function addNewCoderumed(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'coderumed_id' => 'required|string|max:255',
             'name_coderumed' => 'required|string|max:255',
             'category' => 'required|string|max:255',
             'area' => 'required|string|max:255',
-            'detalls' => 'required|string|max:255',
-
+            'detalls' => 'nullable|string|max:255',
         ]);
         DB::beginTransaction();
         try {
             $dt = Carbon::now();
             $todayDate = $dt->toDayDateTimeString();
-            $coderumed = new coderumed(
-                [
-                    "coderumed_id" => $request->coderumed_id,
-                    "name_coderumed" => $request->name_coderumed,
-                    "join_date_coderumed" => $todayDate,
-                    "detalls" => $request->detalls,
-                    "category" => $request->category,
-                    "area" => $request->area,
-                ]
-            );
+            $validated["join_date_coderumed"] = $todayDate;
+
+            $coderumed = new coderumed($validated);
             $coderumed->save();
 
             DB::commit();
