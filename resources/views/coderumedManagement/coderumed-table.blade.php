@@ -24,15 +24,15 @@
                     </td>
                     <td>
                         <h2 class="">
-                            <a ref="{{ route('coderumed.show', $coderumed->id) }}"
-                                class="name_coderumed"> {{ $coderumed->name_coderumed }} </a>
+                            <a ref="{{ route('coderumed.show', $coderumed->id) }}" class="name_coderumed">
+                                {{ $coderumed->name_coderumed }} </a>
                         </h2>
                     </td>
                     <td>
-                        <span class="area"> {{ $coderumed->area }} </span>
+                        <span class="category"> {{ $coderumed->category }} </span>
                     </td>
                     <td>
-                        <span class="category"> {{ $coderumed->category }} </span>
+                        <span class="area"> {{ $coderumed->area }} </span>
                     </td>
                     <td class="sorting_1">
                         {{ $coderumed->join_date_coderumed }}
@@ -42,25 +42,14 @@
                     </td>
                     <td>
                         <div class="dropdown dropdown-action">
-                            <a class="action-icon dropdown-toggle" data-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <i class="material-icons">more_vert</i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <!--<form method="POST"
-                                    action="{{ route('coderumed.update', $coderumed->id) }}">
-                                    @csrf
-                                    @method('put')
-                                    <button class="dropdown-item" data-toggle="modal">
-                                        <i class="fa fa-trash-o m-r-5"></i> Editar entrada
-                                    </button>
-                                </form>-->
-                                <a class="dropdown-item coderumedUpdate" data-toggle="modal"
-                                    href="{{ route('coderumed.edit', $coderumed->id) }}">
+                                <a class="dropdown-item"href="{{ route('coderumed.edit', $coderumed->id) }}">
                                     <i class="fa fa-pencil m-r-5"></i> Editar entrada
                                 </a>
-                                <form method="POST"
-                                    action="{{ route('coderumed.destroy', $coderumed->id) }}">
+                                <form method="POST" action="{{ route('coderumed.destroy', $coderumed->id) }}">
                                     @csrf
                                     @method('delete')
                                     <button class="dropdown-item" data-toggle="modal">
