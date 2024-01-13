@@ -16,7 +16,7 @@ class CodeRumedController extends Controller
 
     /**
      * Aqui se muestra el modelo del controlador
-    */
+     */
     public function show(coderumed $coderumed)
     {
         return view('coderumedManagement.allcoderumedcontrol', compact('coderumed'));
@@ -43,40 +43,26 @@ class CodeRumedController extends Controller
         return redirect()->back();
     }
 
-    /** Edita  coderumed record */
-    public function edit(Request $request)
+    /** Muestra la entrada de coderumed a editar */
+    public function edit(coderumed $coderumed)
     {
-        DB::beginTransaction();
-        try {
-            $coderumed_id = $request->coderumed_id;
-            $name_coderumed = $request->name_coderumed;
-            $detalls = $request->detalls;
-            $category = $request->category;
-            $area = $request->area;
+        // TODO: Añadir autorización
+        return view("coderumedManagement.coderumed-edit", compact('coderumed'));
+    }
 
-            $dt = Carbon::now();
-            $todayDate = $dt->toDayDateTimeString();
+    /** Actualiza la entrada de codeRumed a editar*/
 
-            $update = [
-
-                'coderumed_id' => $coderumed_id,
-                'name_coderumed' => $name_coderumed,
-                'detalls' => $detalls,
-                'category' => $category,
-                'area' => $area,
-            ];
-
-
-            coderumed::where('coderumed_id', $request->coderumed_id)->update($update);
-            DB::commit();
-            Toastr::success('Paquete actualizado :)', 'Success');
-            return redirect()->route('coderumedManagement');
-
-        } catch (\Exception $e) {
-            DB::rollback();
-            Toastr::error('Fallo de actualizacion de paquete :)', 'Error');
-            return redirect()->back();
-        }
+    public function update(Request $request, coderumed $coderumed)
+    {
+        $validated = $request->validate([
+            'coderumed_id' => 'required|string|max:255',
+            'name_coderumed' => 'required|string|max:255',
+            'category' => 'required|string|max:255',
+            'area' => 'required|string|max:255',
+            'detalls' => 'nullable|string|max:255',
+        ]);
+        $coderumed->update($validated);
+        return redirect()->route('coderumedManagement');
     }
     /** use activity log */
     public function activityLogcoderumed()
@@ -91,7 +77,7 @@ class CodeRumedController extends Controller
     public function destroy(coderumed $coderumed)
     {
         $coderumed->delete();
-        Toastr::success($coderumed->name_coderumed .' borrado exitosamente!', 'Éxito');
+        Toastr::success($coderumed->name_coderumed . ' borrado exitosamente!', 'Éxito');
         return redirect()->route("coderumedManagement");
     }
 }
