@@ -120,7 +120,7 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
         // Creado con el estandar https://laravel.com/docs/10.x/controllers#resource-controllers
     Route::resource("coderumed", CodeRumedController::class)->except(['create', 'show', 'index'])->middleware('auth');
     Route::resource("coderumed", CodeRumedController::class)->only(['show']); // Show no necesita autenticacion
-    Route::get("/coderumed-dashboard", CodeRumedDashboard::class)->name("coderumedManagement");
+    Route::get("/coderumed-dashboard", CodeRumedDashboard::class)->name("coderumedManagement"); // Solo muestra el dashboard, filtra y nada más
 
 
 

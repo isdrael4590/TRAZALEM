@@ -58,12 +58,13 @@
             @if (Auth::user()->role_name == 'Admin' || Auth::user()->role_name == 'Super Admin')
                 <h1>Historial Versiones</h1>
                 @foreach ($coderumed->history as $history)
-                <!--TODO: Crear link al usuario que creó y mostrar su nombre-->
                     <p>
                         <strong>ID:</strong> {{ $history->id }} <strong>Nombre:</strong> {{ $history->name_coderumed }},
                         <strong>Área:</strong>: {{ $history->area }}, <strong>Categoría:</strong>: {{ $history->category }},
-                        <strong>Detalles:</strong>: {{ $history->detalls }}, <strong>Modificado  por:</strong> {{ $history->user_id }}
-                        <strong>Última Modificación:</strong> {{ $history->created_at->diffForHumans()}}
+                        <strong>Detalles:</strong>: {{ $history->detalls }}, <strong>Modificado por:</strong>
+                        <!--TODO: Redigir adecuadamente al perfil del usuario  -->
+                        <a href="{{ route('userManagement', $history->user->id) }}"> {{ $history->user->name }} </a>
+                        <strong>Última Modificación:</strong> {{ $history->created_at->diffForHumans() }}
 
                     </p>
                 @endforeach
