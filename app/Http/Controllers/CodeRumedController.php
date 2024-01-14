@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\coderumedActivityLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\coderumed;
 use Carbon\Carbon;
@@ -19,7 +21,7 @@ class CodeRumedController extends Controller
      */
     public function show(coderumed $coderumed)
     {
-        return view('coderumedManagement.allcoderumedcontrol', compact('coderumed'));
+        return view('coderumedManagement.uniquecoderumedcontrol', compact('coderumed'));
     }
 
 
@@ -37,7 +39,17 @@ class CodeRumedController extends Controller
         $todayDate = $dt->toDayDateTimeString();
         $validated["join_date_coderumed"] = $todayDate;
 
-        coderumed::create($validated);
+        $coderumed = coderumed::create($validated);
+
+        coderumedActivityLog::create([
+            "user_id" => auth()->id(),
+            "coderumed_id" => $coderumed->id,
+            "name_coderumed" => $coderumed->name_coderumed,
+            "area" => $coderumed->area,
+            "category" => $coderumed->category,
+            "detalls" => $coderumed->detalls,
+            "type" => "create",
+        ]);
 
         Toastr::success('Paquete creado exitosamente :)', 'Success');
         return redirect()->back();
@@ -62,6 +74,16 @@ class CodeRumedController extends Controller
             'detalls' => 'nullable|string|max:255',
         ]);
         $coderumed->update($validated);
+        // Crear un archivo del Log
+        coderumedActivityLog::create([
+            "user_id" => auth()->id(),
+            "coderumed_id" => $coderumed->id,
+            "name_coderumed" => $coderumed->name_coderumed,
+            "area" => $coderumed->area,
+            "category" => $coderumed->category,
+            "detalls" => $coderumed->detalls,
+            "type" => "modify",
+        ]);
         return redirect()->route('coderumedManagement');
     }
     /** use activity log */

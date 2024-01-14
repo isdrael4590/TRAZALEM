@@ -16,4 +16,10 @@ class coderumed extends Model
         'area',
         'detalls',
     ];
+
+    // Permite leer datos que pertenecen solo al coderumed_id que estan en la tabla coderumedActivityLog
+    public function history()
+    {
+        return $this->hasMany(coderumedActivityLog::class);
+    }
 }

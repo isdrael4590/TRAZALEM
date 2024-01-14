@@ -23,10 +23,8 @@
                         <span class="coderumed_id"> {{ $coderumed->coderumed_id }} </span>
                     </td>
                     <td>
-                        <h2 class="">
-                            <a ref="{{ route('coderumed.show', $coderumed->id) }}" class="name_coderumed">
-                                {{ $coderumed->name_coderumed }} </a>
-                        </h2>
+                        <a href="{{ route('coderumed.show', $coderumed->id) }}" class="link-primary">
+                            {{ $coderumed->name_coderumed }} </a>
                     </td>
                     <td>
                         <span class="category"> {{ $coderumed->category }} </span>
