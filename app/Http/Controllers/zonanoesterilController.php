@@ -283,7 +283,7 @@ class zonanoesterilController extends Controller
 
     public function SelectCoderumed()
     {
-        $coderumedselect = DB::table('coderumed')->get();
+        $coderumedselect = DB::table('coderumeds')->get();
         $temporarycoderumed = DB::table('temporary_code_prev_qr')->get();
         return view('zneManagement.allgeneratorlabel', compact('coderumedselect', 'temporarycoderumed'));
     }
