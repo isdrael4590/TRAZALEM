@@ -38,6 +38,7 @@ class CodeRumedController extends Controller
         $dt = Carbon::now();
         $todayDate = $dt->toDayDateTimeString();
         $validated["join_date_coderumed"] = $todayDate;
+        $validated['user_id'] = auth()->id();
 
         $coderumed = coderumed::create($validated);
 

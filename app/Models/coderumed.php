@@ -9,6 +9,7 @@ class coderumed extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'user_id',
         'coderumed_id',
         'name_coderumed',
         'join_date_coderumed',
