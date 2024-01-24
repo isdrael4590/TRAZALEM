@@ -37,7 +37,7 @@
                     </a>
                     <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }}">
                         <li><a class="{{set_active(['all/employee/list','all/employee/card'])}} {{ request()->is('all/employee/view/edit/*','employee/profile/*') ? 'active' : '' }}" href="{{ route('all/employee/card') }}">Todo el personal</a></li>
-                        
+
                     </ul>
                 <li>---------////////////////////////---------</li>
                 </li>
@@ -53,7 +53,7 @@
                         @endif
                     </ul>
                 </li>
-            
+
 
 
                 <li>---------////////////////////////---------</li>
@@ -63,40 +63,40 @@
                 <li class="submenu">
                     <a href="#">
                         <i class="la la-money"></i>
-                        <span> Zona de lavado </span> 
+                        <span> Zona de lavado </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul style="display: none;">
                         <li><a href="#">Recepciòn</a></li>
                         <li><a href="#">Ingreso lavadora</a></li>
-                    
+
                     </ul>
                 </li>
                 <li>---------////////////////////////---------</li>
-                
+
                 <li class="menu-title"> <span>ZONA NO ESTERIL</span> </li>
                 <li class="{{set_active(['zneManagement/all/testbowie','zneManagement','testbowie/activity/log'])}}  submenu">
                     <a href=" ">
                         <i class="la la-edit"></i>
-                        <span> Actividades ZNE</span> 
+                        <span> Actividades ZNE</span>
                         <span class="menu-arrow"></span>
                     </a>
-                    
-                    <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }} ">
-                        
-                        <li><a class="{{set_active(['zneManagement/all/testbowie','zneManagement'])}}" href="{{ route('zneManagement') }}">Prueba de BOWIE & DICK <span class="badge badge-pill bg-primary float-right">1</span></a></li>
-                        
-                        <li><a class="{{set_active(['all/generatorlabel','zneManagement'])}}" href="{{ route('all/generatorlabel') }}"> GENERADOR DE QR <span class="badge badge-pill bg-primary float-right">1</span></a></li>
 
-                      
-                       
+                    <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }} ">
+
+                        <li><a class="{{ Request::is('zneManagement' ? 'active' : '') }}" href="{{ route('zneManagement') }}">Prueba de BOWIE & DICK <span class="badge badge-pill bg-primary float-right">1</span></a></li>
+                        <!-- TODO: Cambiar a la ruta adeciada-->
+                        <li><a class="{{ Request::is('zneManagement' ? 'active' : '') }}" href="{{ route('zneManagement') }}"> GENERADOR DE QR <span class="badge badge-pill bg-primary float-right">1</span></a></li>
+
+
+
                         @if (Auth::user()->role_name=='Admin')
                         <li><a class="{{set_active(['testbowie/activity/log'])}}" href="{{ route('testbowie/activity/log') }}">Resgistro Activ. TEST BOWIE&DICK </a></li>
                          @endif
 
-                          
-                       
-                        
+
+
+
                     </ul>
                 </li>
                 <li>---------////////////////////////---------</li>
@@ -105,13 +105,13 @@
                 <li class="submenu">
                     <a href="#">
                         <i class="la la-step-forward"></i>
-                        <span> Actividades ZE</span> 
+                        <span> Actividades ZE</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul style="display: none;">
                         <li><a href="#">Prueba de BOWIE & DICK</a></li>
                         <li><a href="#">Generaciòn de QR</a></li>
-                    
+
                     </ul>
                 </li>
                 <li class="menu-title"> <span>Pages</span> </li>
@@ -124,8 +124,8 @@
 
 
 
-       
-                
+
+
             </ul>
         </div>
     </div>

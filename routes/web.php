@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\CodeRumedController;
 use App\Http\Controllers\CodeRumedDashboard;
-use App\Http\Controllers\testbowieController;
+use App\Http\Controllers\zonanoesterilController;
+use App\Http\Controllers\zneManagementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -120,27 +121,14 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
         // Creado con el estandar https://laravel.com/docs/10.x/controllers#resource-controllers
     Route::resource("coderumed", CodeRumedController::class)->except(['create', 'show', 'index'])->middleware('auth');
     Route::resource("coderumed", CodeRumedController::class)->only(['show']); // Show no necesita autenticacion
-    Route::get("/coderumed-dashboard", CodeRumedDashboard::class)->name("coderumedManagement"); // Solo muestra el dashboard, filtra y nada más
+    Route::get("/coderumed-dashboard", CodeRumedDashboard::class)->name("coderumedManagement")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
 
 
 
     //----------------------TEST DE BOWIE-------------------//
-    Route::controller(zonanoesterilController::class)->group(function(){
-        Route::get('zneManagement','index')->middleware('auth')->name('zneManagement');
-        Route::get('all/generatorlabel','allgeneratorlabel')->middleware('auth')->name('all/generatorlabel');
-        Route::post('testbowie/add/save', 'addNewtestbowie')->name('testbowie/add/save');
-        Route::post('testbowie/delete', 'deleteTestbowie')->middleware('auth')->name('testbowie/delete');
-        Route::post('form/apply/testbowie/update', 'updateTestbowie')->name('form/apply/testbowie/update');
-        Route::get('get-testbowie-data', 'gettesbowieData')->name('get-testbowie-data');
-        Route::get('testbowie/activity/log', 'activityLogtestbowie')->middleware('auth')->name('testbowie/activity/log');
-        Route::post('add/coderumed/temporary', 'TemporarySelecRumed')->name('add/coderumed/temporary');
-        Route::get('all/generatorlabel', 'SelectCoderumed')->middleware('auth')->name('all/generatorlabel');
-
-    });
-
-
-
-
+    Route::resource("zonanoesteril", zonanoesterilController::class)->except(['create', 'show', 'index'])->middleware('auth');
+    Route::resource("zonanoesteril", zonanoesterilController::class)->only(['show'])->middleware('auth');
+    Route::get("/zneManagement", zneManagementController::class)->name("zneManagement")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
 
     // ---------------------------- form employee ---------------------------//
     Route::controller(EmployeeController::class)->group(function () {
