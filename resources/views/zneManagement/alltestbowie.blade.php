@@ -12,54 +12,59 @@
                         <h3 class="page-title">TEST DE BOWIE & DICK</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Panel</a></li>
-                            <li class="breadcrumb-item active">Test B&D  </li>
+                            <li class="breadcrumb-item active">Test B&D </li>
                         </ul>
                     </div>
                     <div class="col-auto float-right ml-auto">
-                        <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_testbowie"><i class="fa fa-plus"></i>  Registrar Nuevo Test</a>
+                        <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_testbowie"><i
+                                class="fa fa-plus"></i> Registrar Nuevo Test</a>
                     </div>
                 </div>
             </div>
-			<!-- /Page Header -->
+            <!-- /Page Header -->
 
             <!-- Search Filter -->
-            <div class="row filter-row">
-                <div class="col-sm-6 col-md-2">
-                    <div class="form-group form-focus select-focus">
-                        <select class="select floating" id="id_machine"
-                        name="id_machine">
-                            <option selected disabled>-- Seleccionar el Equipo--</option>
-                            <option value="MATACHANA V1"> MATACHANA V1</option>
-                                <option value="CISA V2"> CISA V2</option>
-                        </select>
-                        <label class="focus-label">Nombre del Area</label>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-2">
-                    <div class="form-group form-focus">
-                        <input type="text" class="form-control floating" id="lote_machine" name="lote_machine">
-                        <label class="focus-label">LOTE DE EQUIPO</label>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-md-2">
-                    <div class="form-group form-focus">
-                        <input type="text" class="form-control floating" id="lote_bd" name="lote_bd">
-                        <label class="focus-label">LOTE DE INSUMO</label>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-md-2">
-                    <div class="form-group">
+            <div>
+                <form action='{{ route('zneManagement') }}' method="GET">
+                    <div class="row filter-row">
+                        <div class="col-sm-6 col-md-2">
+                            <div class="form-group form-focus select-focus">
+                                <select class="select floating" id="machine_id" name="machine_id">
+                                    <option selected disabled>-- Seleccionar el Equipo--</option>
+                                    <option value="MATACHANA V1"> MATACHANA V1</option>
+                                    <option value="CISA V2"> CISA V2</option>
+                                </select>
+                                <label class="focus-label">Nombre del Area</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-2">
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating" id="lote_machine" name="lote_machine">
+                                <label class="focus-label">LOTE DE EQUIPO</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating" id="lote_bd" name="lote_bd">
+                                <label class="focus-label">LOTE DE INSUMO</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-2">
+                            <div class="form-group">
 
-                        <input type="text" class="form-control datetimepicker @error('start_date') is-invalid @enderror" name="lote_bd" value="{{ old('start_date') }}"id="lote_bd">
-                        <label class="focus-label">Fecha de Test</label>
-                    </div>
-                </div>
+                                <input type="text"
+                                    class="form-control datetimepicker @error('start_date') is-invalid @enderror"
+                                    name="lote_bd" value="{{ old('start_date') }}"id="search_date">
+                                <label class="focus-label">Fecha de Test</label>
+                            </div>
+                        </div>
 
-                <div class="col-sm-6 col-md-3">
-                    <button type="sumit" class="btn btn-success btn-block btn_search"> BUSCAR </button>
-                </div>
+                        <div class="col-sm-6 col-md-3">
+                            <button type="sumit" class="btn btn-success btn-block btn_search"> BUSCAR </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-
             {{-- message --}}
             {!! Toastr::message() !!}
 
@@ -91,8 +96,8 @@
                                         <select class="select floating" id="machine_id" name="machine_id">
                                             <option selected disabled>-- SELECCIONAR EL EQUIPO--</option>
 
-                                                <option value="MATACHANA V1"> MATACHANA V1</option>
-                                                <option value="CISA V2"> CISA V2</option>
+                                            <option value="MATACHANA V1"> MATACHANA V1</option>
+                                            <option value="CISA V2"> CISA V2</option>
 
                                         </select>
 
@@ -103,8 +108,8 @@
                                     <div class="form-group form-focus select-focus">
                                         <select class="select floating" id="validation_bd" name="validation_bd">
                                             <option selected disabled>-- Validar--</option>
-                                                <option value="Correcto"> Correcto </option>
-                                                <option value="ERROR">  ERROR</option>
+                                            <option value="Correcto"> Correcto </option>
+                                            <option value="ERROR"> ERROR</option>
                                         </select>
                                     </div>
                                 </div>
@@ -112,21 +117,25 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label>Lote a esterilizar</label>
-                                    <input class="form-control" type="text" id="e_lote_machine" name="lote_machine" value="{{ old('lote_machine') }}" placeholDeleteder="Ingrese el LOTE del equipo">
+                                    <input class="form-control" type="text" id="e_lote_machine" name="lote_machine"
+                                        value="{{ old('lote_machine') }}" placeholDeleteder="Ingrese el LOTE del equipo">
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Lote del insumo</label>
-                                    <input class="form-control" type="text" id="lote_bd" name="lote_bd" value="{{ old('lote_bd') }}" placeholder="Ingrese el lote del insumo">
+                                    <input class="form-control" type="text" id="lote_bd" name="lote_bd"
+                                        value="{{ old('lote_bd') }}" placeholder="Ingrese el lote del insumo">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label>Observaciones</label>
-                                    <input class="form-control" type="text" id="observation" name="observation" placeholder="Ingrese alguna observacion">
+                                    <input class="form-control" type="text" id="observation" name="observation"
+                                        placeholder="Ingrese alguna observacion">
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Operador</label>
-                                    <input class="form-control" type="text" id="operator" name="operator" placeholder= "{{ Auth::user()->name }}" value="{{ Auth::user()->name }}">
+                                    <input class="form-control" type="text" id="operator" name="operator"
+                                        placeholder= "{{ Auth::user()->name }}" value="{{ Auth::user()->name }}">
                                 </div>
                             </div>
                             <!-- Motrar errores de validación si es que hay -->
@@ -148,6 +157,6 @@
             </div>
         </div>
         <!-- /Add testbowie Modal -->
-        @include("zneManagement.testbowie-table")
+        @include('zneManagement.testbowie-table')
     </div>
 @endsection
