@@ -29,24 +29,24 @@
                     <div class="row filter-row">
                         <div class="col-sm-6 col-md-2">
                             <div class="form-group form-focus select-focus">
-                                <select class="select floating" id="machine_id" name="machine_id">
+                                <select class="select floating" id="id_machine" name="id_machine">
                                     <option selected disabled>-- Seleccionar el Equipo--</option>
                                     <option value="MATACHANA V1"> MATACHANA V1</option>
                                     <option value="CISA V2"> CISA V2</option>
                                 </select>
-                                <label class="focus-label">Nombre del Area</label>
+                                <label class="focus-label">Nombre del área</label>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-2">
                             <div class="form-group form-focus">
                                 <input type="text" class="form-control floating" id="lote_machine" name="lote_machine">
-                                <label class="focus-label">LOTE DE EQUIPO</label>
+                                <label class="focus-label">Lote de Equipo</label>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-2">
                             <div class="form-group form-focus">
                                 <input type="text" class="form-control floating" id="lote_bd" name="lote_bd">
-                                <label class="focus-label">LOTE DE INSUMO</label>
+                                <label class="focus-label">Lote de Insumo</label>
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-2">
@@ -54,16 +54,16 @@
 
                                 <input type="text"
                                     class="form-control datetimepicker @error('start_date') is-invalid @enderror"
-                                    name="lote_bd" value="{{ old('start_date') }}"id="search_date">
+                                    name="search_date" value="{{ old('search_date') }}"id="search_date">
                                 <label class="focus-label">Fecha de Test</label>
                             </div>
                         </div>
 
                         <div class="col-sm-6 col-md-3">
-                            <button type="sumit" class="btn btn-success btn-block btn_search"> BUSCAR </button>
+                            <button type="submit" class="btn btn-success btn-block btn_search"> Buscar </button>
                         </div>
                     </div>
-                </form>
+                <!-- </form> -->
             </div>
             {{-- message --}}
             {!! Toastr::message() !!}
@@ -75,8 +75,6 @@
                 </div>
             </div>
         </div>
-        <!-- /Page Content -->
-
         <!-- Add User Modal -->
         <div id="add_testbowie" class="modal custom-modal fade" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">

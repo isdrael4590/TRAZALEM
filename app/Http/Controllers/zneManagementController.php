@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\testbowie;
 use Illuminate\Http\Request;
+Use Carbon\Carbon;
 
 class zneManagementController extends Controller
 {
@@ -13,7 +14,7 @@ class zneManagementController extends Controller
     public function __invoke(Request $request)
     {
         //
-        $machine_id = $request->input('machine_id');
+        $machine_id = $request->input('id_machine'); // TODO: Verificar porque cambiar id_machine a machine_id hace que no se renderice el dato
         $lote_machine = $request->input('lote_machine');
         $lote_bd = $request->input('lote_bd');
         $search_date = $request->input('search_date');
@@ -23,9 +24,9 @@ class zneManagementController extends Controller
             return $query->where('lote_machine', 'like', '%' . $lote_machine . '%');
         })->when($lote_bd, function($query, $lote_bd){
             return $query->where('lote_bd', 'like', '%' . $lote_bd . '%');
-        })->orderByDesc('created_at')
-        ->paginate(20); // Adjust the number per page as needed
-        // TODO: Crear filtro para fecha
+        })->when($search_date, function($query, $search_date){
+            return $query->whereDate('created_at', Carbon::parse($search_date));
+        })->orderByDesc('created_at')->paginate(20); // Adjust the number per page as needed
         return view('zneManagement.alltestbowie', compact('testbowies'));
     }
 }
