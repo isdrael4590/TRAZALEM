@@ -181,9 +181,9 @@
                                 </div>
                             </div>
 
-                            <div class="submit-section">
-                                <button type="submit" class="btn btn-primary submit-btn">GENERAR QR</button>
-                            </div>
+                           @livewireScripts()
+                           @yield('scripts')
+
 
                             <!--  -->
                         </div>

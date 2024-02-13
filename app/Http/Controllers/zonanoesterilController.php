@@ -18,8 +18,6 @@ class zonanoesterilController extends Controller
         $testbowie = DB::table('testbowies')->get();
 
         return view('zneManagement.alltestbowie', compact('testbowie'));
-
-
     }
 
     /** save new coderumed */
@@ -110,7 +108,6 @@ class zonanoesterilController extends Controller
             $query->orWhere('validation_bd', 'like', '%' . $searchValue . '%');
             $query->orWhere('observation', 'like', '%' . $searchValue . '%');
             $query->orWhere('date_done_bd', 'like', '%' . $searchValue . '%');
-
         })->count();
 
         if ($columnName == 'machine_id') {
@@ -133,9 +130,11 @@ class zonanoesterilController extends Controller
         foreach ($records as $key => $record) {
             $record->machine_id = '<h2 class="table-avatar"><a href="' . url('alltestbowie/' . $record->machine_id) . '" class="machine_id">' . $record->machine_id . '</a></h2>';
 
-            if ($record->validation_bd == 'ERROR') { /** color role VALIDATION */
+            if ($record->validation_bd == 'ERROR') {
+                /** color role VALIDATION */
                 $validation_bd = '<span class="badge bg-inverse-danger validation_bd">' . $record->validation_bd . '</span>';
-            } elseif ($record->validation_bd == 'Correcto') { /** color role VALIDATION */
+            } elseif ($record->validation_bd == 'Correcto') {
+                /** color role VALIDATION */
                 $validation_bd = '<span class="badge bg-inverse-success validation_bd">' . $record->validation_bd . '</span>';
             }
 
@@ -152,7 +151,7 @@ class zonanoesterilController extends Controller
 
 
                 "action" =>
-                    '
+                '
                 <td>
                     <div class="dropdown dropdown-action">
                         <a class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -165,7 +164,13 @@ class zonanoesterilController extends Controller
                             <a class="dropdown-item testbowieDelete" data-toggle="modal" data-id="' . $record->id . '" data-target="#delete_testbowie">
                                 <i class="fa fa-trash-o m-r-5"></i> BORRAR
                             </a>
-                        </div>
+                      
+                        
+                            <a class="dropdown-item testbowieprinter"  data-id="' . $record->id . '" data-target="#printer_testbowie">
+                            <i class="fa-solid fa-print"></i> IMPRIMIR
+                            </a>
+                         </div>
+
                     </div>
                 </td>
                 ',
@@ -221,7 +226,6 @@ class zonanoesterilController extends Controller
             Toastr::success('Test actualizado :)', 'Satisfactorio');
             return redirect()->route('
             ');
-
         } catch (\Exception $e) {
             DB::rollback();
             Toastr::error('Fallo de actualizacion de TEST :)', 'Error');
@@ -310,6 +314,4 @@ class zonanoesterilController extends Controller
             return redirect()->back();
         }
     }
-
-
 }

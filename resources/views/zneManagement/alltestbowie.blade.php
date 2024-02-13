@@ -257,6 +257,35 @@
             </div>
         </div>
         <!-- /Delete testbowie Modal -->
+        <!-- PRINTER testbowie Modal -->
+        <div class="modal custom-modal fade" id="printer_testbowie" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-header">
+                            <h3>IMPRIMIR Test</h3>
+                            <p>Estas seguro de Generar el documento PDF?</p>
+                        </div>
+                        <div class="modal-btn printer-action">
+                            <div class="row">
+                                
+                                    <div class="col-6">
+                                        <a class="{{set_active(['formatos_pdf/bd_pdf,formatos_pdf'])}}" href="{{ route('formatos_pdf') }}"></a>
+                                        <a class="btn btn-primary continue-btn">IMPRIMIR</a>
+                                    </div>
+                               
+                                <div class="col-6">
+                                    <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancelar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /PRINTER testbowie Modal -->
+
+
     </div>
     <!-- /Page Wrapper -->
     @section('script')
@@ -357,6 +386,15 @@
             var _this = $(this).parents('tr');
             $('.e_machine_id').val(_this.find('.machine_id').data('machine_id'));
             $('#e_lote_machine').val(_this.find('.lote_machine').data('lote_machine'));
+        });
+    </script>
+
+       {{-- PRINTER js --}}
+       <script>
+        $(document).on('click','.testbowieprinter',function()
+        {
+            
+          
         });
     </script>
 

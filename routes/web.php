@@ -1,7 +1,41 @@
 <?php
 
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
+use Illuminate\Support\Facades\App;
 use App\Http\Controllers\testbowieController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\principal;
+use App\Http\Livewire\printer_qr;
+/*
+|--------------------------------------------------------------------------
+| PDF ARCHIVOS
+|--------------------------------------------------------------------------
+|
+
+|
+*/
+
+
+
+Route::group(['namespace' => 'App\Http\Controllers'],function()
+{
+Route::controller(DocPdfControllers::class)->group(function(){
+    Route::get('formatos_pdf','index')->middleware('auth')->name('formatos_pdf');
+});
+});
+/*
+|--------------------------------------------------------------------------
+| LIVEWIRE
+|--------------------------------------------------------------------------
+|
+
+|
+*/
+
+
+Route::get('/', principal::class);
+Route::get('printer_qr/{id?}/{tipo?}/{data?}',Printer_qr::class)->name('Printer_qr');
+
 
 /*
 |--------------------------------------------------------------------------
