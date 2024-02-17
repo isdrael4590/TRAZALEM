@@ -9,6 +9,7 @@ class coderumed extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'user_id',
         'coderumed_id',
         'name_coderumed',
         'join_date_coderumed',
@@ -16,4 +17,10 @@ class coderumed extends Model
         'area',
         'detalls',
     ];
+
+    // Permite leer datos que pertenecen solo al coderumed_id que estan en la tabla coderumedActivityLog
+    public function history()
+    {
+        return $this->hasMany(coderumedActivityLog::class);
+    }
 }

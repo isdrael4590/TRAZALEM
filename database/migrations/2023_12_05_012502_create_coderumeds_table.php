@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('coderumeds', function (Blueprint $table) {
             $table->id()->autoIncrement();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete(); // Id del usuario
             $table->string('coderumed_id');
             $table->string('name_coderumed');
             $table->string('join_date_coderumed');

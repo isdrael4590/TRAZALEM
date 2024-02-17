@@ -12,12 +12,15 @@ return new class extends Migration
     public function up()
     {
             Schema::create('testbowies', function (Blueprint $table) {
-                $table->id();
+                $table->id()->autoIncrement();
+                $table->foreignId('user_id')->constrained()->cascadeOnDelete();
                 $table->string('machine_id');
                 $table->string('lote_machine');
+                $table->string('temp_machine');
                 $table->string('lote_bd');
-                $table->date('date_done_bd')->unique();
-                $table->string('validation_bd')->nullable();;
+                $table->string('date_done_bd');
+                $table->string('validation_bd')->nullable();
+                $table->string('temp_ambiente');
                 $table->string('operator')->nullable();;
                 $table->string('observation')->nullable();;
                 $table->timestamps();
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('testbowie');
+        Schema::dropIfExists('testbowies');
     }
 };

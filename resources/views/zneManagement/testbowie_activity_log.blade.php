@@ -37,7 +37,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($activityLogtestbowie as $key => $item)
+                                @foreach ($testbowie_activity_log as $key => $item)
                                     <tr>
                                         <td>{{ ++$key }}</td>
                                         <td>{{ $item->machine_id }}</td>
@@ -47,7 +47,7 @@
                                         <td>{{ $item->observation }}</td>
                                         <td>{{ $item->modify_testbowie }}</td>
                                         <td>{{ $item->operator }}</td>
-                                        <td>{{ $item->date_time_testbowie }}</td>
+                                        
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -59,4 +59,3 @@
         <!-- /Page Content -->
     </div>
 @endsection
-

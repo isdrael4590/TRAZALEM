@@ -13,14 +13,19 @@ return new class extends Migration
     {
         Schema::create('testbowie_activity_logs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('testbowie_id')->constrained()->cascadeOnDelete();
             $table->string('machine_id')->nullable();
             $table->string('lote_machine')->nullable();
+            $table->string('temp_machine')->nullable();
             $table->string('lote_bd')->nullable();
+            $table->string('date_done_bd')->nullable();
             $table->string('validation_bd')->nullable();
+            $table->string('temp_ambiente')->nullable();
             $table->string('observation')->nullable();
-            $table->string('modify_testbowie')->nullable();
+
             $table->string('operator')->nullable();
-            $table->string('date_time_testbowie')->nullable();
+       
             $table->timestamps();
         });
     }
