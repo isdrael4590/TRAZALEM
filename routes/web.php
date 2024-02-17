@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\CodeRumedController;
 use App\Http\Controllers\CodeRumedDashboard;
-use App\Http\Controllers\zonanoesterilController;
+use App\Http\Controllers\testbowieController;
 use App\Http\Controllers\zneManagementController;
+use App\Http\Controllers\PrinterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -126,9 +127,13 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
 
 
     //----------------------TEST DE BOWIE-------------------//
-    Route::resource("zonanoesteril", zonanoesterilController::class)->except(['create', 'show', 'index'])->middleware('auth');
-    Route::resource("zonanoesteril", zonanoesterilController::class)->only(['show'])->middleware('auth');
-    Route::get("/zneManagement", zneManagementController::class)->name("zneManagement")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
+    Route::resource("testbowie", testbowieController::class)->except(['create', 'show', 'index'])->middleware('auth');
+    Route::resource("testbowie", testbowieController::class)->only(['show']);
+    Route::get("/testbowie-dashboard", zneManagementController::class)->name("zneManagement")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
+    Route::resource("printertestbowie", PrinterController::class)->only(['show']);
+
+
+    
 
     // ---------------------------- form employee ---------------------------//
     Route::controller(EmployeeController::class)->group(function () {

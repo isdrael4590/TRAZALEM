@@ -16,7 +16,7 @@
                         </ul>
                     </div>
                     <div class="col-auto float-right ml-auto">
-                        <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_testbowie"><i
+                        <a href="{{ route('testbowie.store') }}" class="btn add-btn" data-toggle="modal" data-target="#add_testbowie"><i
                                 class="fa fa-plus"></i> Registrar Nuevo Test</a>
                     </div>
                 </div>
@@ -28,13 +28,9 @@
                 <form action='{{ route('zneManagement') }}' method="GET">
                     <div class="row filter-row">
                         <div class="col-sm-6 col-md-2">
-                            <div class="form-group form-focus select-focus">
-                                <select class="select floating" id="id_machine" name="id_machine">
-                                    <option selected disabled>-- Seleccionar el Equipo--</option>
-                                    <option value="MATACHANA V1"> MATACHANA V1</option>
-                                    <option value="CISA V2"> CISA V2</option>
-                                </select>
-                                <label class="focus-label">Nombre del área</label>
+                            <div class="form-group form-focus">
+                                <input type="text" class="form-control floating" id="machine_id" name="machine_id">
+                                <label class="focus-label">Equipo</label>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-2">
@@ -52,9 +48,7 @@
                         <div class="col-sm-4 col-md-2">
                             <div class="form-group">
 
-                                <input type="text"
-                                    class="form-control datetimepicker @error('start_date') is-invalid @enderror"
-                                    name="search_date" value="{{ old('search_date') }}"id="search_date">
+                                
                                 <label class="focus-label">Fecha de Test</label>
                             </div>
                         </div>
@@ -63,7 +57,7 @@
                             <button type="submit" class="btn btn-success btn-block btn_search"> Buscar </button>
                         </div>
                     </div>
-                <!-- </form> -->
+                 </form> 
             </div>
             {{-- message --}}
             {!! Toastr::message() !!}
@@ -71,7 +65,11 @@
             <!-- /Page Header -->
             <div class="row">
                 <div class="col-md-12">
-
+                    @empty($testbowies)
+                    <p class="text-center mt-4"> Sin resultados aún </p>
+                @else
+                    @include('zneManagement.testbowie-table')
+                @endempty
                 </div>
             </div>
         </div>
@@ -86,7 +84,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route('zonanoesteril.store') }}" method="POST">
+                        <form action="{{route('testbowie.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
@@ -126,6 +124,25 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
+                                    <label>Temperatura Equipo</label>
+                                    <div class="form-group form-focus select-focus">
+                                        <select class="select floating" id="e_temp_machine" name="temp_machine"> 
+                                            <option selected disabled>--  TEMPERATURA DEL TEST B&D-</option>
+                                                <option value="134"> 134ºC  </option>
+                                                <option value="121"> 121ºC  </option>
+                                        </select>
+                                        </div>
+                                    
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Temperatura Ambiente</label>
+                                    <input class="form-control" type="text" id="e_temp_ambiente" name="temp_ambiente"
+                                    value="{{ old('temp_ambiente') }}" placeholDeleteder="Ingrese la temperatura del ambiente">
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
                                     <label>Observaciones</label>
                                     <input class="form-control" type="text" id="observation" name="observation"
                                         placeholder="Ingrese alguna observacion">
@@ -135,7 +152,7 @@
                                     <input class="form-control" type="text" id="operator" name="operator"
                                         placeholder= "{{ Auth::user()->name }}" value="{{ Auth::user()->name }}">
                                 </div>
-                            </div>
+                            
                             <!-- Motrar errores de validación si es que hay -->
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -155,6 +172,19 @@
             </div>
         </div>
         <!-- /Add testbowie Modal -->
-        @include('zneManagement.testbowie-table')
+      
+   
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar paquete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <br>
+
+        </div>
     </div>
+</div>
 @endsection

@@ -48,9 +48,7 @@
                     </a>
                     <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }}">
                         <li><a class="{{set_active(['coderumedManagement/all/coderumedcontrol','coderumedManagement'])}}" href="{{ route('coderumedManagement') }}">Base de datos <span class="badge badge-pill bg-primary float-right">1</span></a></li>
-                        @if (Auth::user()->role_name=='Admin')
-                             <li><a class="{{set_active(['coderumed/activity/log'])}}" href="{{ route('coderumed/activity/log') }}">Resgistro de actividades CODERUMED </a></li>
-                        @endif
+                       
                     </ul>
                 </li>
 
@@ -90,9 +88,7 @@
 
 
 
-                        @if (Auth::user()->role_name=='Admin')
-                        <li><a class="{{set_active(['testbowie/activity/log'])}}" href="{{ route('testbowie/activity/log') }}">Resgistro Activ. TEST BOWIE&DICK </a></li>
-                         @endif
+
 
 
 

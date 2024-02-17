@@ -23,7 +23,7 @@ class CreateCheckinMaterialsTable extends Migration
             $table->string('temperature_machine');
             $table->string('type_program');
             $table->string('biologic');
-            $table->string('id_machine');
+            $table->string('machine_id');
             $table->string('biologic_lote');
             $table->string('operator');
             $table->string('datatime_expiration');

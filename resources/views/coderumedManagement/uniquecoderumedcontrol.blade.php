@@ -26,7 +26,8 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <strong>Nombre del paquete</strong>
-                            <span> {{ $coderumed->name_coderumed }} </span>
+                            <span> {{ $testbowie->lote_machine }} </span>
+                            
                         </div>
                         <div class="col-sm-6">
                             <strong>Código rumed</strong>

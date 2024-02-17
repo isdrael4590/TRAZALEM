@@ -4,11 +4,13 @@
             <tr>
                 <th>No</th>
                 <th>Equipo</th>
-                <th>Lote de equipo</th>
-                <th>Lote de Insumo</th>
-                <th>Validacion </th>
-                <th>Proceso realizado</th>
+                <th>Lote Equipo</th>
+                <th>Temp. Equipo</th>
+                <th>Lote  Insumo</th>
+                <th> Proceso Realizado</th>
+                <th>Validacion</th>
                 <th>Operador</th>
+                <th>Temp. Ambiente</th>
                 <th>Detalles</th>
                 <th>Action</th>
             </tr>
@@ -17,26 +19,33 @@
             @foreach ($testbowies as $testbowie)
                 <tr class="odd">
                     <td>
-                        <a href="{{ route('zonanoesteril.show', $testbowie->id) }}" class="link-primary">
-                            {{ $testbowie->id }} </a>
+                        <a class="id">
+                            {{ $testbowie->id }} </span>
                     </td>
                     <td>
                         <span class="machine_id"> {{ $testbowie->machine_id }} </span>
                     </td>
                     <td>
-                        <span class="lote_machine"> {{ $testbowie->lote_machine }} </span>
+                        <a href="{{ route('testbowie.show', $testbowie->lote_machine) }}" class="link-primary">
+                         {{ $testbowie->lote_machine }} </a>
+                    </td>
+                    <td>
+                        <span class="temp_machine"> {{ $testbowie->temp_machine }} </span>
                     </td>
                     <td>
                         <span class="lote_bd"> {{ $testbowie->lote_bd }} </span>
                     </td>
                     <td class="sorting_1">
-                        <span class="date_done_bd"> {{ $testbowie->created_at->diffForHumans() }} </span>
+                        {{ $testbowie->created_at }} 
                     </td>
                     <td>
                         <span class="validation_bd"> {{ $testbowie->validation_bd }} </span>
                     </td>
                     <td>
                         <span class="operator"> {{ $testbowie->operator }} </span>
+                    </td>
+                    <td>
+                        <span class="temp_ambiente"> {{ $testbowie->temp_ambiente }} </span>
                     </td>
                     <td>
                         <span class="observation"> {{ $testbowie->observation }} </span>
@@ -47,16 +56,21 @@
                                 <i class="material-icons">more_vert</i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item"href="{{ route('zonanoesteril.edit', $testbowie->id) }}">
+                                <a class="dropdown-item"href="{{ route('testbowie.edit', $testbowie->id) }}">
                                     <i class="fa fa-pencil m-r-5"></i> Editar entrada
                                 </a>
-                                <form method="POST" action="{{ route('zonanoesteril.destroy', $testbowie->id) }}">
+                                <form method="POST" action="{{ route('testbowie.destroy', $testbowie->id) }}">
                                     @csrf
                                     @method('delete')
                                     <button class="dropdown-item" data-toggle="modal">
                                         <i class="fa fa-trash-o m-r-5"></i> Borrar entrada
                                     </button>
                                 </form>
+                            </div>
+                            <div >
+                                <a class="dropdown-item"href="{{ route('printertestbowie.show', $testbowie->id) }}">
+                                <i class="la la-print"></i> 
+                                
                             </div>
                         </div>
                     </td>
