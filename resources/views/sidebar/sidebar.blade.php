@@ -17,28 +17,7 @@
                         <li><a class="{{set_active(['em/dashboard'])}}" href="{{ route('em/dashboard') }}">Panel del empleado</a></li>
                     </ul>
                 </li>
-                @if (Auth::user()->role_name=='Admin')
-                    <li class="menu-title"> <span>Autoidentificacion</span> </li>
-                    <li class="{{set_active(['search/user/list','userManagement','activity/log','activity/login/logout'])}} submenu">
-                        <a href="#" class="{{ set_active(['search/user/list','userManagement','activity/log','activity/login/logout']) ? 'noti-dot' : '' }}">
-                            <i class="la la-user-secret"></i> <span> Control del usuario</span> <span class="menu-arrow"></span>
-                        </a>
-                        <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }}">
-                            <li><a class="{{set_active(['search/user/list','userManagement'])}}" href="{{ route('userManagement') }}">Todos los usuarios </a></li>
-                            <li><a class="{{set_active(['activity/log'])}}" href="{{ route('activity/log') }}">Registro de actividades</a></li>
-                            <li><a class="{{set_active(['activity/login/logout'])}}" href="{{ route('activity/login/logout') }}">Actividades del usuario</a></li>
-                        </ul>
-                    </li>
-                @endif
-                <li class="menu-title"> <span>Usuarios</span> </li>
-                <li class="{{set_active(['all/employee/list','all/employee/list','all/employee/card'])}} submenu">
-                    <a href="#" class="{{ set_active(['all/employee/list','all/employee/card',]) ? 'noti-dot' : '' }}">
-                        <i class="la la-user"></i> <span> Usuarios</span> <span class="menu-arrow"></span>
-                    </a>
-                    <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }}">
-                        <li><a class="{{set_active(['all/employee/list','all/employee/card'])}} {{ request()->is('all/employee/view/edit/*','employee/profile/*') ? 'active' : '' }}" href="{{ route('all/employee/card') }}">Todo el personal</a></li>
-
-                    </ul>
+               
                 <li>---------////////////////////////---------</li>
                 </li>
                 <li class="menu-title"> <span>BASE DE DATOS</span> </li>
@@ -73,7 +52,7 @@
                 <li>---------////////////////////////---------</li>
 
                 <li class="menu-title"> <span>ZONA NO ESTERIL</span> </li>
-                <li class="{{set_active(['zneManagement/all/testbowie','zneManagement','testbowie/activity/log'])}}  submenu">
+                <li class="{{set_active(['zneManagement/all/testbowie','zneManagement','zneManagement/all/generatorqr'])}}  submenu">
                     <a href=" ">
                         <i class="la la-edit"></i>
                         <span> Actividades ZNE</span>
@@ -82,15 +61,9 @@
 
                     <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }} ">
 
-                        <li><a class="{{ Request::is('zneManagement' ? 'active' : '') }}" href="{{ route('zneManagement') }}">Prueba de BOWIE & DICK <span class="badge badge-pill bg-primary float-right">1</span></a></li>
+                        <li><a class="{{ Request::is('zneManagement' ? 'active' : '') }}" href="{{ route('zneManagement/testbowie') }}">Prueba de BOWIE & DICK <span class="badge badge-pill bg-primary float-right">1</span></a></li>
                         <!-- TODO: Cambiar a la ruta adeciada-->
-                        <li><a class="{{ Request::is('zneManagement' ? 'active' : '') }}" href="{{ route('zneManagement') }}"> GENERADOR DE QR <span class="badge badge-pill bg-primary float-right">1</span></a></li>
-
-
-
-
-
-
+                        <li><a class="{{ Request::is('zneManagement' ? 'active' : '') }}" href="{{ route('generator_qr') }}"> GENERADOR DE QR <span class="badge badge-pill bg-primary float-right">1</span></a></li>
 
 
                     </ul>
@@ -110,13 +83,58 @@
 
                     </ul>
                 </li>
-                <li class="menu-title"> <span>Pages</span> </li>
-                <li class="submenu"> <a href="#"><i class="la la-user"></i>
-                    <span> Profile </span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a href="profile.html"> Employee Profile </a></li>
+                @if (Auth::user()->role_name == 'Admin' || Auth::user()->role_name == 'Super Admin' )
+                <li class="menu-title"> <span>INFORMACION</span> </li>
+
+                <li class="{{set_active(['settingsMachine/all/machine','settingsMachine'])}}  submenu">
+                    <a href=" ">
+                        <i class="la la-edit"></i>
+                        <span> EQUIPAMIENTO</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+
+                    <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }} ">
+
+                        <li><a class="{{ Request::is('settingsMachine' ? 'active' : '') }}" href="{{ route('settingsMachine/machine') }}">Base de Equipos <span class="badge badge-pill bg-primary float-right">1</span></a></li>
+                      
+                       
+
+
                     </ul>
                 </li>
+            
+                
+                   
+                    <li class="{{set_active(['search/user/list','userManagement','activity/log','activity/login/logout'])}} submenu">
+                        <a href="#" class="{{ set_active(['search/user/list','userManagement','activity/log','activity/login/logout']) ? 'noti-dot' : '' }}">
+                            <i class="la la-user-secret"></i> <span> Control del usuario</span> <span class="menu-arrow"></span>
+                        </a>
+                        <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }}">
+                            <li><a class="{{set_active(['search/user/list','userManagement'])}}" href="{{ route('userManagement') }}">Todos los usuarios </a></li>
+                            <li><a class="{{set_active(['activity/log'])}}" href="{{ route('activity/log') }}">Registro de actividades</a></li>
+                            <li><a class="{{set_active(['activity/login/logout'])}}" href="{{ route('activity/login/logout') }}">Actividades del usuario</a></li>
+                        </ul>
+                    </li>
+              
+                
+                <li class="{{set_active(['all/employee/list','all/employee/list','all/employee/card'])}} submenu">
+                    <a href="#" class="{{ set_active(['all/employee/list','all/employee/card',]) ? 'noti-dot' : '' }}">
+                        <i class="la la-user"></i> <span> Usuarios</span> <span class="menu-arrow"></span>
+                    </a>
+                    <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }}">
+                        <li><a class="{{set_active(['all/employee/list','all/employee/card'])}} {{ request()->is('all/employee/view/edit/*','employee/profile/*') ? 'active' : '' }}" href="{{ route('all/employee/card') }}">Todo el personal</a></li>
+
+                    </ul>
+                    
+                </li>
+                <li class="submenu"> <a href="#"><i class="la la-user"></i>
+                    <span> INSTITUCIÒN </span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="{{ route('company/settings/page') }}"> Registro de institucion </a></li>
+                    </ul>
+                    
+                </li>
+                @endif
 
 
 

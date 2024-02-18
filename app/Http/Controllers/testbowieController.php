@@ -27,13 +27,15 @@ class testbowieController extends Controller
     {
         $validated = $request->validate([
             'machine_id' => 'required|string|max:255',
-            'lote_machine' => 'required|string|max:255',
-            'temp_machine'=> 'required|string|max:255',
-            'lote_bd' => 'required|string|max:255',
-            'validation_bd' => 'required|string|max:255',
-            'temp_ambiente'=> 'required|string|max:255',
-            'operator' => 'required|string|max:255',
-            'observation' => 'nullable|string|max:255',
+            'machine_model' => 'required|string|max:255',
+            'capacity'=> 'required|string|max:255',
+            'manufacture_name' => 'required|string|max:255',
+            'manufacture_country' => 'required|string|max:255',
+            'supplier'=> 'required|string|max:255',
+            'field_services' => 'required|string|max:255',
+            'email' => 'nullable|string|max:255',
+            'mobile_number' => 'nullable|string|max:255',
+            'website_url' => 'nullable|string|max:255',
         ]);
         $dt = Carbon::now();
         $todayDate = $dt->toDateString();
@@ -97,7 +99,7 @@ class testbowieController extends Controller
         ]);
         
         Toastr::success('Test actualizado', 'Satisfactorio');
-        return redirect()->route('zneManagement');
+        return redirect()->route('zneManagement/testbowie');
 
     }
 
@@ -113,13 +115,13 @@ class testbowieController extends Controller
         {
             $testbowie->delete();
             Toastr::success($testbowie->lote_bd . ' borrado exitosamente', 'Éxito');
-            return redirect()->route('zneManagement');
+            return redirect()->route('zneManagement/testbowie');
         }
 
 
 
 
-    /**------------------------------------------------------ */
+    /**------------------------------------------------------ 
 
 
     public function allgeneratorlabel()
@@ -158,6 +160,7 @@ class testbowieController extends Controller
             return redirect()->back();
         }
     }
+    **/
 
 
 }

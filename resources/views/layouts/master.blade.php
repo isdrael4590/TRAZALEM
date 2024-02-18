@@ -84,7 +84,7 @@
 					</a>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="{{ route('profile_user') }}">Mi Perfil</a>
-						<a class="dropdown-item" href="{{ route('company/settings/page') }}">Configuracion</a>
+				
 						<a class="dropdown-item" href="{{ route('logout') }}">SALIR</a>
 					</div>
 				</li>

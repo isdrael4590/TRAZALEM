@@ -1,0 +1,29 @@
+$('body').addClass('hidetax hidenote hidedate');
+
+// configuracion nota en el reporte de testbowie
+$('#config_note').on('change',function(){
+  $('body').toggleClass('shownote hidenote');
+});
+
+
+
+
+
+
+var newRow = '<tr><td><a class="control removeRow" href="#">x</a><span >12345</span></td><td><span >prueba</span></td><td class="amount"><input type="text" value="1"/><td class="package_type"><div class="form-group form-focus select-focus"><select class="select floating "id="datatime_expiration "name="datatime_expiration"><option selected disabled>-- Seleccionar la emboltura--</option><option value="Contenedor Rigido"> Contenedor Rigido </option><option value="Papel Mixto"> Papel Mixto </option><option value="Tela NO Tejida"> Tela NO Tejida </option><option value="Tela Tejida"> Tela Tejida  </option> </select></div></td></tr>';
+
+$('.selectRumed-body').on('keyup','input',function(){
+  calculate();
+});
+$('.newRow').on('click',function(e){
+    $('.selectRumed-body tbody').append(newRow);
+    e.preventDefault();
+    calculate();
+
+  });
+  
+  $('body').on('click','.removeRow',function(e){
+    $(this).closest('tr').remove();
+    e.preventDefault();
+
+  });

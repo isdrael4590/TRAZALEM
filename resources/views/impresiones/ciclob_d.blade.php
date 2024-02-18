@@ -111,7 +111,7 @@
                     <tr class="invoice_detail">
                         <td width="25%" style="text-align">{{ $testbowie->id }}</td>
                         <td width="15%"> {{ $testbowie->machine_id }}</td>
-                        <th width="10%">{{ $testbowie->machine_id }}</th>
+                        <th width="10%">{{ $testbowie->temp_machine }}</th>
                         <td width="20%">{{ $testbowie->lote_bd }}</td>
                         <td width="20%">{{ $testbowie->validation_bd }}</td>
                     </tr>
@@ -147,7 +147,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
-    <script src="{{ URL::to('js/mainimpresiones.js') }}"></script>
+    <script src="{{ URL::to('assets/js/otherjs/mainrowtoqr.js') }}"></script>
 </body>
 
 </html>

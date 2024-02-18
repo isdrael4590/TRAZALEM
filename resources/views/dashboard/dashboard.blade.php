@@ -25,7 +25,7 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">{{ $greet }} Bienvenido, {{ Session::get('name') }}!</h3>
+                        <h3 class="page-title">{{ $greet }}{{ Session::get('name') }}!</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item active">Panel Principal</li>
                         </ul>
@@ -34,38 +34,114 @@
             </div>
             <!-- /Page Header -->
             <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2>EQUIPOS VAPOR  <img src="{{ URL::to('assets/img/logos_equipos/LOGO-STEAM.png') }}" height="100"> </h2>
+                                    <h3>LOTE ACTUAL : </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2>EQUIPOS BAJA TEMPERATURA  <img src="{{ URL::to('assets/img/logos_equipos/130HPO.png') }}" height="60"></h2>
+                                    <h3>LOTE ACTUAL : </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                     <div class="card dash-widget">
+                        <h3 class="text-center">NUMERO DE TEST DE BOWIE </h3>
                         <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
                             <div class="dash-widget-info">
-                                <h3>112</h3> <span>Projects</span>
+                                <h3>112</h3> <h1><img src="{{ URL::to('assets/img/logos_equipos/logo_matachana.png') }}" height="20"> 1</h1>
+                            </div>
+                        </div>
+                        
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
+                            <div class="dash-widget-info">
+                                <h3>1112</h3> <h1><img src="{{ URL::to('assets/img/logos_equipos/logo_matachana.png') }}" height="20"> 2</h1>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                 
                     <div class="card dash-widget">
+                        <h3 class="text-center">NUMERO DE CICLOS </h3>
                         <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
                             <div class="dash-widget-info">
-                                <h3>44</h3> <span>Clients</span>
+                                <h3>1112</h3> <h1><img src="{{ URL::to('assets/img/logos_equipos/logo_matachana.png') }}" height="20"> 1</h1>
+                            </div>
+                        </div>
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
+                            <div class="dash-widget-info">
+                                <h3>1112</h3> <h1><img src="{{ URL::to('assets/img/logos_equipos/logo_matachana.png') }}" height="20"> 2</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <div class="card dash-widget">
+                        <h3 class="text-center">NUMERO DE TEST DE VACIO </h3>
+                        
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
+                            <div class="dash-widget-info">
+                                <h3>1112</h3> <h2><img src="{{ URL::to('assets/img/logos_equipos/130HPO.png') }}" height="40"> </h2>
+                            </div>
+                        </div>
+                        
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
+                            <div class="dash-widget-info">
+                                <h3>1112</h3> <h2><img src="{{ URL::to('assets/img/logos_equipos/LOGO_130LF.png') }}" height="30"></h2>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                 
                     <div class="card dash-widget">
-                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
+                        <h3 class="text-center">NUMERO DE CICLOS </h3>
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
                             <div class="dash-widget-info">
-                                <h3>37</h3> <span>Tasks</span>
+                                <h3>1112</h3> <h2><img src="{{ URL::to('assets/img/logos_equipos/130HPO.png') }}" height="40"> </h2>
+                            </div>
+                        </div>
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
+                            <div class="dash-widget-info">
+                                <h3>1112</h3> <h2><img src="{{ URL::to('assets/img/logos_equipos/LOGO_130LF.png') }}" height="30"></h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                    <div class="card dash-widget">
-                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
-                            <div class="dash-widget-info">
-                                <h3>218</h3> <span>Employees</span>
+        
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">Rendimiento de Funcionalidad <img src="{{ URL::to('assets/img/logos_equipos/LOGO-STEAM.png') }}" height="100"></h3>
+                                    <div id="bar-charts"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">PRODUCCION <img src="{{ URL::to('assets/img/logos_equipos/LOGO-STEAM.png') }}" height="100"></h3>
+                                    <div id="line-charts"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -77,80 +153,23 @@
                         <div class="col-md-6 text-center">
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="card-title">Total Revenue</h3>
-                                    <div id="bar-charts"></div>
+                                    <h3 class="card-title">Rendimiento de Incubacion <img src="{{ URL::to('assets/img/logos_equipos/LOGO-STEAM.png') }}" height="100"></h3>
+                                    <div id="bar-charts2"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 text-center">
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="card-title">Sales Overview</h3>
-                                    <div id="line-charts"></div>
+                                    <h3 class="card-title">Rendimiento de Incubacion <img src="{{ URL::to('assets/img/logos_equipos/130HPO.png') }}" height="50"></h3>
+                                    <div id="line-charts2"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card-group m-b-30">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div> <span class="d-block">New Employees</span> </div>
-                                    <div> <span class="text-success">+10%</span> </div>
-                                </div>
-                                <h3 class="mb-3">10</h3>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-0">Overall Employees 218</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div> <span class="d-block">Earnings</span> </div>
-                                    <div> <span class="text-success">+12.5%</span> </div>
-                                </div>
-                                <h3 class="mb-3">$1,42,300</h3>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-0">Previous Month <span class="text-muted">$1,15,852</span></p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div> <span class="d-block">Expenses</span> </div>
-                                    <div> <span class="text-danger">-2.8%</span> </div>
-                                </div>
-                                <h3 class="mb-3">$8,500</h3>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-0">Previous Month <span class="text-muted">$7,500</span></p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div> <span class="d-block">Profit</span> </div>
-                                    <div> <span class="text-danger">-75%</span> </div>
-                                </div>
-                                <h3 class="mb-3">$1,12,000</h3>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-0">Previous Month <span class="text-muted">$1,42,000</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             {{-- message --}}
             {!! Toastr::message() !!}
             <!-- Statistics Widget -->
@@ -158,7 +177,7 @@
                 <div class="col-md-12 col-lg-12 col-xl-4 d-flex">
                     <div class="card flex-fill dash-statistics">
                         <div class="card-body">
-                            <h5 class="card-title">Statistics</h5>
+                            <h5 class="card-title">Estadisticas</h5>
                             <div class="stats-list">
                                 <div class="stats-info">
                                     <p>Today Leave <strong>4 <small>/ 65</small></strong></p>
