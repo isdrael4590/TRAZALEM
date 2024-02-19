@@ -133,43 +133,57 @@
 
                             <!-- Custom Policy -->
                             <div class="custom-policy">
-
-                                <div class="selectRumed-body">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th class="l-Numero">No</th>
-                                                <th class="l-coderumed_id">Codigo No</th>
-                                                <th class="l-name_coderumed">Descripcion Paquetes</th>
-                                                <th class="l-package_type">Embalaje</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><a class="control removeRow" href="#">x</a><span>1</span>
-                                                </td>
-                                                <td><span>prueba</span></td>
-                                                
-                                                <td class="amount"><input type="text" value="1" /></td>
-                                                <td class="package_type">
-                                                    <div class="form-group form-focus select-focus">
-                                                        <select class="select floating" id="datatime_expiration"
-                                                            name="datatime_expiration">
-                                                            <option selected disabled>-- Seleccionar la emboltura--</option>
-                                                            <option value="Contenedor Rigido"> Contenedor Rigido </option>
-                                                            <option value="Papel Mixto"> Papel Mixto </option>
-                                                            <option value="Tela NO Tejida"> Tela NO Tejida </option>
-                                                            <option value="Tela Tejida"> Tela Tejida </option>
+                                <form action='{{ route('coderumedManagement') }}' method="GET">
+                                    <div class="selectRumed-body">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th class="l-Numero">No</th>
+                                                    <th class="l-coderumed_id">Codigo y Descripcion</th>
+                                                    <th class="l-package_type">Embalaje</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a class="control removeRow" href="#">x</a><span>1</span>
+                                                    </td>
+                                                    <td><select id="Selectcoderumed" name="Selectcoderumed">
+                                                        {{--@foreach ($coderumed as $coderumed)
+                                                                <option value="{{ $coderumed->id }}">
+                                                                    {{ $coderumed->coderumed_id }}</option>
+                                                            @endforeach--}}
+                                                            <option selected disabled>-- Seleccionar la envoltura--
+                                                            </option>
+                                                            <option value="Contenedor Rigido"> v1
+                                                            </option>
+                                                            <option value="Papel Mixto"> a1 </option>
+                                                            <option value="Tela NO Tejida"> c1 </option>
+                                                            <option value="Tela Tejida"> d4</option>
                                                         </select>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
+                                                    </td>
 
-                                    </table>
-                                    <a class="control newRow" href="#"> + Nuevo paquete</a>
-                                </div>
+                                                    <td class="package_type">
+                                                        <div class="form-group form-focus select-focus">
+                                                            <select class="select floating" id="datatime_expiration"
+                                                                name="datatime_expiration">
+                                                                <option selected disabled>-- Seleccionar la envoltura--
+                                                                </option>
+                                                                <option value="Contenedor Rigido"> Contenedor Rigido
+                                                                </option>
+                                                                <option value="Papel Mixto"> Papel Mixto </option>
+                                                                <option value="Tela NO Tejida"> Tela NO Tejida </option>
+                                                                <option value="Tela Tejida"> Tela Tejida </option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                        <a class="control newRow" href="#"> + Nuevo paquete</a>
+                                    </div>
+                                </form>
                             </div>
                             <div class="labelqr-header">
 
@@ -218,7 +232,7 @@
                                                 <small>Descripcion Paquete</small>
                                                 <strong>PIEZAS DE MANO PARA SIERRAS SYNTHES (TRAUMAMED) </strong>
                                             </div>
-                                            
+
                                         </section>
                                         <section class="machine-info">
                                             <div class="machine-info3">
@@ -264,7 +278,7 @@
                                                 </div>
 
                                             </div>
-                                            
+
                                         </section>
                                     </div>
 
@@ -292,4 +306,9 @@
 
     </div>
     <script src="{{ URL::to('assets/js/otherjs/mainrowtoqr.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#Selectcoderumed').select2();
+        });
+    </script>
 @endsection

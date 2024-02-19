@@ -1789,7 +1789,7 @@ table.dataTable thead>tr>td.sorting {
 -----------------------*/
 
 .sidebar {
-	background-color: #34444c;
+	background-color: #002758;
 	border-right: 1px solid transparent;
 	bottom: 0;
 	left: 0;
@@ -1844,7 +1844,7 @@ table.dataTable thead>tr>td.sorting {
 .menu-title {
 	color: #ebecf1;
 	display: flex;
-	font-size: 14px;
+	font-size: 20px;
 	opacity: 1;
 	padding: 5px 15px;
 	white-space: nowrap;
@@ -7159,7 +7159,7 @@ table.table-inbox tbody tr.checked {
 
 .error-page {
 	align-items: center;
-	background-color: rgba(244, 59, 72, 0.2);
+	background-color: #989c9e;
 	color: #1f1f1f;
 	display: flex;
 }

@@ -11,6 +11,12 @@ use Carbon\Carbon;
 class GeneratorqrController extends Controller
 {
     //
+    public function show(coderumed $coderumed)
+    {
+    
+        return view('zneManagement.generator_qr.allgeneratorqr', compact('coderumed'));
+ 
+    }
     /** save new testbowie */
     public function store(Request $request)
     {

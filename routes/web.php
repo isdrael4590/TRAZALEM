@@ -141,6 +141,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     //----------------------GENERADOR QR-------------------//
     Route::get("generatorqr-dashboard", GeneratorqrDashboard::class)->name("generator_qr")->middleware('auth');
+    
 
 
 
