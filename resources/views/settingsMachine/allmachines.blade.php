@@ -132,8 +132,7 @@
                                 <div class="col-sm-6">
                                     <label>Email Tecnico</label>
                                     <input class="form-control" type="text" id="" name="email"
-                                        value="{{ old('email') }}"
-                                        placeholder="Ingrese el email ">
+                                        value="{{ old('email') }}" placeholder="Ingrese el email ">
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Telefono del Tècnico</label>
@@ -146,8 +145,12 @@
                                 <div class="col-sm-6">
                                     <label>PAGINA WEB</label>
                                     <input class="form-control" type="text" id="" name="website_url"
-                                        value="{{ old('website_url') }}"
-                                        placeholder="Ingrese el website_url ">
+                                        value="{{ old('website_url') }}" placeholder="Ingrese el website_url ">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Foto del Equipo</label>
+                                    <input class="form-control" type="file" id="machine_image" name="machine_image">
+                                    <input type="hidden" name="machine_image" id="machine_image" value="">
                                 </div>
                                 <br>
                                 <!-- Motrar errores de validación si es que hay -->
@@ -177,8 +180,8 @@
 
 
 
- 
-    <!-- /Delete User Modal -->
+
+        <!-- /Delete User Modal -->
     </div>
     <!-- /Page Wrapper -->
 

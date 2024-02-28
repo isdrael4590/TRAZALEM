@@ -34,6 +34,8 @@ class MachineController extends Controller
             'email' => 'nullable|string|max:255',
             'mobile_number' => 'nullable|string|max:255',
             'website_url' => 'nullable|string|max:255',
+            'machine_image'=>'nullable|string|max:255',
+
         ]);
 
         $validated['user_id'] = auth()->id();
@@ -64,6 +66,7 @@ class MachineController extends Controller
             'email' => 'required|string|max:255',
             'mobile_number' => 'nullable|string|max:255',
             'website_url' => 'nullable|string|max:255',
+            'machine_image'=>'nullable|string|max:255',
         ]);
         $machine->update($validated);
 

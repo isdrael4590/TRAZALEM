@@ -21,5 +21,6 @@ class machine extends Model
         'email',
         'mobile_number',
         'website_url',
+        'machine_image',
     ];
 }

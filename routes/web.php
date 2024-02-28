@@ -8,6 +8,10 @@ use App\Http\Controllers\TestbowieDashboard;
 use App\Http\Controllers\GeneratorqrDashboard;
 use App\Http\Controllers\MachineController;
 use App\Http\Controllers\MachineDashboard;
+use App\Http\Controllers\InstitutionController;
+use App\Http\Controllers\InstitutionDashboard;
+use App\Http\Controllers\receptionrumedController;
+use App\Http\Controllers\receptionrumedDashboard;
 
 use App\Http\Controllers\PrinterController;
 use Illuminate\Support\Facades\Route;
@@ -131,12 +135,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::resource("coderumed", CodeRumedController::class)->only(['show']); // Show no necesita autenticacion
     Route::get("/coderumed-dashboard", CodeRumedDashboard::class)->name("coderumedManagement")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
 
-
+    // ----------------------------- RECEPCION DE INSTRUMENTAL RUMED  -------d-----------------------//   
+    Route::resource("receptionrumed", receptionrumedController::class)->except(['create', 'show', 'index'])->middleware('auth');
+    Route::resource("receptionrumed", receptionrumedController::class)->only(['show']);
+    Route::get("/receptionrumed-dashboard", receptionrumedDashboard::class)->name("ReceptionRumed/receptionrumed")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
 
     //----------------------TEST DE BOWIE-------------------//
     Route::resource("testbowie", testbowieController::class)->except(['create', 'show', 'index'])->middleware('auth');
     Route::resource("testbowie", testbowieController::class)->only(['show']);
-    Route::get("/testbowie-dashboard", TestbowieDashboard::class)->name("zneManagement/testbowie")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
+    Route::get("/testbowie-dashboard", TestbowieDashboard::class)->name("zneManagement/testbowie")->middleware('auth'); // 
     Route::resource("printertestbowie", PrinterController::class)->only(['show']);
 
     //----------------------GENERADOR QR-------------------//
@@ -156,6 +163,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::resource("machine", MachineController::class)->only(['show']);
     Route::get("/machine-dashboard", MachineDashboard::class)->name("settingsMachine/machine")->middleware('auth');
 
+   // llenado de informcion de la institucion
+   Route::resource("institution", InstitutionController::class)->except(['create', 'show', 'index'])->middleware('auth');
+   Route::resource("institution", InstitutionController::class)->only(['show']);
+   Route::get("/institution-dashboard", InstitutionDashboard::class)->name("SettingInstitution/institution")->middleware('auth');
 
     // ---------------------------- form employee ---------------------------//
     Route::controller(EmployeeController::class)->group(function () {

@@ -91,6 +91,11 @@
                                 <input class="form-control" type="text" id="" name="website_url"
                                 value="{{ $machine->website_url }}" placeholder="Ingrese el website_url ">
                             </div>
+                            <div class="col-sm-6">
+                                <label>Foto del Equipo</label>
+                                <input class="form-control" type="file" id="machine_image" name="machine_image">
+                                <input type="hidden" name="machine_image" id="machine_image" value="">
+                            </div>
                         </div>
 
                         <div class="submit-section">

@@ -14,6 +14,7 @@
                 <th>Correo</th>
                 <th>Telefono</th>
                 <th>Pagina web</th>
+                <th>Imagen</th>
                 <th>Accion</th>
             </tr>
         </thead>
@@ -57,6 +58,9 @@
                     </td>
                     <td>
                         <span class="website_url"> {{ $Machine->website_url}} </span>
+                    </td>
+                    <td>
+                        <span class="machine_image"> {{ $Machine->machine_image}} </span>
                     </td>
                     <td>
                         <div class="dropdown dropdown-action">

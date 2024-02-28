@@ -11,21 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('machines', function (Blueprint $table) {
+        Schema::create('institutions', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('machine_id');
-            $table->string('machine_model');
-            $table->string('serial');
-            $table->string('capacity');
-            $table->string('manufacture_name');
-            $table->string('manufacture_country')->nullable();
-            $table->string('supplier')->nullable();
-            $table->string('field_engineer')->nullable();
+            $table->string('company_name');
+            $table->string('company_area');
+            $table->string('address');
+            $table->string('country');
+            $table->string('city');
+            $table->string('state_province')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->string('contact_person')->nullable();
             $table->string('email')->nullable();
+            $table->string('phone_number')->nullable();
             $table->string('mobile_number')->nullable();
-            $table->string('website_url')->nullable();
-            $table->string('machine_image');
             $table->timestamps();
         });
     }
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('machines');
+        Schema::dropIfExists('institutions');
     }
 };

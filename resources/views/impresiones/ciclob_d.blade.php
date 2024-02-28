@@ -10,8 +10,13 @@
 <body>
     <div class="control-bar">
         <div class="container">
+  
             <div class="row">
+               
                 <div class="col-2-4">
+                    <div class="col-4 text-right">
+                        <a href="{{ route('zneManagement/testbowie') }}">RETORNAR</a>
+                    </div>
                     <div class="slogan">REPORTE TEST DE BOWIE AND DICK </div>
 
 
@@ -36,7 +41,7 @@
                     </div><!--.logoholder-->
                 </td>
                 <td class="text-center">
-                    <h1>HOSPITAL DE LAS FUERZAS ARMADAS HE-1</h1>
+                    <h1>HOSPITAL DE ESPECIALIDADES DE LAS FUERZAS ARMADA HE-2</h1>
                 </td>
             </tr>
             <tr>
@@ -72,8 +77,8 @@
 
         <div class="col-2 text-right details">
             <p>
-                Fecha Elaboración: <span>{{ $testbowie->lote_machine }} </span><br>
-                Temperatura Ambiental: <span>{{ $testbowie->lote_machine }} </span>
+                Fecha Elaboración: <span>{{ $testbowie->date_done_bd }} </span><br>
+                Temperatura Ambiental: <span>{{ $testbowie->temp_ambiente }} </span>
             </p>
         </div><!--.col-->
 

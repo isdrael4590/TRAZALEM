@@ -12,7 +12,7 @@
                     <div class="page-header">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h3 class="page-title">Configuracion Institucion</h3>
+                                <h3 class="page-title">Configuracion institution</h3>
                             </div>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Nombre de la Institucion <span class="text-danger">*</span></label>
+                                    <label>Nombre de la institution <span class="text-danger">*</span></label>
                                     @if (!empty($companySettings->company_name))
                                     <input class="form-control" type="text" name="company_name" value="{{ $companySettings->company_name }}">
                                     @else

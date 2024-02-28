@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\testbowieActivityLog;
 
-use App\Models\temporal_rumed;
+
 use Illuminate\Http\Request;
 use App\Models\testbowie;
 use Brian2694\Toastr\Facades\Toastr;
@@ -27,15 +27,13 @@ class testbowieController extends Controller
     {
         $validated = $request->validate([
             'machine_id' => 'required|string|max:255',
-            'machine_model' => 'required|string|max:255',
-            'capacity'=> 'required|string|max:255',
-            'manufacture_name' => 'required|string|max:255',
-            'manufacture_country' => 'required|string|max:255',
-            'supplier'=> 'required|string|max:255',
-            'field_services' => 'required|string|max:255',
-            'email' => 'nullable|string|max:255',
-            'mobile_number' => 'nullable|string|max:255',
-            'website_url' => 'nullable|string|max:255',
+            'lote_machine' => 'required|string|max:255',
+            'temp_machine'=> 'required|string|max:255',
+            'lote_bd' => 'required|string|max:255',
+            'validation_bd' => 'required|string|max:255',
+            'temp_ambiente'=> 'required|string|max:255',
+            'operator' => 'required|string|max:255',
+            'observation' => 'nullable|string|max:255',
         ]);
         $dt = Carbon::now();
         $todayDate = $dt->toDateString();
@@ -99,7 +97,7 @@ class testbowieController extends Controller
         ]);
         
         Toastr::success('Test actualizado', 'Satisfactorio');
-        return redirect()->route('zneManagement/testbowie');
+        return redirect()->route('zneManagement');
 
     }
 
@@ -115,52 +113,16 @@ class testbowieController extends Controller
         {
             $testbowie->delete();
             Toastr::success($testbowie->lote_bd . ' borrado exitosamente', 'Éxito');
-            return redirect()->route('zneManagement/testbowie');
+            return redirect()->route('zneManagement');
         }
 
 
 
 
-    /**------------------------------------------------------ 
+    /**------------------------------------------------------ */
 
 
-    public function allgeneratorlabel()
-    {
-
-        return view(('zneManagement.allgeneratorlabel'));
-    }
-
-
-    public function SelectCoderumed()
-    {
-        $coderumedselect = DB::table('coderumed')->get();
-        $temporarycoderumed = DB::table('temporary_code_prev_qr')->get();
-        return view('zneManagement.allgeneratorlabel', compact('coderumedselect', 'temporarycoderumed'));
-    }
-
-    public function TemporarySelecRumed(Request $request_temp_rumed)
-    {
-        $request_temp_rumed->validate([
-            'coderumed_id' => 'required|string|max:255',
-            'name_coderumed' => 'required|string|max:255',
-        ]);
-        DB::beginTransaction();
-        try {
-            $temporal_rumed = new temporal_rumed;
-
-            $temporal_rumed->coderumed_id = $request_temp_rumed->coderumed_id;
-            $temporal_rumed->name_coderumed = $request_temp_rumed->name_coderumed;
-            $temporal_rumed->save();
-            DB::commit();
-            Toastr::success('CODIGO INSERTADO', 'EXITOSO');
-            return redirect()->route('zneManagement.allgeneratorlabel');
-        } catch (\Exception $e) {
-            DB::rollback();
-            Toastr::error('FALLO EL INGRESAR EL CODIGO:)', 'Error');
-            return redirect()->back();
-        }
-    }
-    **/
+   
 
 
 }
