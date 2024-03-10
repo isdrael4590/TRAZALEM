@@ -2,6 +2,7 @@
     <table class="table table-striped custom-table" id="testbowieDataList" style="width: 100%">
         <thead>
             <tr>
+                <th>Descarga</th>
                 <th>No</th>
                 <th>Equipo</th>
                 <th>Lote Equipo</th>
@@ -18,6 +19,13 @@
         <tbody>
             @foreach ($testbowies as $testbowie)
                 <tr class="odd">
+                    <td>
+                        <div>
+                            <a class="btn-sm"href="{{ route('printertestbowie.show', $testbowie->id) }}">
+                                <i class="fa fa-print rm-1"></i>
+
+                        </div>
+                    </td>
                     <td>
                         <a class="id">
                             {{ $testbowie->id }} </span>
@@ -74,11 +82,7 @@
                                     </button>
                                 </form>
                             </div>
-                            <div>
-                                <a class="dropdown-item"href="{{ route('printertestbowie.show', $testbowie->id) }}">
-                                    <i class="la la-print"></i>
-
-                            </div>
+                            
                         </div>
                     </td>
                 </tr>

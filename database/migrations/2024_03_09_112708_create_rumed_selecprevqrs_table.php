@@ -9,12 +9,14 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('temporary_code_prev_qr', function (Blueprint $table) {
-            $table->id();
-            $table->string('coderumed_id');
+        Schema::create('rumed_selecprevqrs', function (Blueprint $table) {
+            $table->id()->autoIncrement();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('name_coderumed');
+            $table->string('coderumed_id');
+            $table->string('package_wrap');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('temporary_code_prev_qr');
+        Schema::dropIfExists('rumed_selecprevqrs');
     }
 };

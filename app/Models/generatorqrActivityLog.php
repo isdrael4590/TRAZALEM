@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Generatorqr extends Model
+class generatorqrActivityLog extends Model
 {
     use HasFactory;
     protected $fillable =[
         'user_id',
+        'generatorqr_id',
         'ref_qr',
         'qr_info',
         'coderumed_id',
@@ -19,12 +20,15 @@ class Generatorqr extends Model
         'lote_biologic',
         'temp_machine',
         'type_program',
-        'package_type',
-        'datatime_cycle',
-        'validation_biologic',
         'temp_ambiente',
         'datatime_expiration',
         'operator',
+        'package_wrap',
         'observation',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

@@ -12,7 +12,7 @@
                         <h3 class="page-title">INSTITUCION</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Panel</a></li>
-                            <li class="breadcrumb-item active">iNFORMATIVO</li>
+                            <li class="breadcrumb-item active">INFORMATIVO</li>
                         </ul>
                     </div>
                     <div class="col-auto float-right ml-auto">

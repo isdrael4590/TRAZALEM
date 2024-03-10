@@ -61,6 +61,7 @@ class CodeRumedController extends Controller
     {
         // TODO: Añadir autorización
         return view("coderumedManagement.coderumed-edit", compact('coderumed'));
+       
     }
 
     /** Actualiza la entrada de codeRumed a editar*/
@@ -86,6 +87,7 @@ class CodeRumedController extends Controller
             "type" => "modify",
         ]);
         return redirect()->route('coderumedManagement');
+        
     }
     /** use activity log */
     public function activityLogcoderumed()

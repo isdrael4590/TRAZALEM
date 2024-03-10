@@ -34,15 +34,31 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">
-                                <label>NIVEL DE INFECCION</label>
-                                <input class="form-control" type="text" id="type_dirt" name="type_dirt"
-                                    value="{{ $receptionrumed->type_dirt }} "placeholder="">
+
+                            <div class="col-md-6">
+                                <label class="d-block">NIVEL DE INFECCION</label>
+                                <div class="form-group form-focus select-focus">
+                                    <select class="select floating" id="type_dirt" name="type_dirt">
+                                        <option selected disabled>{{ $receptionrumed->type_dirt }} </option>
+                                        <option value="NO CRITICO"> NO CRITICO</option>
+                                        <option value="SEMI-CRITICO"> SEMI-CRITICO</option>
+                                        <option value="CRITICO"> CRITICO</option>
+                                    </select>
+                                </div>
                             </div>
+
                             <div class="col-sm-6">
                                 <label>ESTADO DEL MATERIAL</label>
-                                <input class="form-control" type="text" id="state_rumed" name="state_rumed"
-                                    value="{{ $receptionrumed->state_rumed }} " placeholder="">
+
+                                <div class="form-group form-focus select-focus">
+                                    <select class="select floating" id="state_rumed" name="state_rumed">
+                                        <option selected disabled>{{ $receptionrumed->state_rumed }}</option>
+                                        <option value="BUENO"> BUENO</option>
+                                        <option value="REGULAR"> REGULAR</option>
+                                        <option value="MALO"> MALO</option>
+
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="row">

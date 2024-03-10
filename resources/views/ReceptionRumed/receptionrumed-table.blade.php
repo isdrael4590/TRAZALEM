@@ -2,6 +2,7 @@
     <table class="table table-striped custom-table" id="receptionrumedDataList" style="width: 100%">
         <thead>
             <tr>
+                <th>Descarga</th>
                 <th>No</th>
                 <th>CODIGO RUMED</th>
                 <th>Nombre RUMED</th>
@@ -12,22 +13,32 @@
                 <th>Estado de Recepcion</th>
                 <th>Detalles</th>
                 <th>Action</th>
+             
             </tr>
         </thead>
         <tbody>
             @foreach ($receptionrumeds as $receptionrumed)
                 <tr class="odd">
                     <td>
+                        <div>
+                            <a class="  btn-sm  " href="#">
+                                <i class="fa fa-print mr-1"> Imprimir</i>
+
+                        </div>
+                    </td>
+                    <td>
                         <a class="id">
                             {{ $receptionrumed->id }} </span>
                     </td>
                     <td>
-                        <a href="{{ route('receptionrumed.show', $receptionrumed->coderumed) }}" class="link-primary">
-                            {{ $receptionrumed->coderumed }} </a>
+                        <span class="coderumed"> {{ $receptionrumed->coderumed }} </span>
                     </td>
                     <td>
-                        <span class="name_coderumed"> {{ $receptionrumed->name_coderumed }} </span>
+                        <a href="{{ route('receptionrumed.show', $receptionrumed->name_coderumed) }}" class="link-primary">
+                            {{ $receptionrumed->name_coderumed }} </a>
                     </td>
+                    
+                   
                     <td class="sorting_1">
                         <span class="date_reception"> {{ $receptionrumed->created_at }} </span>
                     </td>
@@ -68,13 +79,10 @@
                                     </button>
                                 </form>
                             </div>
-                            <div>
-                                <a class="dropdown-item"href="#">
-                                    <i class="la la-print"></i>
-
-                            </div>
+                            
                         </div>
                     </td>
+                    
                 </tr>
             @endforeach
         </tbody>

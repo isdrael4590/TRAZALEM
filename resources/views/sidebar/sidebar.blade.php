@@ -19,17 +19,11 @@
                     </ul>
                 </li>
 
-
-
-
-
-
                 <li>---------////////////////////////---------</li>
 
 
                 <li class="menu-title"> <span>ZONA DE SUCIA</span> </li>
-                <li
-                    class="{{ set_active(['ReceptionRumed/all/receptionrumed', 'ReceptionRumed']) }}submenu">
+                <li class="{{ set_active(['ReceptionRumed/all/receptionrumed', 'ReceptionRumed']) }}submenu">
                     <a href="#">
                         <i class="la la-check-circle"></i>
                         <span> Recepcion </span>
@@ -37,7 +31,7 @@
                     </a>
                     <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }} ">
                         <li><a class="{{ Request::is('ReceptionRumed' ? 'active' : '') }}"
-                                href="{{ route('ReceptionRumed/receptionrumed') }}">Ingreso RUMED</a></li>
+                                href="{{ route('ReceptionRumed') }}">Ingreso RUMED</a></li>
 
 
                     </ul>
@@ -56,8 +50,7 @@
                 <li>---------////////////////////////---------</li>
                 <li></li>
                 <li class="menu-title"> <span>ZONA NO ESTERIL</span> </li>
-                <li
-                    class="{{ set_active(['zneManagement/all/testbowie', 'zneManagement', 'zneManagement/all/generatorqr']) }}  submenu">
+                <li class="{{ set_active(['zneManagement/all/testbowie', 'zneManagement', 'zneManagement/all/generatorqr','zneManagement/creategeneratorqr']) }}  submenu">
                     <a href=" ">
                         <i class="la la-edit"></i>
                         <span> Equipos Vapor</span>
@@ -68,10 +61,15 @@
 
                         <li><a class="{{ Request::is('zneManagement' ? 'active' : '') }}"
                                 href="{{ route('zneManagement/testbowie') }}">Prueba de BOWIE & DICK </a></li>
-                        <!-- TODO: Cambiar a la ruta adeciada-->
+
                         <li><a class="{{ Request::is('zneManagement' ? 'active' : '') }}"
-                                href="{{ route('generator_qr') }}"> GENERADOR DE QR 
-                                </a></li>
+                                href="{{ route('zneManagement/generatorqr') }}"> GENERADOR DE QR
+                            </a>
+                        </li>
+                        <li><a class="{{ Request::is('zneManagement' ? 'active' : '') }}"
+                                href="{{ route('zneManagement/Reportref_qr') }}"> Reporte de Etiquetas
+                            </a>
+                        </li>
 
 
                     </ul>
@@ -86,7 +84,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul style="display: none;">
-                        <li><a href="#">Validar Biologico</a></li>
+                        <li><a class="la la-check" href="#"> Validar Biologico</a></li>
 
 
                     </ul>
@@ -101,6 +99,19 @@
                         <li><a href="#">Stock Esteril</a></li>
 
 
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#">
+                        <i class="la la-paper-plane"></i>
+                        <span> Despacho</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul style="display: none;">
+                        <li><a href="#">Entrega Instrumental</a></li>
+                    </ul>
+                    <ul style="display: none;">
+                        <li><a href="#"> Instrumental Despachado</a></li>
                     </ul>
                 </li>
                 <li>---------////////////////////////---------</li>
@@ -176,6 +187,18 @@
 
 
 
+
+                        </ul>
+                    </li>
+                    <li class="menu-title"> <span>INSUMOS </span> </li>
+                    <li
+                        class="{{ set_active(['coderumedManagement/all/coderumedcontrol', 'coderumedManagement', 'coderumed/activity/log']) }} submenu">
+                        <a href="#">
+                            <i class="la la-files-o"></i> <span> REGISTRAR</span> <span class="menu-arrow"></span>
+                        </a>
+                        <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }}">
+                            <li><a class="{{ set_active(['coderumedManagement/all/coderumedcontrol', 'coderumedManagement']) }}"
+                                    href="{{ route('coderumedManagement') }}">Base de datos Insumos </a></li>
 
                         </ul>
                     </li>

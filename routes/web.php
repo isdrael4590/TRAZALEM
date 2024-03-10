@@ -2,18 +2,25 @@
 
 use App\Http\Controllers\CodeRumedController;
 use App\Http\Controllers\CodeRumedDashboard;
-use App\Http\Controllers\GeneratorqrController;
+use App\Http\Controllers\generatorqrController;
+use App\Http\Controllers\Reportref_qrController;
+use App\Http\Controllers\Reportref_qrDashboard;
 use App\Http\Controllers\testbowieController;
 use App\Http\Controllers\TestbowieDashboard;
-use App\Http\Controllers\GeneratorqrDashboard;
+use App\Http\Controllers\generatorqrDashboard;
 use App\Http\Controllers\MachineController;
 use App\Http\Controllers\MachineDashboard;
 use App\Http\Controllers\InstitutionController;
 use App\Http\Controllers\InstitutionDashboard;
 use App\Http\Controllers\receptionrumedController;
 use App\Http\Controllers\receptionrumedDashboard;
+use App\Http\Controllers\PersonalInformationController;
+use App\Http\Controllers\rumedSelecprevqrDashboard;
+
+
 
 use App\Http\Controllers\PrinterController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -138,7 +145,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // ----------------------------- RECEPCION DE INSTRUMENTAL RUMED  -------d-----------------------//   
     Route::resource("receptionrumed", receptionrumedController::class)->except(['create', 'show', 'index'])->middleware('auth');
     Route::resource("receptionrumed", receptionrumedController::class)->only(['show']);
-    Route::get("/receptionrumed-dashboard", receptionrumedDashboard::class)->name("ReceptionRumed/receptionrumed")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
+    Route::get("/receptionrumed-dashboard", receptionrumedDashboard::class)->name("ReceptionRumed")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
 
     //----------------------TEST DE BOWIE-------------------//
     Route::resource("testbowie", testbowieController::class)->except(['create', 'show', 'index'])->middleware('auth');
@@ -147,14 +154,21 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::resource("printertestbowie", PrinterController::class)->only(['show']);
 
     //----------------------GENERADOR QR-------------------//
-    Route::get("generatorqr-dashboard", GeneratorqrDashboard::class)->name("generator_qr")->middleware('auth');
-    
-
-
-
     // Solo muestra el dashboard, filtra y nada más
-    Route::resource("generatorqr", GeneratorqrController::class)->except(['create', 'show', 'index'])->middleware('auth');
-    Route::resource("generatorqr", GeneratorqrController::class)->only(['show']);
+
+    Route::get("Generatorqr-dashboard", generatorqrDashboard::class)->name("zneManagement/generatorqr")->middleware('auth');
+    // generar paquetes previos al qr
+
+
+    Route::resource("generatorqr", rumedSelecprevqrDashboard::class)->except(['create', 'show', 'index'])->middleware('auth');
+    Route::resource("generatorqr", rumedSelecprevqrDashboard::class)->only(['show']);
+    Route::get("generateqr-dashboard", rumedSelecprevqrDashboard::class)->name("creategenerateqr/page")->middleware('auth');
+
+
+
+    Route::resource("Reportref_qr", Reportref_qrController::class)->except(['create', 'show', 'index'])->middleware('auth');
+    Route::resource("Reportref_qr", Reportref_qrController::class)->only(['show']);
+    Route::get("Reportref_qr-dashboard", Reportref_qrDashboard::class)->name("zneManagement/Reportref_qr")->middleware('auth');
 
 
     // selecionar los equipos y modelos
@@ -163,10 +177,18 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::resource("machine", MachineController::class)->only(['show']);
     Route::get("/machine-dashboard", MachineDashboard::class)->name("settingsMachine/machine")->middleware('auth');
 
-   // llenado de informcion de la institucion
-   Route::resource("institution", InstitutionController::class)->except(['create', 'show', 'index'])->middleware('auth');
-   Route::resource("institution", InstitutionController::class)->only(['show']);
-   Route::get("/institution-dashboard", InstitutionDashboard::class)->name("SettingInstitution/institution")->middleware('auth');
+    // llenado de informcion de la institucion
+    Route::resource("institution", InstitutionController::class)->except(['create', 'show', 'index'])->middleware('auth');
+    Route::resource("institution", InstitutionController::class)->only(['show']);
+    Route::get("/institution-dashboard", InstitutionDashboard::class)->name("SettingInstitution/institution")->middleware('auth');
+
+
+
+
+
+
+
+
 
     // ---------------------------- form employee ---------------------------//
     Route::controller(EmployeeController::class)->group(function () {
@@ -204,6 +226,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::controller(EmployeeController::class)->group(function () {
         Route::get('employee/profile/{user_id}', 'profileEmployee')->middleware('auth');
     });
-
-
+    Route::controller(PersonalInformationController::class)->group(function () {
+        Route::post('user/information/save', 'saveRecord')->middleware('auth')->name('user/information/save');
+    });
 });

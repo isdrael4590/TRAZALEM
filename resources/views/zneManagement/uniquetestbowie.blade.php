@@ -48,11 +48,11 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <strong>Temperatura del Esterilizador</strong>
-                        <span> {{ $testbowie->operator }} </span>
+                        <span> {{ $testbowie->temp_machine }} </span>
                     </div>
                     <div class="col-sm-12">
                         <strong>Temperatura del Ambiente</strong>
-                        <span> {{ $testbowie->observation }} </span>
+                        <span> {{ $testbowie->temp_ambiente }} </span>
                     </div>
                 </div>
                 <div class="row">

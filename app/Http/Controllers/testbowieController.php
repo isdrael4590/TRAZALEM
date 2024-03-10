@@ -97,7 +97,7 @@ class testbowieController extends Controller
         ]);
         
         Toastr::success('Test actualizado', 'Satisfactorio');
-        return redirect()->route('zneManagement');
+        return redirect()->route('zneManagement/testbowie');
 
     }
 

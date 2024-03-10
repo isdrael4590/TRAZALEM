@@ -8,10 +8,10 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="page-title">Registro de actividad del TEST BOWIE</h3>
+                        <h3 class="page-title">Registro de actividad del INGRESO INSTRUMENTAL</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Panel</a></li>
-                            <li class="breadcrumb-item active">Registro de cambios en Base de TEST BOWIE</li>
+                            <li class="breadcrumb-item active">Registro de cambios en Base del INGRESO INSTRUMENTAL </li>
                         </ul>
                     </div>
                 </div>
@@ -19,51 +19,57 @@
 			<!-- /Page Header -->
         {{-- message --}}
         {!! Toastr::message() !!}
-        <h1>Detalles del Lote de TEST DE BOWIE</h1>
+        <h1>Detalles del Lote de INGRESO INSTRUMENTAL</h1>
         <!-- /Page Header -->
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-sm-6">
-                        <strong>Identificacion del Equipo--</strong>
-                        <span> {{ $testbowie->machine_id }} </span>
+                        <strong>Identificacion del Instrumental--</strong>
+                        <span> {{ $receptionrumed->coderumed }} </span>
                     </div>
                     <div class="col-sm-6">
-                        <strong>Lote del Ciclo del Equipo/strong>
-                        <span> {{ $testbowie->lote_machine }} </span>
+                        <strong>Nombre del Instrumental</strong>
+                        <span> {{ $receptionrumed->name_coderumed }} </span>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <strong>Lote del insumo B&D</strong>
-                        <span> {{ $testbowie->lote_bd }} </span>
+                        <strong>Fecha de Recepcion</strong>
+                        <span> {{ $receptionrumed->created_at }} </span>
                     </div>
 
                     <div class="col-sm-6">
-                        <strong>Validacion del Ciclo</strong>
-                        <span> {{ $testbowie->validation_bd }} </span>
+                        <strong>Operador</strong>
+                        <span> {{ $receptionrumed->operator }} </span>
                     </div>
                 </div>
                 <div class="row">
+                    
                     <div class="col-sm-12">
-                        <strong>Temperatura del Esterilizador</strong>
-                        <span> {{ $testbowie->operator }} </span>
+                        <strong>Persona de entrega</strong>
+                        <span> {{ $receptionrumed->delivery_staff }} </span>
                     </div>
                     <div class="col-sm-12">
-                        <strong>Temperatura del Ambiente</strong>
-                        <span> {{ $testbowie->observation }} </span>
+                        <strong>Tipo de Contaminacion</strong>
+                        <span> {{ $receptionrumed->type_dirt }} </span>
                     </div>
                 </div>
                 <div class="row">
+                  
                     <div class="col-sm-12">
-                        <strong>Elaborado por</strong>
-                        <span> {{ $testbowie->operator }} </span>
+                        <strong>Estado del Instrumental</strong>
+                        <span> {{ $receptionrumed->state_rumed }} </span>
                     </div>
                     <div class="col-sm-12">
                         <strong>Observaciones</strong>
-                        <span> {{ $testbowie->observation }} </span>
+                        <span> {{ $receptionrumed->observation }} </span>
                     </div>
+                </div>
+                <div class="row">
+                 
+                    
                 </div>
             </div>
         </div>
@@ -71,11 +77,13 @@
 
         @if (Auth::user()->role_name == 'Admin' || Auth::user()->role_name == 'Super Admin')
             <h1>Historial Versiones</h1>
-            @foreach ($testbowie->history as $history)
+            @foreach ($receptionrumed->history as $history)
                 <p>
-                    <strong>ID:</strong> {{ $history->id }} <strong>Equipo:</strong> {{ $history->machine_id }},
-                    <strong>Lote de equipo:</strong>: {{ $history->lote_machine }}, <strong>Lote de Insumo:</strong>: {{ $history->lote_bd }},
-                    <strong>Validacion:</strong>: {{ $history->validation_bd }},
+                    <strong>ID:</strong> {{ $history->id }} <strong>Codigo de Instrumental:</strong> {{ $history->coderumed }},
+                    <strong>Descripcion de instrumental:</strong>: {{ $history->name_coderumed }}, 
+                    <strong>Fecha de Recepcion:</strong>: {{ $history->created_at }},
+                    <strong>Operador:</strong>: {{ $history->operator }},
+                    <strong>Persona de entrega:</strong>: {{ $history->delivery_staff }},
                     <strong>Observaciones:</strong>: {{ $history->observation }}, <strong>Modificado por:</strong>
                     <!--TODO: Redigir adecuadamente al perfil del usuario  -->
                     <a href="{{ route('userManagement', $history->user->id) }}"> {{ $history->user->name }} </a>

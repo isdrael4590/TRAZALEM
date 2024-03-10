@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\coderumed;
 use App\Models\receptionrumedActivityLog;
 
 use Illuminate\Http\Request;
 use App\Models\receptionrumed;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\DB;
+
+
 use Carbon\Carbon;
 
 class receptionrumedController extends Controller
@@ -89,7 +92,7 @@ class receptionrumedController extends Controller
         ]);
 
         Toastr::success('Ingreso actualizado actualizado', 'Satisfactorio');
-        return redirect()->route('ReceptionRumed');
+        return redirect()->route('ReceptionRumed.allreceptionrumed');
 
     }
 

@@ -46,10 +46,13 @@
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-2">
-                            <div class="form-group">
+                            <div class="form-group form-focus">
+                                <div class="cal-icon">
+                                    <input id="created_at" name="created_at" class="form-control floating datetimepicker" type="text">
+                                </div>
 
-                                
-                                <label class="focus-label">Fecha de Test</label>
+                                <label class="focus-label">Fecha</label>
+
                             </div>
                         </div>
 
