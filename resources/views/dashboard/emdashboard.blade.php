@@ -6,13 +6,11 @@
         $second = date ("s");
         $msg = " Today is " . date ("l, M. d, Y.");
 
-        if ($hour == 00 && $hour <= 9 && $minute <= 59 && $second <= 59) {
+        if ($hour == 00 && $hour <= 11 && $minute <= 59 && $second <= 59) {
             $greet = "Buenos dias,";
-        } else if ($hour >= 10 && $hour <= 11 && $minute <= 59 && $second <= 59) {
-            $greet = "Buen dia,";
-        } else if ($hour >= 12 && $hour <= 15 && $minute <= 59 && $second <= 59) {
+        } else if ($hour >= 12 && $hour <= 17 && $minute <= 59 && $second <= 59) {
             $greet = "Buenas Tardes,";
-        } else if ($hour >= 16 && $hour <= 23 && $minute <= 59 && $second <= 59) {
+        } else if ($hour >= 18 && $hour <= 23 && $minute <= 59 && $second <= 59) {
             $greet = "Buenas noches,";
         } else {
             $greet = "Bienvenido,";

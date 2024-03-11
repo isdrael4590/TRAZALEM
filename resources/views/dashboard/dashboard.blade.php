@@ -1,23 +1,21 @@
 @extends('layouts.master')
 @section('content')
-        <?php  
-        $hour   = date ("G");
-        $minute = date ("i");
-        $second = date ("s");
-        $msg = " Today is " . date ("l, M. d, Y.");
-
-        if ($hour == 00 && $hour <= 9 && $minute <= 59 && $second <= 59) {
-            $greet = "Buenos dias,";
-        } else if ($hour >= 10 && $hour <= 11 && $minute <= 59 && $second <= 59) {
-            $greet = "Buen dia,";
-        } else if ($hour >= 12 && $hour <= 15 && $minute <= 59 && $second <= 59) {
-            $greet = "Buenas Tardes,";
-        } else if ($hour >= 16 && $hour <= 23 && $minute <= 59 && $second <= 59) {
-            $greet = "Buenas noches,";
-        } else {
-            $greet = "Bienvenido,";
-        }
-        ?>
+    <?php
+    $hour = date('G');
+    $minute = date('i');
+    $second = date('s');
+    $msg = ' Today is ' . date('l, M. d, Y.');
+    
+    if ($hour == 00 && $hour <= 11 && $minute <= 59 && $second <= 59) {
+        $greet = 'Buenos dias,';
+    } elseif ($hour >= 12 && $hour <= 17 && $minute <= 59 && $second <= 59) {
+        $greet = 'Buenas Tardes,';
+    } elseif ($hour >= 18 && $hour <= 23 && $minute <= 59 && $second <= 59) {
+        $greet = 'Buenas noches,';
+    } else {
+        $greet = 'Bienvenido,';
+    }
+    ?>
     <div class="page-wrapper">
         <!-- Page Content -->
         <div class="content container-fluid">
@@ -25,7 +23,7 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">{{ $greet }} Bienvenido, {{ Session::get('name') }}!</h3>
+                        <h3 class="page-title">{{ $greet }}{{ Session::get('name') }}!</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item active">Panel Principal</li>
                         </ul>
@@ -34,38 +32,133 @@
             </div>
             <!-- /Page Header -->
             <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2>EQUIPOS VAPOR <img src="{{ URL::to('assets/img/logos_equipos/LOGO-STEAM.png') }}"
+                                            height="100"> </h2>
+                                    <h3>LOTE ACTUAL : </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2>EQUIPOS BAJA TEMPERATURA <img
+                                            src="{{ URL::to('assets/img/logos_equipos/130HPO.png') }}" height="60"></h2>
+                                    <h3>LOTE ACTUAL : </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                     <div class="card dash-widget">
+                        <h3 class="text-center">NUMERO DE TEST DE BOWIE </h3>
                         <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
                             <div class="dash-widget-info">
-                                <h3>112</h3> <span>Projects</span>
+                                <h3>112</h3>
+                                <h1><img src="{{ URL::to('assets/img/logos_equipos/logo_matachana.png') }}" height="20">
+                                    1</h1>
+                            </div>
+                        </div>
+
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
+                            <div class="dash-widget-info">
+                                <h3>1112</h3>
+                                <h1><img src="{{ URL::to('assets/img/logos_equipos/logo_matachana.png') }}" height="20">
+                                    2</h1>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+
                     <div class="card dash-widget">
+                        <h3 class="text-center">NUMERO DE CICLOS </h3>
                         <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
                             <div class="dash-widget-info">
-                                <h3>44</h3> <span>Clients</span>
+                                <h3>1112</h3>
+                                <h1><img src="{{ URL::to('assets/img/logos_equipos/logo_matachana.png') }}" height="20">
+                                    1</h1>
+                            </div>
+                        </div>
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
+                            <div class="dash-widget-info">
+                                <h3>1112</h3>
+                                <h1><img src="{{ URL::to('assets/img/logos_equipos/logo_matachana.png') }}" height="20">
+                                    2</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <div class="card dash-widget">
+                        <h3 class="text-center">NUMERO DE TEST DE VACIO </h3>
+
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
+                            <div class="dash-widget-info">
+                                <h3>1112</h3>
+                                <h2><img src="{{ URL::to('assets/img/logos_equipos/130HPO.png') }}" height="40"> </h2>
+                            </div>
+                        </div>
+
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-cubes"></i></span>
+                            <div class="dash-widget-info">
+                                <h3>1112</h3>
+                                <h2><img src="{{ URL::to('assets/img/logos_equipos/LOGO_130LF.png') }}" height="30"></h2>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+
                     <div class="card dash-widget">
-                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-diamond"></i></span>
+                        <h3 class="text-center">NUMERO DE CICLOS </h3>
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
                             <div class="dash-widget-info">
-                                <h3>37</h3> <span>Tasks</span>
+                                <h3>1112</h3>
+                                <h2><img src="{{ URL::to('assets/img/logos_equipos/130HPO.png') }}" height="40"> </h2>
+                            </div>
+                        </div>
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-usd"></i></span>
+                            <div class="dash-widget-info">
+                                <h3>1112</h3>
+                                <h2><img src="{{ URL::to('assets/img/logos_equipos/LOGO_130LF.png') }}" height="30">
+                                </h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-                    <div class="card dash-widget">
-                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-user"></i></span>
-                            <div class="dash-widget-info">
-                                <h3>218</h3> <span>Employees</span>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">Rendimiento de Funcionalidad <img
+                                            src="{{ URL::to('assets/img/logos_equipos/LOGO-STEAM.png') }}" height="100">
+                                    </h3>
+                                    <div id="bar-charts"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">PRODUCCION <img
+                                            src="{{ URL::to('assets/img/logos_equipos/LOGO-STEAM.png') }}" height="100">
+                                    </h3>
+                                    <div id="line-charts"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -77,80 +170,27 @@
                         <div class="col-md-6 text-center">
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="card-title">Total Revenue</h3>
-                                    <div id="bar-charts"></div>
+                                    <h3 class="card-title">Rendimiento de Incubacion <img
+                                            src="{{ URL::to('assets/img/logos_equipos/LOGO-STEAM.png') }}"
+                                            height="100"></h3>
+                                    <div id="bar-charts2"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 text-center">
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="card-title">Sales Overview</h3>
-                                    <div id="line-charts"></div>
+                                    <h3 class="card-title">Rendimiento de Incubacion <img
+                                            src="{{ URL::to('assets/img/logos_equipos/130HPO.png') }}" height="50">
+                                    </h3>
+                                    <div id="line-charts2"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card-group m-b-30">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div> <span class="d-block">New Employees</span> </div>
-                                    <div> <span class="text-success">+10%</span> </div>
-                                </div>
-                                <h3 class="mb-3">10</h3>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-0">Overall Employees 218</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div> <span class="d-block">Earnings</span> </div>
-                                    <div> <span class="text-success">+12.5%</span> </div>
-                                </div>
-                                <h3 class="mb-3">$1,42,300</h3>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-0">Previous Month <span class="text-muted">$1,15,852</span></p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div> <span class="d-block">Expenses</span> </div>
-                                    <div> <span class="text-danger">-2.8%</span> </div>
-                                </div>
-                                <h3 class="mb-3">$8,500</h3>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-0">Previous Month <span class="text-muted">$7,500</span></p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <div> <span class="d-block">Profit</span> </div>
-                                    <div> <span class="text-danger">-75%</span> </div>
-                                </div>
-                                <h3 class="mb-3">$1,12,000</h3>
-                                <div class="progress mb-2" style="height: 5px;">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-0">Previous Month <span class="text-muted">$1,42,000</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             {{-- message --}}
             {!! Toastr::message() !!}
             <!-- Statistics Widget -->
@@ -158,36 +198,41 @@
                 <div class="col-md-12 col-lg-12 col-xl-4 d-flex">
                     <div class="card flex-fill dash-statistics">
                         <div class="card-body">
-                            <h5 class="card-title">Statistics</h5>
+                            <h5 class="card-title">Estadisticas</h5>
                             <div class="stats-list">
                                 <div class="stats-info">
                                     <p>Today Leave <strong>4 <small>/ 65</small></strong></p>
                                     <div class="progress">
-                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 31%" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 31%"
+                                            aria-valuenow="31" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 <div class="stats-info">
                                     <p>Pending Invoice <strong>15 <small>/ 92</small></strong></p>
                                     <div class="progress">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 31%" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 31%"
+                                            aria-valuenow="31" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 <div class="stats-info">
                                     <p>Completed Projects <strong>85 <small>/ 112</small></strong></p>
                                     <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 62%" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 62%"
+                                            aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 <div class="stats-info">
                                     <p>Open Tickets <strong>190 <small>/ 212</small></strong></p>
                                     <div class="progress">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 62%" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 62%"
+                                            aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                                 <div class="stats-info">
                                     <p>Closed Tickets <strong>22 <small>/ 212</small></strong></p>
                                     <div class="progress">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 22%" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 22%"
+                                            aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
@@ -215,18 +260,28 @@
                                 </div>
                             </div>
                             <div class="progress mb-4">
-                                <div class="progress-bar bg-purple" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 22%" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100">22%</div>
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 24%" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100">24%</div>
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 26%" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100">21%</div>
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100">10%</div>
+                                <div class="progress-bar bg-purple" role="progressbar" style="width: 30%"
+                                    aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 22%"
+                                    aria-valuenow="18" aria-valuemin="0" aria-valuemax="100">22%</div>
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 24%"
+                                    aria-valuenow="12" aria-valuemin="0" aria-valuemax="100">24%</div>
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 26%"
+                                    aria-valuenow="14" aria-valuemin="0" aria-valuemax="100">21%</div>
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 10%"
+                                    aria-valuenow="14" aria-valuemin="0" aria-valuemax="100">10%</div>
                             </div>
                             <div>
-                                <p><i class="fa fa-dot-circle-o text-purple mr-2"></i>Completed Tasks <span class="float-right">166</span></p>
-                                <p><i class="fa fa-dot-circle-o text-warning mr-2"></i>Inprogress Tasks <span class="float-right">115</span></p>
-                                <p><i class="fa fa-dot-circle-o text-success mr-2"></i>On Hold Tasks <span class="float-right">31</span></p>
-                                <p><i class="fa fa-dot-circle-o text-danger mr-2"></i>Pending Tasks <span class="float-right">47</span></p>
-                                <p class="mb-0"><i class="fa fa-dot-circle-o text-info mr-2"></i>Review Tasks <span class="float-right">5</span></p>
+                                <p><i class="fa fa-dot-circle-o text-purple mr-2"></i>Completed Tasks <span
+                                        class="float-right">166</span></p>
+                                <p><i class="fa fa-dot-circle-o text-warning mr-2"></i>Inprogress Tasks <span
+                                        class="float-right">115</span></p>
+                                <p><i class="fa fa-dot-circle-o text-success mr-2"></i>On Hold Tasks <span
+                                        class="float-right">31</span></p>
+                                <p><i class="fa fa-dot-circle-o text-danger mr-2"></i>Pending Tasks <span
+                                        class="float-right">47</span></p>
+                                <p class="mb-0"><i class="fa fa-dot-circle-o text-info mr-2"></i>Review Tasks <span
+                                        class="float-right">5</span></p>
                             </div>
                         </div>
                     </div>
@@ -237,31 +292,40 @@
                             <h4 class="card-title">Today Absent <span class="badge bg-inverse-danger ml-2">5</span></h4>
                             <div class="leave-info-box">
                                 <div class="media align-items-center">
-                                    <a href="profile.html" class="avatar"><img alt="" src="assets/img/user.jpg"></a>
+                                    <a href="profile.html" class="avatar"><img alt=""
+                                            src="assets/img/user.jpg"></a>
                                     <div class="media-body">
                                         <div class="text-sm my-0">Martin Lewis</div>
                                     </div>
                                 </div>
                                 <div class="row align-items-center mt-3">
                                     <div class="col-6">
-                                        <h6 class="mb-0">4 Sep 2019</h6> <span class="text-sm text-muted">Leave Date</span> </div>
-                                    <div class="col-6 text-right"> <span class="badge bg-inverse-danger">Pending</span> </div>
+                                        <h6 class="mb-0">4 Sep 2019</h6> <span class="text-sm text-muted">Leave
+                                            Date</span>
+                                    </div>
+                                    <div class="col-6 text-right"> <span class="badge bg-inverse-danger">Pending</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="leave-info-box">
                                 <div class="media align-items-center">
-                                    <a href="profile.html" class="avatar"><img alt="" src="assets/img/user.jpg"></a>
+                                    <a href="profile.html" class="avatar"><img alt=""
+                                            src="assets/img/user.jpg"></a>
                                     <div class="media-body">
                                         <div class="text-sm my-0">Martin Lewis</div>
                                     </div>
                                 </div>
                                 <div class="row align-items-center mt-3">
                                     <div class="col-6">
-                                        <h6 class="mb-0">4 Sep 2019</h6> <span class="text-sm text-muted">Leave Date</span> </div>
-                                    <div class="col-6 text-right"> <span class="badge bg-inverse-success">Approved</span> </div>
+                                        <h6 class="mb-0">4 Sep 2019</h6> <span class="text-sm text-muted">Leave
+                                            Date</span>
+                                    </div>
+                                    <div class="col-6 text-right"> <span class="badge bg-inverse-success">Approved</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="load-more text-center"> <a class="text-dark" href="javascript:void(0);">Load More</a> </div>
+                            <div class="load-more text-center"> <a class="text-dark" href="javascript:void(0);">Load
+                                    More</a> </div>
                         </div>
                     </div>
                 </div>
@@ -271,7 +335,8 @@
                 <div class="col-md-6 d-flex">
                     <div class="card card-table flex-fill">
                         <div class="card-header">
-                            <h3 class="card-title mb-0">Invoices</h3> </div>
+                            <h3 class="card-title mb-0">Invoices</h3>
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-nowrap custom-table mb-0">
@@ -298,7 +363,8 @@
                                         <tr>
                                             <td><a href="invoice-view.html">#INV-0002</a></td>
                                             <td>
-                                                <h2><a href="#">Delta Infotech</a></h2> </td>
+                                                <h2><a href="#">Delta Infotech</a></h2>
+                                            </td>
                                             <td>8 Feb 2019</td>
                                             <td>$500</td>
                                             <td>
@@ -308,7 +374,8 @@
                                         <tr>
                                             <td><a href="invoice-view.html">#INV-0003</a></td>
                                             <td>
-                                                <h2><a href="#">Cream Inc</a></h2> </td>
+                                                <h2><a href="#">Cream Inc</a></h2>
+                                            </td>
                                             <td>23 Jan 2019</td>
                                             <td>$60</td>
                                             <td>
@@ -345,7 +412,8 @@
                                         <tr>
                                             <td><a href="invoice-view.html">#INV-0001</a></td>
                                             <td>
-                                                <h2><a href="#">Global Technologies</a></h2> </td>
+                                                <h2><a href="#">Global Technologies</a></h2>
+                                            </td>
                                             <td>Paypal</td>
                                             <td>11 Mar 2019</td>
                                             <td>$380</td>
@@ -353,7 +421,8 @@
                                         <tr>
                                             <td><a href="invoice-view.html">#INV-0002</a></td>
                                             <td>
-                                                <h2><a href="#">Delta Infotech</a></h2> </td>
+                                                <h2><a href="#">Delta Infotech</a></h2>
+                                            </td>
                                             <td>Paypal</td>
                                             <td>8 Feb 2019</td>
                                             <td>$500</td>
@@ -361,7 +430,8 @@
                                         <tr>
                                             <td><a href="invoice-view.html">#INV-0003</a></td>
                                             <td>
-                                                <h2><a href="#">Cream Inc</a></h2> </td>
+                                                <h2><a href="#">Cream Inc</a></h2>
+                                            </td>
                                             <td>Paypal</td>
                                             <td>23 Jan 2019</td>
                                             <td>$60</td>
@@ -397,14 +467,17 @@
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="#" class="avatar"><img alt="" src="assets/img/profiles/avatar-19.jpg"></a>
+                                                    <a href="#" class="avatar"><img alt=""
+                                                            src="assets/img/profiles/avatar-19.jpg"></a>
                                                     <a href="client-profile.html">Barry Cuda <span>CEO</span></a>
                                                 </h2>
                                             </td>
                                             <td>barrycuda@example.com</td>
                                             <td>
                                                 <div class="dropdown action-label">
-                                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-dot-circle-o text-success"></i> Active </a>
+                                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle"
+                                                        href="#" data-toggle="dropdown" aria-expanded="false"> <i
+                                                            class="fa fa-dot-circle-o text-success"></i> Active </a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="#">
                                                             <i class="fa fa-dot-circle-o text-success"></i> Active
@@ -416,14 +489,16 @@
                                                 </div>
                                             </td>
                                             <td class="text-right">
-                                                <div class="dropdown dropdown-action"> <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                <div class="dropdown dropdown-action"> <a href="#"
+                                                        class="action-icon dropdown-toggle" data-toggle="dropdown"
+                                                        aria-expanded="false"><i class="material-icons">more_vert</i></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="javascript:void(0)">
                                                             <i class="fa fa-pencil m-r-5"></i> Edit
                                                         </a>
                                                         <a class="dropdown-item" href="javascript:void(0)">
                                                             <i class="fa fa-trash-o m-r-5"></i> Delete
-                                                        </a> 
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -431,14 +506,17 @@
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="#" class="avatar"><img alt="" src="assets/img/profiles/avatar-19.jpg"></a>
+                                                    <a href="#" class="avatar"><img alt=""
+                                                            src="assets/img/profiles/avatar-19.jpg"></a>
                                                     <a href="client-profile.html">Tressa Wexler <span>Manager</span></a>
                                                 </h2>
                                             </td>
                                             <td>tressawexler@example.com</td>
                                             <td>
                                                 <div class="dropdown action-label">
-                                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-dot-circle-o text-danger"></i> Inactive </a>
+                                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle"
+                                                        href="#" data-toggle="dropdown" aria-expanded="false"> <i
+                                                            class="fa fa-dot-circle-o text-danger"></i> Inactive </a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="#">
                                                             <i class="fa fa-dot-circle-o text-success"></i> Active
@@ -451,7 +529,9 @@
                                             </td>
                                             <td class="text-right">
                                                 <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="false"><i
+                                                            class="material-icons">more_vert</i></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="javascript:void(0)">
                                                             <i class="fa fa-pencil m-r-5"></i> Edit
@@ -471,11 +551,13 @@
                                                     </a>
                                                     <a href="client-profile.html">Ruby Bartlett <span>CEO</span></a>
                                                 </h2>
-                                             </td>
+                                            </td>
                                             <td>rubybartlett@example.com</td>
                                             <td>
                                                 <div class="dropdown action-label">
-                                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-dot-circle-o text-danger"></i> Inactive </a>
+                                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle"
+                                                        href="#" data-toggle="dropdown" aria-expanded="false"> <i
+                                                            class="fa fa-dot-circle-o text-danger"></i> Inactive </a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="#">
                                                             <i class="fa fa-dot-circle-o text-success"></i> Active
@@ -488,7 +570,9 @@
                                             </td>
                                             <td class="text-right">
                                                 <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="false"><i
+                                                            class="material-icons">more_vert</i></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="javascript:void(0)">
                                                             <i class="fa fa-pencil m-r-5"></i> Edit
@@ -512,7 +596,9 @@
                                             <td>mistytison@example.com</td>
                                             <td>
                                                 <div class="dropdown action-label">
-                                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-dot-circle-o text-success"></i> Active </a>
+                                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle"
+                                                        href="#" data-toggle="dropdown" aria-expanded="false"> <i
+                                                            class="fa fa-dot-circle-o text-success"></i> Active </a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="#">
                                                             <i class="fa fa-dot-circle-o text-success"></i> Active
@@ -524,7 +610,9 @@
                                             </td>
                                             <td class="text-right">
                                                 <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="false"><i
+                                                            class="material-icons">more_vert</i></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="javascript:void(0)">
                                                             <i class="fa fa-pencil m-r-5"></i> Edit
@@ -548,11 +636,13 @@
                                             <td>danieldeacon@example.com</td>
                                             <td>
                                                 <div class="dropdown action-label">
-                                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-dot-circle-o text-danger"></i> Inactive </a>
+                                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle"
+                                                        href="#" data-toggle="dropdown" aria-expanded="false"> <i
+                                                            class="fa fa-dot-circle-o text-danger"></i> Inactive </a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="#">
                                                             <i class="fa fa-dot-circle-o text-success"></i> Active
-                                                        </a> 
+                                                        </a>
                                                         <a class="dropdown-item" href="#">
                                                             <i class="fa fa-dot-circle-o text-danger"></i> Inactive
                                                         </a>
@@ -561,7 +651,9 @@
                                             </td>
                                             <td class="text-right">
                                                 <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="false"><i
+                                                            class="material-icons">more_vert</i></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="javascript:void(0)">
                                                             <i class="fa fa-pencil m-r-5"></i> Edit
@@ -583,7 +675,8 @@
                 <div class="col-md-6 d-flex">
                     <div class="card card-table flex-fill">
                         <div class="card-header">
-                            <h3 class="card-title mb-0">Recent Projects</h3> </div>
+                            <h3 class="card-title mb-0">Recent Projects</h3>
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table custom-table mb-0">
@@ -600,19 +693,22 @@
                                                 <h2>
                                                     <a href="project-view.html">Office Management</a>
                                                 </h2>
-                                                <small class="block text-ellipsis">   
+                                                <small class="block text-ellipsis">
                                                     <span>1</span> <span class="text-muted">open tasks, </span>
                                                     <span>9</span> <span class="text-muted">tasks completed</span>
                                                 </small>
                                             </td>
                                             <td>
                                                 <div class="progress progress-xs progress-striped">
-                                                    <div class="progress-bar" role="progressbar" data-toggle="tooltip" title="65%" style="width: 65%"></div>
+                                                    <div class="progress-bar" role="progressbar" data-toggle="tooltip"
+                                                        title="65%" style="width: 65%"></div>
                                                 </div>
                                             </td>
                                             <td class="text-right">
                                                 <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="false"><i
+                                                            class="material-icons">more_vert</i></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="javascript:void(0)">
                                                             <i class="fa fa-pencil m-r-5"></i> Edit
@@ -628,7 +724,7 @@
                                             <td>
                                                 <h2>
                                                     <a href="project-view.html">Project Management</a>
-                                                </h2> 
+                                                </h2>
                                                 <small class="block text-ellipsis">
                                                     <span>2</span> <span class="text-muted">open tasks, </span>
                                                     <span>5</span> <span class="text-muted">tasks completed</span>
@@ -636,12 +732,15 @@
                                             </td>
                                             <td>
                                                 <div class="progress progress-xs progress-striped">
-                                                    <div class="progress-bar" role="progressbar" data-toggle="tooltip" title="15%" style="width: 15%"></div>
+                                                    <div class="progress-bar" role="progressbar" data-toggle="tooltip"
+                                                        title="15%" style="width: 15%"></div>
                                                 </div>
                                             </td>
                                             <td class="text-right">
                                                 <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="false"><i
+                                                            class="material-icons">more_vert</i></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="javascript:void(0)">
                                                             <i class="fa fa-pencil m-r-5"></i> Edit
@@ -665,12 +764,15 @@
                                             </td>
                                             <td>
                                                 <div class="progress progress-xs progress-striped">
-                                                    <div class="progress-bar" role="progressbar" data-toggle="tooltip" title="49%" style="width: 49%"></div>
+                                                    <div class="progress-bar" role="progressbar" data-toggle="tooltip"
+                                                        title="49%" style="width: 49%"></div>
                                                 </div>
                                             </td>
                                             <td class="text-right">
                                                 <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="false"><i
+                                                            class="material-icons">more_vert</i></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="javascript:void(0)">
                                                             <i class="fa fa-pencil m-r-5"></i> Edit
@@ -694,12 +796,15 @@
                                             </td>
                                             <td>
                                                 <div class="progress progress-xs progress-striped">
-                                                    <div class="progress-bar" role="progressbar" data-toggle="tooltip" title="88%" style="width: 88%"></div>
+                                                    <div class="progress-bar" role="progressbar" data-toggle="tooltip"
+                                                        title="88%" style="width: 88%"></div>
                                                 </div>
                                             </td>
                                             <td class="text-right">
                                                 <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="false"><i
+                                                            class="material-icons">more_vert</i></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="javascript:void(0)">
                                                             <i class="fa fa-pencil m-r-5"></i> Edit
@@ -720,16 +825,19 @@
                                                     <span>7</span> <span class="text-muted">open tasks, </span>
                                                     <span>14</span> <span class="text-muted">tasks completed</span>
                                                 </small>
-                                            
+
                                             </td>
                                             <td>
                                                 <div class="progress progress-xs progress-striped">
-                                                    <div class="progress-bar" role="progressbar" data-toggle="tooltip" title="100%" style="width: 100%"></div>
+                                                    <div class="progress-bar" role="progressbar" data-toggle="tooltip"
+                                                        title="100%" style="width: 100%"></div>
                                                 </div>
                                             </td>
                                             <td class="text-right">
                                                 <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="false"><i
+                                                            class="material-icons">more_vert</i></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a class="dropdown-item" href="javascript:void(0)">
                                                             <i class="fa fa-pencil m-r-5"></i> Edit

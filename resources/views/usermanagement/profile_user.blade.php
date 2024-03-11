@@ -37,7 +37,7 @@
                                                 <h3 class="user-name m-t-0 mb-0">{{ Auth::user()->name }}</h3>
                                                 <h6 class="text-muted">{{ Auth::user()->department }}</h6>
                                                 <small class="text-muted">{{ Auth::user()->position }}</small>
-                                                <div class="staff-id">ID Usuario: {{ Auth::user()->rec_id }}</div>
+                                                <div class="staff-id">ID Usuario: {{ Auth::user()->user_id }}</div>
                                                 <div class="small doj text-muted">Fecha de creaciòn : {{ Auth::user()->join_date }}</div>
                                                
                                             </div>
@@ -54,7 +54,7 @@
                                                 </li>
                                                 @if(!empty($information))
                                                     <li>
-                                                        @if(Auth::user()->rec_id == $information->rec_id)
+                                                        @if(Auth::user()->user_id == $information->user_id)
                                                         <div class="title">Cumpleaños:</div>
                                                         <div class="text">{{date('d F, Y',strtotime($information->birth_date)) }}</div>
                                                         @else
@@ -63,7 +63,7 @@
                                                         @endif
                                                     </li>
                                                     <li>
-                                                        @if(Auth::user()->rec_id == $information->rec_id)
+                                                        @if(Auth::user()->user_id == $information->user_id)
                                                         <div class="title">Direccion:</div>
                                                         <div class="text">{{ $information->address }}</div>
                                                         @else
@@ -72,7 +72,7 @@
                                                         @endif
                                                     </li>
                                                     <li>
-                                                        @if(Auth::user()->rec_id == $information->rec_id)
+                                                        @if(Auth::user()->user_id == $information->user_id)
                                                         <div class="title">Genero:</div>
                                                         <div class="text">{{ $information->gender }}</div>
                                                         @else
@@ -88,7 +88,7 @@
                                                                     <img src="{{ URL::to('/assets/images/'. Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}">
                                                                 </div>
                                                             </div>
-                                                            <a href="profile.html">
+                                                            <a href="#">
                                                                 {{ Auth::user()->name }}
                                                             </a>
                                                         </div>
@@ -107,16 +107,14 @@
                                                         <div class="text">N/A</div>
                                                     </li>
                                                     <li>
-                                                        <div class="title">Reports to:</div>
+                                                        <div class="title">Reporte a:</div>
                                                         <div class="text">
                                                             <div class="avatar-box">
                                                                 <div class="avatar avatar-xs">
                                                                     <img src="{{ URL::to('/assets/images/'. Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}">
                                                                 </div>
                                                             </div>
-                                                            <a href="profile.html">
-                                                                {{ Auth::user()->name }}
-                                                            </a>
+                                                            
                                                         </div>
                                                     </li>
                                                 @endif    
@@ -155,9 +153,9 @@
                                     <div class="profile-img-wrap edit-img">
                                         <img class="inline-block" src="{{ URL::to('/assets/images/'. Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}">
                                         <div class="fileupload btn">
-                                            <span class="btn-text">editar</span>
-                                            <input class="upload" type="file" id="image" name="images">
-                                            <input type="hidden" name="hidden_image" id="e_image" value="{{ Auth::user()->avatar }}">
+                                         
+                                           
+                                            <span type="hidden" name="hidden_image" id="e_image" value="{{ Auth::user()->avatar }}"></span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -182,8 +180,8 @@
                                                 <label>Genero</label>
                                                 <select class="select form-control" id="gender" name="gender">
                                                     <option value="{{ $information->gender }}" {{ ( $information->gender == $information->gender) ? 'selected' : '' }}>{{ $information->gender }} </option>
-                                                    <option value="Male">Hombre</option>
-                                                    <option value="Female">Mujer</option>
+                                                    <option value="Hombre">Hombre</option>
+                                                    <option value="Mujer">Mujer</option>
                                                 </select>
                                             </div>
                                         </div>

@@ -2,9 +2,25 @@
 
 use App\Http\Controllers\CodeRumedController;
 use App\Http\Controllers\CodeRumedDashboard;
+use App\Http\Controllers\generatorqrController;
+use App\Http\Controllers\Reportref_qrController;
+use App\Http\Controllers\Reportref_qrDashboard;
 use App\Http\Controllers\testbowieController;
-use App\Http\Controllers\zneManagementController;
+use App\Http\Controllers\TestbowieDashboard;
+use App\Http\Controllers\generatorqrDashboard;
+use App\Http\Controllers\MachineController;
+use App\Http\Controllers\MachineDashboard;
+use App\Http\Controllers\InstitutionController;
+use App\Http\Controllers\InstitutionDashboard;
+use App\Http\Controllers\receptionrumedController;
+use App\Http\Controllers\receptionrumedDashboard;
+use App\Http\Controllers\PersonalInformationController;
+use App\Http\Controllers\rumedSelecprevqrDashboard;
+
+
+
 use App\Http\Controllers\PrinterController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +35,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 /** for side bar menu active */
-function set_active($route) {
-    if (is_array($route )){
+function set_active($route)
+{
+    if (is_array($route)) {
         return in_array(Request::path(), $route) ? 'active' : '';
     }
     return Request::path() == $route ? 'active' : '';
@@ -30,22 +47,18 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::group(['middleware'=>'auth'],function()
-{
-    Route::get('home',function()
-    {
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('home', function () {
         return view('home');
     });
-    Route::get('home',function()
-    {
+    Route::get('home', function () {
         return view('home');
     });
 });
 
 Auth::routes();
 
-Route::group(['namespace' => 'App\Http\Controllers\Auth'],function()
-{
+Route::group(['namespace' => 'App\Http\Controllers\Auth'], function () {
     // -----------------------------login----------------------------------------//
     Route::controller(LoginController::class)->group(function () {
         Route::get('/login', 'login')->name('login');
@@ -56,7 +69,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'],function()
     // ------------------------------ register ----------------------------------//
     Route::controller(RegisterController::class)->group(function () {
         Route::get('/register', 'register')->name('register');
-        Route::post('/register','storeUser')->name('register');
+        Route::post('/register', 'storeUser')->name('register');
     });
 
     // ----------------------------- forget password ----------------------------//
@@ -72,8 +85,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Auth'],function()
     });
 });
 
-Route::group(['namespace' => 'App\Http\Controllers'],function()
-{
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // ----------------------------- main dashboard ------------------------------//
     Route::controller(HomeController::class)->group(function () {
         Route::get('/home', 'index')->name('home');
@@ -82,21 +94,26 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
 
     // ----------------------------- lock screen --------------------------------//
     Route::controller(LockScreen::class)->group(function () {
-        Route::get('lock_screen','lockScreen')->middleware('auth')->name('lock_screen');
+        Route::get('lock_screen', 'lockScreen')->middleware('auth')->name('lock_screen');
         Route::post('unlock', 'unlock')->name('unlock');
     });
 
     // -----------------------------settings-------------------------------------//
     Route::controller(SettingController::class)->group(function () {
-        Route::get('company/settings/page', 'companySettings')->middleware('auth')->name('company/settings/page'); /** index page */
-        Route::post('company/settings/save', 'saveRecord')->middleware('auth')->name('company/settings/save'); /** save record or update */
+        Route::get('company/settings/page', 'companySettings')->middleware('auth')->name('company/settings/page');
+        /** index page */
+        Route::post('company/settings/save', 'saveRecord')->middleware('auth')->name('company/settings/save');
+        /** save record or update */
         Route::get('roles/permissions/page', 'rolesPermissions')->middleware('auth')->name('roles/permissions/page');
         Route::post('roles/permissions/save', 'addRecord')->middleware('auth')->name('roles/permissions/save');
         Route::post('roles/permissions/update', 'editRolesPermissions')->middleware('auth')->name('roles/permissions/update');
         Route::post('roles/permissions/delete', 'deleteRolesPermissions')->middleware('auth')->name('roles/permissions/delete');
-        Route::get('localization/page', 'localizationIndex')->middleware('auth')->name('localization/page'); /** index page localization */
-        Route::get('salary/settings/page', 'salarySettingsIndex')->middleware('auth')->name('salary/settings/page'); /** index page salary settings */
-        Route::get('email/settings/page', 'emailSettingsIndex')->middleware('auth')->name('email/settings/page'); /** index page email settings */
+        Route::get('localization/page', 'localizationIndex')->middleware('auth')->name('localization/page');
+        /** index page localization */
+        Route::get('salary/settings/page', 'salarySettingsIndex')->middleware('auth')->name('salary/settings/page');
+        /** index page salary settings */
+        Route::get('email/settings/page', 'emailSettingsIndex')->middleware('auth')->name('email/settings/page');
+        /** index page email settings */
     });
 
     // ----------------------------- manage users -------d-----------------------//
@@ -113,27 +130,65 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
         Route::get('change/password', 'changePasswordView')->middleware('auth')->name('change/password');
         Route::post('change/password/db', 'changePasswordDB')->name('change/password/db');
 
-        Route::post('user/profile/emergency/contact/save', 'emergencyContactSaveOrUpdate')->name('user/profile/emergency/contact/save'); /** save or update emergency contact */
-        Route::get('get-users-data', 'getUsersData')->name('get-users-data'); /** get all data users */
-
+        Route::post('user/profile/emergency/contact/save', 'emergencyContactSaveOrUpdate')->name('user/profile/emergency/contact/save');
+        /** save or update emergency contact */
+        Route::get('get-users-data', 'getUsersData')->name('get-users-data');
+        /** get all data users */
     });
 
-        // ----------------------------- CODERUMED BASE DE DATOS -------d-----------------------//
-        // Creado con el estandar https://laravel.com/docs/10.x/controllers#resource-controllers
+    // ----------------------------- CODERUMED BASE DE DATOS -------d-----------------------//
+    // Creado con el estandar https://laravel.com/docs/10.x/controllers#resource-controllers
     Route::resource("coderumed", CodeRumedController::class)->except(['create', 'show', 'index'])->middleware('auth');
     Route::resource("coderumed", CodeRumedController::class)->only(['show']); // Show no necesita autenticacion
     Route::get("/coderumed-dashboard", CodeRumedDashboard::class)->name("coderumedManagement")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
 
-
+    // ----------------------------- RECEPCION DE INSTRUMENTAL RUMED  -------d-----------------------//   
+    Route::resource("receptionrumed", receptionrumedController::class)->except(['create', 'show', 'index'])->middleware('auth');
+    Route::resource("receptionrumed", receptionrumedController::class)->only(['show']);
+    Route::get("/receptionrumed-dashboard", receptionrumedDashboard::class)->name("ReceptionRumed")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
 
     //----------------------TEST DE BOWIE-------------------//
     Route::resource("testbowie", testbowieController::class)->except(['create', 'show', 'index'])->middleware('auth');
     Route::resource("testbowie", testbowieController::class)->only(['show']);
-    Route::get("/testbowie-dashboard", zneManagementController::class)->name("zneManagement")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
+    Route::get("/testbowie-dashboard", TestbowieDashboard::class)->name("zneManagement/testbowie")->middleware('auth'); // 
     Route::resource("printertestbowie", PrinterController::class)->only(['show']);
 
+    //----------------------GENERADOR QR-------------------//
+    // Solo muestra el dashboard, filtra y nada más
 
-    
+    Route::get("Generatorqr-dashboard", generatorqrDashboard::class)->name("zneManagement/generatorqr")->middleware('auth');
+    // generar paquetes previos al qr
+
+
+    Route::resource("generatorqr", rumedSelecprevqrDashboard::class)->except(['create', 'show', 'index'])->middleware('auth');
+    Route::resource("generatorqr", rumedSelecprevqrDashboard::class)->only(['show']);
+    Route::get("generateqr-dashboard", rumedSelecprevqrDashboard::class)->name("creategenerateqr/page")->middleware('auth');
+
+
+
+    Route::resource("Reportref_qr", Reportref_qrController::class)->except(['create', 'show', 'index'])->middleware('auth');
+    Route::resource("Reportref_qr", Reportref_qrController::class)->only(['show']);
+    Route::get("Reportref_qr-dashboard", Reportref_qrDashboard::class)->name("zneManagement/Reportref_qr")->middleware('auth');
+
+
+    // selecionar los equipos y modelos
+
+    Route::resource("machine", MachineController::class)->except(['create', 'show', 'index'])->middleware('auth');
+    Route::resource("machine", MachineController::class)->only(['show']);
+    Route::get("/machine-dashboard", MachineDashboard::class)->name("settingsMachine/machine")->middleware('auth');
+
+    // llenado de informcion de la institucion
+    Route::resource("institution", InstitutionController::class)->except(['create', 'show', 'index'])->middleware('auth');
+    Route::resource("institution", InstitutionController::class)->only(['show']);
+    Route::get("/institution-dashboard", InstitutionDashboard::class)->name("SettingInstitution/institution")->middleware('auth');
+
+
+
+
+
+
+
+
 
     // ---------------------------- form employee ---------------------------//
     Route::controller(EmployeeController::class)->group(function () {
@@ -171,13 +226,7 @@ Route::group(['namespace' => 'App\Http\Controllers'],function()
     Route::controller(EmployeeController::class)->group(function () {
         Route::get('employee/profile/{user_id}', 'profileEmployee')->middleware('auth');
     });
-
-    // --------------------------- form holiday ---------------------------//
-    Route::controller(HolidayController::class)->group(function () {
-        Route::get('form/holidays/new', 'holiday')->middleware('auth')->name('form/holidays/new');
-        Route::post('form/holidays/save', 'saveRecord')->middleware('auth')->name('form/holidays/save');
-        Route::post('form/holidays/update', 'updateRecord')->middleware('auth')->name('form/holidays/update');
+    Route::controller(PersonalInformationController::class)->group(function () {
+        Route::post('user/information/save', 'saveRecord')->middleware('auth')->name('user/information/save');
     });
-
-
 });

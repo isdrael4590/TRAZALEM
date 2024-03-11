@@ -52,7 +52,7 @@
 		<div class="header">
 			<!-- Logo -->
 			<div class="header-left">
-				<a href="{{ route('home') }}" class="logo"> <img src="{{ URL::to('assets/img/logo1.png') }}" width="50" height="50" alt=""> </a>
+				<a href="{{ route('home') }}" class="logo"> <img src="{{ URL::to('assets/img/favicon.png') }}" width="80" height="60" alt=""> </a>
 			</div>
 			<!-- /Logo -->
 			<a id="toggle_btn" href="javascript:void(0);">
@@ -84,7 +84,7 @@
 					</a>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="{{ route('profile_user') }}">Mi Perfil</a>
-						<a class="dropdown-item" href="{{ route('company/settings/page') }}">Configuracion</a>
+				
 						<a class="dropdown-item" href="{{ route('logout') }}">SALIR</a>
 					</div>
 				</li>
@@ -97,7 +97,7 @@
 				</a>
 				<div class="dropdown-menu dropdown-menu-right">
 					<a class="dropdown-item" href="profile.html">Mi perfil</a> 
-					<a class="dropdown-item" href="{{ route('company/settings/page') }}">CONFIGURAR</a>
+	
 					<a class="dropdown-item" href="{{ route('logout') }}">SALIR</a>
 				</div>
 			</div>

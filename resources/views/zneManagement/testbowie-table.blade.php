@@ -2,11 +2,12 @@
     <table class="table table-striped custom-table" id="testbowieDataList" style="width: 100%">
         <thead>
             <tr>
+                <th>Descarga</th>
                 <th>No</th>
                 <th>Equipo</th>
                 <th>Lote Equipo</th>
                 <th>Temp. Equipo</th>
-                <th>Lote  Insumo</th>
+                <th>Lote Insumo B&D</th>
                 <th> Proceso Realizado</th>
                 <th>Validacion</th>
                 <th>Operador</th>
@@ -19,6 +20,13 @@
             @foreach ($testbowies as $testbowie)
                 <tr class="odd">
                     <td>
+                        <div>
+                            <a class="btn-sm"href="{{ route('printertestbowie.show', $testbowie->id) }}">
+                                <i class="fa fa-print rm-1"></i>
+
+                        </div>
+                    </td>
+                    <td>
                         <a class="id">
                             {{ $testbowie->id }} </span>
                     </td>
@@ -27,7 +35,7 @@
                     </td>
                     <td>
                         <a href="{{ route('testbowie.show', $testbowie->lote_machine) }}" class="link-primary">
-                         {{ $testbowie->lote_machine }} </a>
+                            {{ $testbowie->lote_machine }} </a>
                     </td>
                     <td>
                         <span class="temp_machine"> {{ $testbowie->temp_machine }} </span>
@@ -36,10 +44,17 @@
                         <span class="lote_bd"> {{ $testbowie->lote_bd }} </span>
                     </td>
                     <td class="sorting_1">
-                        {{ $testbowie->created_at }} 
+                        {{ $testbowie->created_at }}
                     </td>
                     <td>
-                        <span class="validation_bd"> {{ $testbowie->validation_bd }} </span>
+                        @if ($testbowie->validation_bd == 'Correcto')
+                            <span class="badge bg-inverse-info" class="validation_bd"> {{ $testbowie->validation_bd }}
+                            @else
+                                <span class="badge bg-inverse-danger" class="validation_bd">
+                                    {{ $testbowie->validation_bd }}
+                        @endif
+
+                        </span>
                     </td>
                     <td>
                         <span class="operator"> {{ $testbowie->operator }} </span>
@@ -67,11 +82,7 @@
                                     </button>
                                 </form>
                             </div>
-                            <div >
-                                <a class="dropdown-item"href="{{ route('printertestbowie.show', $testbowie->id) }}">
-                                <i class="la la-print"></i> 
-                                
-                            </div>
+                            
                         </div>
                     </td>
                 </tr>

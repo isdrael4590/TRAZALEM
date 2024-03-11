@@ -25,5 +25,6 @@ class CodeRumedDashboard extends Controller
         ->paginate(20); // Adjust the number per page as needed
 
         return view('coderumedManagement.allcoderumedcontrol', compact('coderumeds', 'areas'));
+        
     }
 }

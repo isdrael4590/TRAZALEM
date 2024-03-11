@@ -52,12 +52,12 @@ class SettingController extends Controller
             $saveRecord->save();
             
             DB::commit();
-            Toastr::success('Save CompanySettings successfully :)','Success');
+            Toastr::success('Guardado con Exito Informacion Compania :)','Success');
             return redirect()->back();
         } catch(\Exception $e) {
             \Log::info($e);
             DB::rollback();
-            Toastr::error('Save CompanySettings fail :)','Error');
+            Toastr::error('Fallo Guardar la informaciòn compania :)','Error');
             return redirect()->back();
         }
     }
