@@ -37,11 +37,11 @@ class generatorqr extends Model
             } else {
                 $nextID = 1;
             }
-            $model_qr->user_id = 'VM_' . sprintf("%04s", $nextID);
+            /*$model_qr->user_id = 'VM_' . sprintf("%04s", $nextID);
             while (self::where('user_id', $model_qr->user_id)->exists()) {
                 $nextID++;
                 $model_qr->user_id = 'VM_' . sprintf("%04s", $nextID);
-            }
+            }*/ // TODO: estal linea causa error, revisar si es necesario
         });
     }
 }

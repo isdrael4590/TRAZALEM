@@ -15,7 +15,7 @@
                         </ul>
                     </div>
                     <div class="col-auto float-right ml-auto">
-                        <a  href="{{ route('creategenerateqr/page') }}" class="btn add-btn" ><i
+                        <a  href="{{ route('generatorqr.index') }}" class="btn add-btn" ><i
                                 class="fa fa-plus"></i> Registrar ETIQUETAS</a>
                     </div>
 
