@@ -82,5 +82,5 @@ Por favor, desactive el servidor local de MySQL con el siguiente comando(En Ubun
 
 - Se presenta el siguiente error: `mysqld: File './binlog.index' not found (OS errno 13 - Permission denied)`, por favor, haga respaldo de la base de datos y escriba el siguiente comando en consola para resetear el contenido de los contenedores: `docker compose down --volumes &&  ./vendor/bin/sail up`
 
-- No se cargan los códigos RUMED descritos en la carpeta `init/codigos_rumed.sql`: Por favor borre el volumen `docker volume rm trazalem_sail-mysql`
+- No se cargan los códigos RUMED descritos en la carpeta `init/codigos_rumed.sql`: Por favor borre el volumen `docker compose down && docker volume rm trazalem_sail-mysql`
 
