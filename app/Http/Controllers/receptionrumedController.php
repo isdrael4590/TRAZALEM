@@ -18,6 +18,7 @@ class receptionrumedController extends Controller
 
     public function show(string $name_coderumed)
     {
+
         $receptionrumed = receptionrumed::where('name_coderumed', $name_coderumed)->first();
         return view('ReceptionRumed.uniquereceptionrumed', compact('receptionrumed'));
     }
@@ -25,7 +26,7 @@ class receptionrumedController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'coderumed' => 'required|string|max:255',
+            'coderumed_id' => 'required|string|max:255',
             'name_coderumed' => 'required|string|max:255',
             'operator' => 'required|string|max:255',
             'delivery_staff' => 'required|string|max:255',
@@ -42,7 +43,7 @@ class receptionrumedController extends Controller
         receptionrumedActivityLog::create([
             "user_id" => auth()->id(),
             "receptionrumed_id" => $receptionrumed->id,
-            "coderumed" => $receptionrumed->coderumed,
+            "coderumed_id" => $receptionrumed->coderumed_id,
             "name_coderumed" => $receptionrumed->name_coderumed,
             "date_reception" => $receptionrumed->date_reception,
             "operator" => $receptionrumed->operator,
@@ -59,7 +60,8 @@ class receptionrumedController extends Controller
 
     public function edit(receptionrumed $receptionrumed)
     {
-        return view('ReceptionRumed.receptionrumed-edit', compact('receptionrumed'));
+        $coderumeds = coderumed::all();
+        return view('ReceptionRumed.receptionrumed-edit', compact('receptionrumed', 'coderumeds'));
     }
 
     /** update coderumed record */
@@ -67,7 +69,7 @@ class receptionrumedController extends Controller
     public function update(Request $request, receptionrumed $receptionrumed)
     {
         $validated = $request->validate([
-            'coderumed' => 'required|string|max:255',
+            'coderumed_id' => 'required|string|max:255',
             'name_coderumed' => 'required|string|max:255',
             'operator' => 'required|string|max:255',
             'delivery_staff' => 'required|string|max:255',
@@ -75,12 +77,13 @@ class receptionrumedController extends Controller
             'state_rumed' => 'required|string|max:255',
             'observation' => 'nullable|string|max:255',
         ]);
+        dd($validated);
         $receptionrumed->update($validated);
 
         receptionrumedActivityLog::create([
             "user_id" => auth()->id(),
             "receptionrumed_id" => $receptionrumed->id,
-            "coderumed" => $receptionrumed->coderumed,
+            "coderumed_id" => $receptionrumed->coderumed_id,
             "name_coderumed" => $receptionrumed->name_coderumed,
             "date_reception" => $receptionrumed->date_reception,
             "operator" => $receptionrumed->operator,
@@ -92,8 +95,7 @@ class receptionrumedController extends Controller
         ]);
 
         Toastr::success('Ingreso actualizado actualizado', 'Satisfactorio');
-        return redirect()->route('ReceptionRumed.allreceptionrumed');
-
+        return redirect()->route('ReceptionRumed');
     }
 
 

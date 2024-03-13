@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('mobile_number')->nullable();
             $table->string('website_url')->nullable();
-            $table->string('machine_image');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -35,6 +35,7 @@ return new class extends Migration
      */
     public function down()
     {
+     
         Schema::dropIfExists('machines');
     }
 };

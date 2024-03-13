@@ -21,7 +21,7 @@
                 <tr class="odd">
                     <td>
                         <div>
-                            <a class="btn-sm"href="{{ route('printertestbowie.show', $testbowie->id) }}">
+                            <a class="btn-sm"href="{{ route('/printerBD', $testbowie->id) }}">
                                 <i class="fa fa-print rm-1"></i>
 
                         </div>

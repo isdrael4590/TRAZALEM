@@ -4,7 +4,7 @@
             <tr>
                 <th>No</th>
                 <th>Equipo</th>
-                <th>MOdelo del Equipo</th>
+                <th>Modelo del Equipo</th>
                 <th>Serie. Equipo</th>
                 <th>Capacidad del Equipo</th>
                 <th> Fabricante</th>
@@ -29,7 +29,7 @@
                         <span class="machine_id"> {{ $Machine->machine_id }} </span>
                     </td>
                     <td>
-                        <a href="{{ route('machine.show', $Machine->machine_model) }}" class="link-primary">
+                        <a  class="machine_model">
                          {{ $Machine->machine_model }} </a>
                     </td>
                     <td>
@@ -60,7 +60,7 @@
                         <span class="website_url"> {{ $Machine->website_url}} </span>
                     </td>
                     <td>
-                        <span class="machine_image"> {{ $Machine->machine_image}} </span>
+                        <img style="width:150px" class="me-1  rounded-circle" src="{{ $Machine->getImageUrl()}}">  
                     </td>
                     <td>
                         <div class="dropdown dropdown-action">

@@ -21,6 +21,13 @@ class machine extends Model
         'email',
         'mobile_number',
         'website_url',
-        'machine_image',
+        'image',
     ];
+    public function getImageUrl()
+    {
+        if ($this->image) {
+            return url('storage/'.$this->image);
+        }
+      
+    }
 }

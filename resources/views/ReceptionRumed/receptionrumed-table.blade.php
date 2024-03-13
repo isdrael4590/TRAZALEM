@@ -21,7 +21,7 @@
                 <tr class="odd">
                     <td>
                         <div>
-                            <a class="  btn-sm  " href="#">
+                            <a class="  btn-sm  " href="{{ route('/printerInput', $receptionrumed->id) }}">
                                 <i class="fa fa-print mr-1"> Imprimir</i>
 
                         </div>

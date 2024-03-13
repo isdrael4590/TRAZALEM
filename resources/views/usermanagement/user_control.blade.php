@@ -237,7 +237,7 @@
                                 </div>
                            
                                 <div class="col-sm-6"> 
-                                    <label>Photo</label>
+                                    <label>Foto</label>
                                     <input class="form-control" type="file" id="image" name="images">
                                     <input type="hidden" name="hidden_image" id="e_image" value="">
                                 </div>
