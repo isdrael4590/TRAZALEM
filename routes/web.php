@@ -142,7 +142,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::resource("coderumed", CodeRumedController::class)->only(['show']); // Show no necesita autenticacion
     Route::get("/coderumed-dashboard", CodeRumedDashboard::class)->name("coderumedManagement")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
 
-    // ----------------------------- RECEPCION DE INSTRUMENTAL RUMED  -------d-----------------------//   
+    // ----------------------------- RECEPCION DE INSTRUMENTAL RUMED  -------d-----------------------//
     Route::resource("receptionrumed", receptionrumedController::class)->except(['create', 'show', 'index'])->middleware('auth');
     Route::resource("receptionrumed", receptionrumedController::class)->only(['show']);
     Route::get("/receptionrumed-dashboard", receptionrumedDashboard::class)->name("ReceptionRumed")->middleware('auth'); // Solo muestra el dashboard, filtra y nada más
@@ -150,13 +150,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     //----------------------TEST DE BOWIE-------------------//
     Route::resource("testbowie", testbowieController::class)->except(['create', 'show', 'index'])->middleware('auth');
     Route::resource("testbowie", testbowieController::class)->only(['show']);
+
+    Route::get("/testbowie-dashboard", TestbowieDashboard::class)->name("zneManagement/testbowie")->middleware('auth'); //
+    Route::resource("printertestbowie", PrinterController::class)->only(['show']);
+
     Route::get("/testbowie-dashboard", TestbowieDashboard::class)->name("zneManagement/testbowie")->middleware('auth'); // 
 
     //---------------------------PRINTER---------------------------------//
     Route::get("/printerBD{id}",[PrinterController::class, 'FormatprinterBD'])->name('/printerBD')->middleware(['auth']);
     Route::get("/printerInput{id}",[PrinterController::class, 'FormatprinterInput'])->name('/printerInput')->middleware(['auth']);
-
-
 
 
     //----------------------GENERADOR QR-------------------//
@@ -166,11 +168,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // generar paquetes previos al qr
 
 
-    Route::resource("generatorqr", rumedSelecprevqrDashboard::class)->except(['create', 'show', 'index'])->middleware('auth');
-    Route::resource("generatorqr", rumedSelecprevqrDashboard::class)->only(['show']);
-    Route::get("generateqr-dashboard", rumedSelecprevqrDashboard::class)->name("creategenerateqr/page")->middleware('auth');
-
-
+    Route::resource("generatorqr", rumedSelecprevqrDashboard::class)->except(['create', 'index'])->middleware('auth');
+    Route::resource("generatorqr", rumedSelecprevqrDashboard::class)->only(['index']);
 
     Route::resource("Reportref_qr", Reportref_qrController::class)->except(['create', 'show', 'index'])->middleware('auth');
     Route::resource("Reportref_qr", Reportref_qrController::class)->only(['show']);
