@@ -16,7 +16,7 @@
                         </ul>
                     </div>
                     <div class="col-auto float-right ml-auto">
-                        <a href="{{ route('coderumed.store') }}" class="btn add-btn" data-toggle="modal"
+                        <a href="{{ route('machine.store') }}" class="btn add-btn" data-toggle="modal"
                             data-target="#add_machine"><i class="fa fa-plus"></i> Añadir Equipo</a>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                     @empty($machines)
                         <p class="text-center mt-4"> Sin resultados aún </p>
                     @else
-                        @include('settingsMachine.machines-table')
+                        @include('settingsMachine.machine-table')
                     @endempty
 
                 </div>
@@ -76,6 +76,7 @@
                     <div class="modal-body">
                         <form action="{{ route('machine.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                          
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -149,8 +150,8 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Foto del Equipo</label>
-                                    <input class="form-control" type="file" id="machine_image" name="machine_image">
-                                    <input type="hidden" name="machine_image" id="machine_image" value="">
+                                    <input class="form-control" type="file" id="image" name="image">
+                                    <input type="hidden" name="image" id="image" value="">
                                 </div>
                                 <br>
                                 <!-- Motrar errores de validación si es que hay -->
@@ -173,15 +174,7 @@
                 </div>
             </div>
         </div>
-        <!-- /Add User Modal -->
 
-        <!-- Edit User Modal -->
-
-
-
-
-
-        <!-- /Delete User Modal -->
     </div>
     <!-- /Page Wrapper -->
 

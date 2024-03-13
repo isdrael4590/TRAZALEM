@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('company_name');
+            $table->string('short_name');
             $table->string('company_area');
             $table->string('address');
             $table->string('country');
@@ -25,8 +26,32 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('mobile_number')->nullable();
+            $table->string('imageInstitucion');
             $table->timestamps();
         });
+
+        /*
+        DB::table('institutions')->insert(
+            [
+                ['user_id' => '1'],
+                ['company_name' => 'ALVAREZ LARREA EQUIPOS MEDICOS ALEM CIA. LTDA.'],
+                ['short_name' => 'ALEM CIA. LTDA.'],
+                ['company_area' => 'Venta de equipos médicos'],
+                ['address' => 'Gaspar de Carvajal y San gabriel'],
+                ['country' => 'Ecuador'],
+                ['city' => 'Quito'],
+                ['state_province' => 'PICHINCHA'],
+                ['postal_code' => '171717.'],
+                ['contact_person' => 'Fernando Jacome'],
+                ['email' => 'fjacome@alem.com.ec'],
+                ['phone_number' => '099999999'],
+                ['mobile_number' => '099999999.'],
+                ['imageInstitucion' => ''],
+              
+    
+    
+            ]);*/
+
     }
 
     /**

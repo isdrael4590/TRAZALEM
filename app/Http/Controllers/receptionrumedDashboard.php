@@ -34,5 +34,6 @@ class receptionrumedDashboard extends Controller
         $coderumeds = coderumed::all();
         
         return view('ReceptionRumed.allreceptionrumed', compact('receptionrumeds', 'coderumeds'));
+        return view('ReceptionRumed.receptionrumed-edit', compact( 'coderumeds'));
     }
 }

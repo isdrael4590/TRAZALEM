@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-auto float-right ml-auto">
                         <a href="{{ route('institution.store') }}" class="btn add-btn" data-toggle="modal"
-                            data-target="#add_institution"><i class="fa fa-plus"></i> Añadir institution</a>
+                            data-target="#add_institution"><i class="fa fa-plus"></i> Añadir institución</a>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Añadir nueva institucion</h5>
+                    <h5 class="modal-title">Añadir nueva institución</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -71,16 +71,20 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="company_name">Nombre de la institution </label>
+                                    <label for="company_name">Nombre de la institución </label>
                                     <input class="form-control" type="text" id="" name="company_name"
-                                        value="{{ old('company_name') }}" placeholder="Ingrese el nombre de la institucion">
+                                        value="{{ old('company_name') }}" placeholder="Ingrese el nombre de la institución">
                                 </div>
+                                
                             </div>
                             <div class="col-sm-6">
-                                <label>Nombre del Area</label>
-                                <input class="form-control" type="text" id="" name="company_area"
-                                    value="{{ old('company_area') }}" placeholder="Ingrese el nombre del area">
+                                <div class="form-group">
+                                    <label for="short_name">Nombre Corto institución </label>
+                                    <input class="form-control" type="text" id="" name="short_name"
+                                        value="{{ old('company_name') }}" placeholder="Ingrese el nombre de la institución corto">
+                                </div>
                             </div>
+
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
@@ -94,13 +98,12 @@
                                     value="{{ old('address') }}" placeholder="Ingrese la direccion">
                             </div>
                         </div>
-            
+
                         <div class="row">
                             <div class="col-sm-6">
                                 <label>Pais</label>
                                 <input class="form-control" type="text" id="" name="country"
-                                    value="{{ old('country') }}"
-                                    placeholder="Ingrese el pais">
+                                    value="{{ old('country') }}" placeholder="Ingrese el pais">
                             </div>
                             <div class="col-sm-6">
                                 <label>Provincia</label>
@@ -109,7 +112,7 @@
                             </div>
                         </div>
                         <div class="row">
-                         
+
                             <div class="col-sm-6">
                                 <label>Codigo Postal</label>
                                 <input class="form-control" type="text" id="" name="postal_code"
@@ -118,16 +121,21 @@
                             <div class="col-sm-6">
                                 <label>Correo</label>
                                 <input class="form-control" type="text" id="" name="email"
-                                    value="{{ old('email') }}"
-                                    placeholder="Ingrese el correo del servicio">
+                                    value="{{ old('email') }}" placeholder="Ingrese el correo del servicio">
                             </div>
                         </div>
                         <div class="row">
-                          
+
                             <div class="col-sm-6">
                                 <label>Responsable del servicio</label>
                                 <input class="form-control" type="text" id="" name="contact_person"
-                                    value="{{ old('contact_person') }}" placeholder="Ingrese el nombre de responsable del servicio">
+                                    value="{{ old('contact_person') }}"
+                                    placeholder="Ingrese el nombre de responsable del servicio">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Nombre del Area</label>
+                                <input class="form-control" type="text" id="" name="company_area"
+                                    value="{{ old('company_area') }}" placeholder="Ingrese el nombre del area">
                             </div>
                         </div>
                         <div class="row">
@@ -142,25 +150,32 @@
                                     value="{{ old('mobile_number') }}" placeholder="Ingrese el #  de responable">
                             </div>
                         </div>
-                        <br>
-                   
-                          
-                            <br>
-                            <!-- Motrar errores de validación si es que hay -->
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                            <div class="submit-section">
-                                <button type="submit" class="btn btn-primary submit-btn">Enviar</button>
+                        <div>
+                            <div class="col-sm-6">
+                                <label>Foto de la institución</label>
+                                <input class="form-control" type="file" id="imageInstitucion" name="imageInstitucion">
+                                <input type="hidden" name="imageInstitucion" id="imageInstitucion" value="">
                             </div>
-                            <!-- /Add User Modal -->
-                   
+                        </div>
+                        <br>
+
+
+                        <br>
+                        <!-- Motrar errores de validación si es que hay -->
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <div class="submit-section">
+                            <button type="submit" class="btn btn-primary submit-btn">Enviar</button>
+                        </div>
+                        <!-- /Add User Modal -->
+
                     </form>
                 </div>
             </div>

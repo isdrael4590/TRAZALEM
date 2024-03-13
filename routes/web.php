@@ -151,7 +151,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::resource("testbowie", testbowieController::class)->except(['create', 'show', 'index'])->middleware('auth');
     Route::resource("testbowie", testbowieController::class)->only(['show']);
     Route::get("/testbowie-dashboard", TestbowieDashboard::class)->name("zneManagement/testbowie")->middleware('auth'); // 
-    Route::resource("printertestbowie", PrinterController::class)->only(['show']);
+
+    //---------------------------PRINTER---------------------------------//
+    Route::get("/printerBD{id}",[PrinterController::class, 'FormatprinterBD'])->name('/printerBD')->middleware(['auth']);
+    Route::get("/printerInput{id}",[PrinterController::class, 'FormatprinterInput'])->name('/printerInput')->middleware(['auth']);
+
+
+
 
     //----------------------GENERADOR QR-------------------//
     // Solo muestra el dashboard, filtra y nada más

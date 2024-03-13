@@ -175,14 +175,14 @@
                         class="{{ set_active(['SettingInstitution/all/institutions', 'SettingInstitution']) }}  submenu">
                         <a href=" ">
                             <i class="la la-edit"></i>
-                            <span> INSTITUCION</span>
+                            <span> INSTITUCIÓN</span>
                             <span class="menu-arrow"></span>
                         </a>
 
                         <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }} ">
 
                             <li><a class="{{ Request::is('SettingInstitution' ? 'active' : '') }}"
-                                    href="{{ route('SettingInstitution/institution') }}">Registro de institution<span
+                                    href="{{ route('SettingInstitution/institution') }}">Registro de institución<span
                                         class="badge badge-pill bg-primary float-right">1</span></a></li>
 
 

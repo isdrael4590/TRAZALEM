@@ -7,18 +7,15 @@ use Illuminate\Http\Request;
 use App\Models\machine;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 use Carbon\Carbon;
 
 class MachineController extends Controller
 {
     //
-    public function show(string $machine_model)
-    {
-        $machine = machine::where('machine_model', $machine_model)->first();
-        return view('settingsMachine.uniquesmachines', compact('machine'));
- 
-    }
-    
+
+
     /** save new equipo */
     public function store(Request $request)
     {
@@ -28,27 +25,31 @@ class MachineController extends Controller
             'serial' => 'required|string|max:255',
             'capacity' => 'required|string|max:255',
             'manufacture_name' => 'required|string|max:255',
-            'manufacture_country' => 'required|string|max:255',
             'supplier' => 'required|string|max:255',
             'field_engineer' => 'required|string|max:255',
-            'email' => 'nullable|string|max:255',
+            'email' => 'required|string|max:255',
             'mobile_number' => 'nullable|string|max:255',
             'website_url' => 'nullable|string|max:255',
-            'machine_image'=>'nullable|string|max:255',
-
+            'image' => 'image',
         ]);
-
         $validated['user_id'] = auth()->id();
-        $machine = machine::create($validated);
+       
+        if (request()->has('image')) {
+            $imagePath = request()->file('image')->store('machine', 'public');
+            $validated['image'] = $imagePath;
+        }
+        
+        $machine=machine::create($validated);
 
-        Toastr::success('Equipo Registrado exitosamente', 'Éxito');
+
+        Toastr::success('Equipo actualizado', 'Satisfactorio');
         return redirect()->back();
     }
 
 
     public function edit(machine $machine)
     {
-        return view('settingsMachine.machines-edit', compact('machine'));
+        return view('settingsMachine.machine-edit', compact('machine'));
     }
 
     /** update coderumed record */
@@ -66,8 +67,15 @@ class MachineController extends Controller
             'email' => 'required|string|max:255',
             'mobile_number' => 'nullable|string|max:255',
             'website_url' => 'nullable|string|max:255',
-            'machine_image'=>'nullable|string|max:255',
+            'image' => 'image',
         ]);
+    
+
+        if (request()->has('image')) {
+            $imagePath = request()->file('image')->store('machine', 'public');
+            $validated['image'] = $imagePath;
+            Storage::disk('public')->delete($machine->image);
+        }
         $machine->update($validated);
 
 

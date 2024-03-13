@@ -11,6 +11,7 @@ class institution extends Model
     protected $fillable = [
         'user_id',
         'company_name',
+        'short_name',
         'company_area',
         'address',
         'country',
@@ -21,5 +22,14 @@ class institution extends Model
         'email',
         'phone_number',
         'mobile_number',
+        'imageInstitucion',
+
     ];
+    public function getImageUrlInstitucion()
+    {
+        if ($this->imageInstitucion) {
+            return url('storage/'.$this->imageInstitucion);
+        }
+      
+    }
 }
