@@ -30,10 +30,11 @@
                         <div class="col-sm-4 col-md-2">
                             <div class="form-group form-focus">
                                 <div class="cal-icon">
-                                    <input id="created_at" name="created_at" class="form-control floating datetimepicker" type="text">
+                                    <input id="created_at" name="created_at" class="form-control floating datetimepicker"
+                                        type="text">
                                 </div>
 
-                                <label class="focus-label">Fecha de  Ingreso</label>
+                                <label class="focus-label">Fecha de Ingreso</label>
 
                             </div>
                         </div>
@@ -86,30 +87,41 @@
                         <form action="{{ route('receptionrumed.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-
                                 <div class="col-sm-6 ">
-
                                     <label>NOMBRE CODERUMED</label>
-                                    <select class="select"  id="name_coderumed" name="name_coderumed">
+                                    <select class="select" id="name_coderumed" name="name_coderumed">
                                         @foreach ($coderumeds as $coderumed)
                                             <option value="{{ $coderumed->name_coderumed }}">(
-                                                {{ $coderumed->coderumed_id }})   ->     {{ $coderumed->name_coderumed }} </option>
+                                                {{ $coderumed->coderumed_id }}) -> {{ $coderumed->name_coderumed }}
+                                            </option>
                                         @endforeach
 
                                     </select>
                                 </div>
-                               
+                                <div class="col-sm-6 ">
+                                    <label>CÓDIGO CODERUMED</label>
+                                    <select class="select" id="coderumed_id" name="coderumed_id">
+                                        @foreach ($coderumeds as $coderumed)
+                                            <option value="{{ $coderumed->coderumed_id }}">(
+                                                {{ $coderumed->coderumed_id }}) -> {{ $coderumed->name_coderumed }}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
                             </div>
                             <div class="row">
 
                                 <div class="col-md-6">
-                                    <label class="d-block">NIVEL DE INFECCION</label>
+                                    <label class="d-block">NIVEL DE INFECCIÓN</label>
                                     <div class="form-group form-focus select-focus">
                                         <select class="select floating" id="type_dirt" name="type_dirt">
                                             <option selected disabled>-- SELECCIONAR EL NIVEL DE INFECCION--</option>
+                                            <option value="{{ old('type_dirt') }}" ></option>
                                             <option value="NO CRITICO"> NO CRITICO</option>
                                             <option value="SEMI-CRITICO"> SEMI-CRITICO</option>
-                                            <option value="CRITICO"> CRITICO</option>
+                                            <option value="CRITICO"> CRÍTICO</option>
 
                                         </select>
                                     </div>
@@ -137,8 +149,8 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Observaciones</label>
-                                    <input class="form-control" type="text" id="observation" name="observation"
-                                        placeholder="Ingrese alguna observacion">
+                                    <input class="form-control" type="text" id="observation" name="observation" value="{{ old('observation') }}" 
+                                        placeholder="Ingrese alguna observación">
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Operador</label>

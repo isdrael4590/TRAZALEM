@@ -22,9 +22,11 @@ class CreateRolesPermissionsTable extends Migration
         DB::table('roles_permissions')->insert(
         [
             ['permissions_name' => 'Jefe de servicio'],
-            ['permissions_name' => 'Lider de servicio'],
+            ['permissions_name' => 'Líder de servicio'],
             ['permissions_name' => 'Responsable de Turno'],
             ['permissions_name' => 'Operario de Turno'],
+            ['permissions_name' => 'Servicio Técnico'],
+
 
         ]);
     }

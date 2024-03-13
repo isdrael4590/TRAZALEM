@@ -18,7 +18,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form action="{{ route('machine.update', $machine->id) }}" method="POST">
+                    <form action="{{ route('machine.update', $machine->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
              
@@ -93,8 +93,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <label>Foto del Equipo</label>
-                                <input class="form-control" type="file" id="machine_image" name="machine_image">
-                                <input type="hidden" name="machine_image" id="machine_image" value="">
+                                <input class="form-control" type="file" id="image" name="image">
+                                <input type="hidden" name="hidden_image" id="image" value="">
                             </div>
                         </div>
 

@@ -4,22 +4,34 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <strong><label   for="company_name">Nombre de la Institucion:   </label></strong>
+                    <img style="width:500px" class="me-1  rounded-circle"
+                        src="{{ $institutions->getImageUrlInstitucion() }}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <strong><label for="company_name">Nombre de la Institucion: </label></strong>
                     <h2> {{ $institutions->company_name }}"</h2>
                 </div>
             </div>
             <div class="col-sm-6">
-                <strong><label>Area</label></strong>
-                <h2> {{ $institutions->company_area }}</h2>
+                <strong><label>Nombre Corto</label></strong>
+                <h2> {{ $institutions->short_name }}</h2>
             </div>
-            
-            
+
+
         </div>
         <div class="row">
 
             <div class="col-sm-6">
                 <strong><label>Direccion</label></strong>
                 <h2> {{ $institutions->address }}" </h2>
+            </div>
+            <div class="col-sm-6">
+                <strong><label>Area</label></strong>
+                <h2> {{ $institutions->company_area }}</h2>
             </div>
         </div>
         <div class="row">

@@ -16,8 +16,8 @@
                         </ul>
                     </div>
                     <div class="col-auto float-right ml-auto">
-                        <a href="{{ route('testbowie.store') }}" class="btn add-btn" data-toggle="modal" data-target="#add_testbowie"><i
-                                class="fa fa-plus"></i> Registrar Nuevo Test</a>
+                        <a href="{{ route('testbowie.store') }}" class="btn add-btn" data-toggle="modal"
+                            data-target="#add_testbowie"><i class="fa fa-plus"></i> Registrar Nuevo Test</a>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,8 @@
                         <div class="col-sm-4 col-md-2">
                             <div class="form-group form-focus">
                                 <div class="cal-icon">
-                                    <input id="created_at" name="created_at" class="form-control floating datetimepicker" type="text">
+                                    <input id="created_at" name="created_at" class="form-control floating datetimepicker"
+                                        type="text">
                                 </div>
 
                                 <label class="focus-label">Fecha</label>
@@ -60,7 +61,7 @@
                             <button type="submit" class="btn btn-success btn-block btn_search"> Buscar </button>
                         </div>
                     </div>
-                 </form> 
+                </form>
             </div>
             {{-- message --}}
             {!! Toastr::message() !!}
@@ -69,10 +70,10 @@
             <div class="row">
                 <div class="col-md-12">
                     @empty($testbowies)
-                    <p class="text-center mt-4"> Sin resultados aún </p>
-                @else
-                    @include('zneManagement.testbowie-table')
-                @endempty
+                        <p class="text-center mt-4"> Sin resultados aún </p>
+                    @else
+                        @include('zneManagement.testbowie-table')
+                    @endempty
                 </div>
             </div>
         </div>
@@ -87,7 +88,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{route('testbowie.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('testbowie.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
@@ -129,19 +130,23 @@
                                 <div class="col-sm-6">
                                     <label>Temperatura Equipo</label>
                                     <div class="form-group form-focus select-focus">
-                                        <select class="select floating" id="e_temp_machine" name="temp_machine"> 
-                                            <option selected disabled>--  TEMPERATURA DEL TEST B&D-</option>
-                                                <option value="134"> 134ºC  </option>
-                                                <option value="121"> 121ºC  </option>
+                                        <select class="select floating" id="e_temp_machine" name="temp_machine">
+                                            <option selected disabled>-- TEMPERATURA DEL TEST B&D-</option>
+                                            <option value="134"> 134ºC </option>
+                                            <option value="121"> 121ºC </option>
                                         </select>
-                                        </div>
-                                    
+                                    </div>
+
                                 </div>
                                 <div class="col-sm-6">
                                     <label>Temperatura Ambiente</label>
-                                    <input class="form-control" type="text" id="e_temp_ambiente" name="temp_ambiente"
-                                    value="{{ old('temp_ambiente') }}" placeholDeleteder="Ingrese la temperatura del ambiente">
-                                    
+                                    <div>
+                                        <button id="increment" onclick="increase()">+</button>
+                                        <input type="text" value="0" id="temp_ambiente">
+                                        <button id="decrement" onclick="decrease()">-</button>
+                                    </div>
+                                   
+
                                 </div>
                             </div>
                             <div class="row">
@@ -155,39 +160,50 @@
                                     <input class="form-control" type="text" id="operator" name="operator"
                                         placeholder= "{{ Auth::user()->name }}" value="{{ Auth::user()->name }}">
                                 </div>
-                            
-                            <!-- Motrar errores de validación si es que hay -->
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
+
+                                <!-- Motrar errores de validación si es que hay -->
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                <div class="submit-section">
+                                    <button type="submit" class="btn btn-primary submit-btn">Enviar</button>
                                 </div>
-                            @endif
-                            <div class="submit-section">
-                                <button type="submit" class="btn btn-primary submit-btn">Enviar</button>
-                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
         <!-- /Add testbowie Modal -->
-      
-   
-    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Editar paquete</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <br>
 
+
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar paquete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <br>
+
+            </div>
         </div>
     </div>
-</div>
 @endsection
+
+<script>
+      var temp_ambiente=document.getElementById("temp_ambiente")  
+     function increase(){  
+       temp_ambiente.value=eval(temp_ambiente.value)+1  
+     }  
+     function decrease(){  
+       temp_ambiente.value=eval(temp_ambiente.value)-1  
+     }  
+</script>
+

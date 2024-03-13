@@ -18,19 +18,31 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form action="{{ route('receptionrumed.update', $receptionrumed->id) }}" method="POST">
+                    <form action="{{ route('receptionrumed.update', $receptionrumed->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <div class="row">
                             <div class="col-sm-6 ">
-                                <label>CODIGO RUMED</label>
-                                <input class="form-control" type="text" id="coderumed" name="coderumed"
-                                    value="{{ $receptionrumed->coderumed }}"placeholDeleteder="Ingrese el CODIGO RUMED">
+                                <label>CÓDIGO CODERUMED</label>
+                                <select class="select" id="coderumed_id" name="coderumed_id">
+                                    @foreach ($coderumeds as $coderumed)
+                                        <option value="{{ $coderumed->coderumed_id }}">(
+                                            {{ $coderumed->coderumed_id }}) -> {{ $coderumed->name_coderumed }}
+                                        </option>
+                                    @endforeach
+
+                                </select>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 ">
                                 <label>NOMBRE CODERUMED</label>
-                                <input class="form-control" type="text" id="name_coderumed" name="name_coderumed"
-                                    value="{{ $receptionrumed->name_coderumed }} "placeholDeleteder="">
+                                <select class="select" id="name_coderumed" name="name_coderumed">
+                                    @foreach ($coderumeds as $coderumed)
+                                        <option value="{{ $coderumed->name_coderumed }}">(
+                                            {{ $coderumed->coderumed_id }}) -> {{ $coderumed->name_coderumed }}
+                                        </option>
+                                    @endforeach
+
+                                </select>
                             </div>
                         </div>
                         <div class="row">

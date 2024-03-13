@@ -10,7 +10,7 @@ class receptionrumed extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'coderumed',
+        'coderumed_id',
         'name_coderumed',
         'date_reception',
         'operator',

@@ -28,7 +28,7 @@ class MachineDashboard extends Controller
         })->when($search_date, function($query, $search_date){
             return $query->whereDate('created_at', Carbon::parse($search_date));
         })->orderByDesc('created_at')->paginate(20); // Adjust the number per page as needed
-        return view('settingsMachine.allmachines', compact('machines'));
+        return view('settingsMachine.allmachine', compact('machines'));
 
     }
 }
