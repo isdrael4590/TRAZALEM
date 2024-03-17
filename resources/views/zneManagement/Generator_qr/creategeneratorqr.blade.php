@@ -143,7 +143,7 @@
                                     </span>
                                 @enderror
                                 <input class="form-control" type="text" id="operator" name="operator"
-                                    placeholder= "{{ Auth::user()->name }}" value="{{ Auth::user()->name }}"">
+                                    placeholder= "{{ Auth::user()->name }}" value="{{ Auth::user()->name }}">
                             </div>
                         </div>
                         <div class="row">

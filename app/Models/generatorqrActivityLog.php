@@ -24,6 +24,7 @@ class generatorqrActivityLog extends Model
         'datatime_expiration',
         'operator',
         'package_wrap',
+        'validation_biologic',
         'observation',
     ];
     public function user()

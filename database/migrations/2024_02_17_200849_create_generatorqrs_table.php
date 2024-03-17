@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('temp_ambiente');
             $table->string('datatime_expiration');
             $table->string('operator');
+            $table->string('validation_biologic');
             $table->string('observation');
             $table->string('package_wrap');
             $table->timestamps();

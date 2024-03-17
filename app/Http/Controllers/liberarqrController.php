@@ -8,45 +8,22 @@ use App\Models\generatorqr;
 use Carbon\Carbon;
 use Brian2694\Toastr\Facades\Toastr;
 
-class rumedSelecprevqrDashboard extends Controller
+class liberarqrController extends Controller
 {
-    //
     public function index()
     {
-        return view('zneManagement.Generator_qr.creategeneratorqr');
-
+        return view('ZEsterilManagement.LiberarCiclo.validation_qr');
     }
-    public function store(Request $request)
+    public function Update(Request $request, generatorqr $generatorqr)
     {
         $validated = $request->validate([
             //'ref_qr' => 'required|string|max:255', TODO: Añadir de nuevo
             //'qr_info' => 'nullable|string|max:255', TODO: Añadir de nuevo
-            'coderumed_id' => 'required|string|max:255',
-            'name_coderumed' => 'required|string|max:255',
-            'machine_id' => 'required|string|max:255',
-            'lote_machine' => 'required|string|max:255',
-            'lote_biologic' => 'required|string|max:255',
-            'temp_machine' => 'required|string|max:255',
-            'type_program' => 'required|string|max:255',
-           
-            'temp_ambiente' => 'required|string|max:255',
-            'datatime_expiration' => 'required|string|max:255',
-            'operator' => 'nullable|string|max:255',
-            'package_wrap' => 'required|string|max:255',
-            'observation' => 'nullable|string|max:255',
+            'validation_biologic' => 'required|string|max:255',
+
         ]);
-        $dt = Carbon::now();
-        
-       // 
-        $validated['user_id'] = auth()->id();
-        $validated['validation_biologic'] = "NOPROCESADO";
-        $validated['ref_qr'] = "Añademe!"; // TODO: Añadir este valor
-        $validated['qr_info'] = "Añademe!"; // TODO: Añadir este valor
-        $validated['observation'] = "Añademe!"; // TODO: Añadir este valor
 
-
-
-        $generatorqr = generatorqr::create($validated);
+        $generatorqr->update($validated);
         generatorqrActivityLog::create([
             "user_id" => auth()->id(),
             "generatorqr_id" => $generatorqr->id,
@@ -68,7 +45,7 @@ class rumedSelecprevqrDashboard extends Controller
             "type" => "create",
         ]);
 
-        Toastr::success('REF Y QR GENERADO', 'Éxito');
-        return redirect()->route('zneManagement/generatorqr');
+        Toastr::success('PAQEUTES LIBERADOS', 'Éxito');
+        return redirect()->route('ZEsterilManagement/LiberarCiclo');
     }
 }

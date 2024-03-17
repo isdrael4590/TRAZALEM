@@ -16,6 +16,11 @@ use App\Http\Controllers\receptionrumedController;
 use App\Http\Controllers\receptionrumedDashboard;
 use App\Http\Controllers\PersonalInformationController;
 use App\Http\Controllers\rumedSelecprevqrDashboard;
+use App\Http\Controllers\liberarqrDashboard;
+use App\Http\Controllers\liberarqrController;
+
+
+
 
 
 
@@ -157,8 +162,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get("/testbowie-dashboard", TestbowieDashboard::class)->name("zneManagement/testbowie")->middleware('auth'); // 
 
     //---------------------------PRINTER---------------------------------//
-    Route::get("/printerBD{id}",[PrinterController::class, 'FormatprinterBD'])->name('/printerBD')->middleware(['auth']);
-    Route::get("/printerInput{id}",[PrinterController::class, 'FormatprinterInput'])->name('/printerInput')->middleware(['auth']);
+    Route::get("/printerBD{id}", [PrinterController::class, 'FormatprinterBD'])->name('/printerBD')->middleware(['auth']);
+    Route::get("/printerInput{id}", [PrinterController::class, 'FormatprinterInput'])->name('/printerInput')->middleware(['auth']);
 
 
     //----------------------GENERADOR QR-------------------//
@@ -166,14 +171,20 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     Route::get("Generatorqr-dashboard", generatorqrDashboard::class)->name("zneManagement/generatorqr")->middleware('auth');
     // generar paquetes previos al qr
-
-
     Route::resource("generatorqr", rumedSelecprevqrDashboard::class)->except(['create', 'index'])->middleware('auth');
     Route::resource("generatorqr", rumedSelecprevqrDashboard::class)->only(['index']);
-
+//generar reporte de la generacion de QR.
     Route::resource("Reportref_qr", Reportref_qrController::class)->except(['create', 'show', 'index'])->middleware('auth');
     Route::resource("Reportref_qr", Reportref_qrController::class)->only(['show']);
     Route::get("Reportref_qr-dashboard", Reportref_qrDashboard::class)->name("zneManagement/Reportref_qr")->middleware('auth');
+
+    // ---------------------LIBERAR Y VALIDAR QR----------------------//
+    Route::get("Liberarqr-dashboard", liberarqrDashboard::class)->name("ZEsterilManagement/LiberarCiclo")->middleware('auth');
+    // revisar los paquetes previos a liberar el qr
+
+    Route::resource("realesecycle", liberarqrController::class)->except(['create', 'index'])->middleware('auth');
+    Route::resource("realesecycle", liberarqrController::class)->only(['index']);
+
 
 
     // selecionar los equipos y modelos

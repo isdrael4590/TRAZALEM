@@ -49,7 +49,20 @@
                         <span class="delivery_staff"> {{ $receptionrumed->delivery_staff }} </span>
                     </td>
                     <td>
-                        <span class="type_dirt"> {{ $receptionrumed->type_dirt }} </span>
+                          @if ($receptionrumed->type_dirt == 'NOCRITICO')
+                            <span class="badge badge-info" class="type_dirt">
+                                {{ $receptionrumed->type_dirt }}
+                            </span>
+                        @elseif($receptionrumed->type_dirt == 'SEMICRITICO')
+                            <span class="badge badge-warning" class="type_dirt">
+                                {{ $receptionrumed->type_dirt }}
+                            </span>
+                        @elseif($receptionrumed->type_dirt == 'CRITICO')
+                            <span class="badge badge-danger" class="type_dirt">
+                                {{ $receptionrumed->type_dirt }}
+                            </span>
+                        @endif
+                     
                     </td>
                     <td>
                         <span class="state_rumed"> {{ $receptionrumed->state_rumed }} </span>

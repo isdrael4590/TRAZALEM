@@ -8,14 +8,11 @@
                 <th>Validaciòn ciclo</th>
                 <th>Codigo Paquete</th>
                 <th>Descripcion Paquete</th>
-                <th>Envoltura Paquete</th>
                 <th>Equipo</th>
                 <th>Lote Equipo</th>
                 <th>Temp. Equipo</th>
                 <th>Lote Biologico</th>
-                <th>Tipo de carga</th>
                 <th>Vencimiento</th>
-                <th>Temp. Ambiente</th>
                 <th>Fecha de Esterilizaciòn</th>
                 <th>Operador</th>
                 <th>Detalles</th>

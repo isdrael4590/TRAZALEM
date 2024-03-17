@@ -2,6 +2,7 @@
     <table class="table table-striped custom-table" id="testbowieDataList" style="width: 100%">
         <thead>
             <tr>
+                <th><input type="checkbox" name="" id="select_all_ids"></th>
                 <th>Descarga</th>
                 <th>No</th>
                 <th>Equipo</th>
@@ -18,7 +19,11 @@
         </thead>
         <tbody>
             @foreach ($testbowies as $testbowie)
-                <tr class="odd">
+                <tr class="odd" id="testbowie_ids{{ $testbowie->id }}">
+                    <td>
+                        <input type="checkbox" name="ids" class="checkbox_ids" id=""
+                            value="{{ $testbowie->id }} ">
+                    </td>
                     <td>
                         <div>
                             <a class="btn-sm"href="{{ route('/printerBD', $testbowie->id) }}">
@@ -82,7 +87,7 @@
                                     </button>
                                 </form>
                             </div>
-                            
+
                         </div>
                     </td>
                 </tr>
@@ -93,3 +98,30 @@
         {{ $testbowies->withQueryString()->links() }}
     </div>
 </div>
+{{--<script>
+    $(function(e) {
+        $("#select_all_ids").click(function() {
+            $('.checkbopx_ids').prop('checked'. $(this).prop('checked'));
+        });
+        $('#deleteAllSelectedRecord').click(function(e)){
+            e.preventDefault();
+            val all_ids=[];
+            $('input.checkbox[name=ids]:checked').each(function(){
+                all_ids.push($(this).val());
+            });
+            $.ajax({
+                url:"",
+                type:"DELETE",  
+                data:{
+                    ids:all_ids,
+                    _token:'{{csrf_token()}}'
+                },
+                success:function(response){
+                    $.each(all_ids,function(key,val)){
+                    $('#testbowie_ids'+val).remove();
+                    }
+                }
+            });
+        }
+    });
+</script>--}}

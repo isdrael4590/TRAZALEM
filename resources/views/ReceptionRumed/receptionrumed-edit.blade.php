@@ -52,8 +52,8 @@
                                 <div class="form-group form-focus select-focus">
                                     <select class="select floating" id="type_dirt" name="type_dirt">
                                         <option selected disabled>{{ $receptionrumed->type_dirt }} </option>
-                                        <option value="NO CRITICO"> NO CRITICO</option>
-                                        <option value="SEMI-CRITICO"> SEMI-CRITICO</option>
+                                        <option value="NOCRITICO"> NO CRITICO</option>
+                                        <option value="SEMICRITICO"> SEMI-CRITICO</option>
                                         <option value="CRITICO"> CRITICO</option>
                                     </select>
                                 </div>

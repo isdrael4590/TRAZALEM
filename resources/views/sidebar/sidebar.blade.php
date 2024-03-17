@@ -77,14 +77,15 @@
                 <li>---------////////////////////////---------</li>
 
                 <li class="menu-title"> <span>ZONA ESTERIL</span> </li>
-                <li class="submenu">
+                <li class="{{ set_active(['ZEsterilManagement/all/releasecycle', 'ZEsterilManagement', 'ZEsterilManagement/validation_qr']) }}  submenu">
                     <a href="#">
                         <i class="la la-download"></i>
                         <span> Liberar Ciclo</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul style="display: none;">
-                        <li><a class="la la-check" href="#"> Validar Biologico</a></li>
+                        <li><a class="{{ Request::is('ZEsterilManagement' ? 'active' : '') }}"
+                            href="{{ route('ZEsterilManagement/LiberarCiclo') }}">Validar Biologico</a></li>
 
 
                     </ul>

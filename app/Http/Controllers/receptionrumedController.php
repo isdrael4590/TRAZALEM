@@ -77,7 +77,6 @@ class receptionrumedController extends Controller
             'state_rumed' => 'required|string|max:255',
             'observation' => 'nullable|string|max:255',
         ]);
-        dd($validated);
         $receptionrumed->update($validated);
 
         receptionrumedActivityLog::create([
