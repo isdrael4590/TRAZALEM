@@ -12,12 +12,12 @@ class Reportref_qrDashboard extends Controller
   public function __invoke(Request $request)
   {
 
-    $machine_id = $request->input('machine_id'); // TODO: Verificar porque cambiar id_machine a  hace que no se renderice el dato
+    $machine_name = $request->input('machine_name'); // TODO: Verificar porque cambiar id_machine a  hace que no se renderice el dato
     $lote_machine = $request->input('lote_machine');
     $ref_qr = $request->input('ref_qr');
     $search_date = $request->input('search_date');
-    $generatorqrs = generatorqr::when($machine_id, function ($query, $machine_id) {
-      return $query->where('machine_id', $machine_id);
+    $generatorqrs = generatorqr::when($machine_name, function ($query, $machine_name) {
+      return $query->where('machine_name', $machine_name);
     })->when($lote_machine, function ($query, $lote_machine) {
       return $query->where('lote_machine', 'like', '%' . $lote_machine . '%');
     })->when($ref_qr, function ($query, $ref_qr) {

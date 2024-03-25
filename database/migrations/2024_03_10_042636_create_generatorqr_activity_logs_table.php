@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('qr_info');
             $table->string('coderumed_id');
             $table->string('name_coderumed');
-            $table->string('machine_id');
+            $table->string('machine_name');
             $table->string('lote_machine');
             $table->string('lote_biologic');
             $table->string('temp_machine');

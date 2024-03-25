@@ -27,7 +27,7 @@
                                 <div class="labelqr-row">
                                     <div class="col-md-6">
                                         <label class="d-block">EQUIPO SELECIONADO</label>
-                                        <span> {{ $qrgenerado->machine_id }} </span>
+                                        <span> {{ $qrgenerado->machine_name }} </span>
 
                                     </div>
                                     <div class="col-sm-6">

@@ -91,7 +91,7 @@
                     </tr>
                     <tr>
                         <th width="25%" style="text-center">EQUIPO</th>
-                        <th><span>{{ $testbowie->machine_id }} </span></th>
+                        <th><span>{{ $testbowie->machine_name }} </span></th>
                     </tr>
                 </thead>
 
@@ -115,7 +115,7 @@
                 <tbody>
                     <tr class="invoice_detail">
                         <td width="25%" style="text-align">{{ $testbowie->id }}</td>
-                        <td width="15%"> {{ $testbowie->machine_id }}</td>
+                        <td width="15%"> {{ $testbowie->machine_name }}</td>
                         <th width="10%">{{ $testbowie->temp_machine }}</th>
                         <td width="20%">{{ $testbowie->lote_bd }}</td>
                         <td width="20%">{{ $testbowie->validation_bd }}</td>

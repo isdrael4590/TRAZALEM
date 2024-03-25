@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class coderumedActivityLog extends Model
 {
     use HasFactory;
-    protected $fillable = ["user_id", "coderumed_id", "type", "name_coderumed", "area", "category", "detalls"];
+    protected $fillable = ["user_id", "coderumed_id", "type","code_coderumed", "name_coderumed", "area", "category", "detalls"];
 
     // Relaciona cada historial de rumed con un usuario
     public function user()

@@ -23,7 +23,7 @@ class rumedSelecprevqrDashboard extends Controller
             //'qr_info' => 'nullable|string|max:255', TODO: Añadir de nuevo
             'coderumed_id' => 'required|string|max:255',
             'name_coderumed' => 'required|string|max:255',
-            'machine_id' => 'required|string|max:255',
+            'machine_name' => 'required|string|max:255',
             'lote_machine' => 'required|string|max:255',
             'lote_biologic' => 'required|string|max:255',
             'temp_machine' => 'required|string|max:255',
@@ -54,7 +54,7 @@ class rumedSelecprevqrDashboard extends Controller
             "qr_info" => $generatorqr->qr_info,
             "coderumed_id" => $generatorqr->coderumed_id,
             "name_coderumed" => $generatorqr->name_coderumed,
-            "machine_id" => $generatorqr->machine_id,
+            "machine_name" => $generatorqr->machine_name,
             "lote_machine" => $generatorqr->lote_machine,
             "lote_biologic" => $generatorqr->lote_biologic,
             "temp_machine" => $generatorqr->temp_machine,

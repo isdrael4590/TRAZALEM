@@ -25,9 +25,9 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="machine_id">Descripción del Equipo</label>
-                                    <input class="form-control" type="text" id="" name="machine_id"
-                                    value="{{ $machine->machine_id }}">
+                                    <label for="machine_name">Descripción del Equipo</label>
+                                    <input class="form-control" type="text" id="" name="machine_name"
+                                    value="{{ $machine->machine_name }}">
                                 </div>
                             </div>
                             <div class="col-sm-6">

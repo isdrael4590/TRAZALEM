@@ -94,8 +94,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <label>Codigo RUMED</label>
-                                <input class="form-control" type="text" id="" name="coderumed_id"
-                                    value="{{ old('coderumed_id') }}" placeholder="Ingrese el codigo RUMED">
+                                <input class="form-control" type="text" id="" name="code_coderumed"
+                                    value="{{ old('code_coderumed') }}" placeholder="Ingrese el codigo RUMED">
                             </div>
                         </div>
                         <div class="row">

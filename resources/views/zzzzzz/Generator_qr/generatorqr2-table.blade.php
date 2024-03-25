@@ -49,7 +49,7 @@
                         <span class="package_wrap"> {{ $generatorqr->package_wrap }} </span>
                     </td>
                     <td>
-                        <span class="machine_id"> {{ $generatorqr->machine_id }} </span>
+                        <span class="machine_name"> {{ $generatorqr->machine_name }} </span>
                     </td>
                     <td>
                         <span class="lote_machine"> {{ $generatorqr->lote_machine }} </span>

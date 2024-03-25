@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('coderumeds', function (Blueprint $table) {
-            $table->id()->autoIncrement();
+            $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete(); // Id del usuario
-            $table->string('coderumed_id');
+            $table->string('code_coderumed');
             $table->string('name_coderumed');
             $table->string('join_date_coderumed');
             $table->string('category')->nullable();

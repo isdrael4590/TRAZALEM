@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class testbowie extends Model
 {
+    protected $guarded =['id'];
+
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'machine_id',
+        'machine_name',
         'lote_machine',
         'temp_machine',
         'lote_bd',

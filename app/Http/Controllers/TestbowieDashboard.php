@@ -15,12 +15,12 @@ class TestbowieDashboard extends Controller
     {
         //
     
-        $machine_id = $request->input('machine_id'); // TODO: Verificar porque cambiar id_machine a  hace que no se renderice el dato
+        $machine_name = $request->input('machine_name'); // TODO: Verificar porque cambiar id_machine a  hace que no se renderice el dato
         $lote_machine = $request->input('lote_machine');
         $lote_bd = $request->input('lote_bd');
         $search_date = $request->input('search_date');
-        $testbowies = testbowie::when($machine_id, function($query, $machine_id){
-            return $query->where('machine_id', $machine_id);
+        $testbowies = testbowie::when($machine_name, function($query, $machine_name){
+            return $query->where('machine_name', $machine_name);
         })->when($lote_machine, function($query, $lote_machine){
             return $query->where('lote_machine', 'like', '%' . $lote_machine . '%');
         })->when($lote_bd, function($query, $lote_bd){

@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class receptionrumed extends Model
 {
+    protected $guarded =['id'];
+
     use HasFactory;
     protected $fillable = [
         'user_id',
         'coderumed_id',
+        'code_coderumed',
         'name_coderumed',
         'date_reception',
         'operator',

@@ -26,7 +26,7 @@ class receptionrumedController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'coderumed_id' => 'required|string|max:255',
+            'code_coderumed' => 'required|string|max:255',
             'name_coderumed' => 'required|string|max:255',
             'operator' => 'required|string|max:255',
             'delivery_staff' => 'required|string|max:255',
@@ -43,7 +43,7 @@ class receptionrumedController extends Controller
         receptionrumedActivityLog::create([
             "user_id" => auth()->id(),
             "receptionrumed_id" => $receptionrumed->id,
-            "coderumed_id" => $receptionrumed->coderumed_id,
+            "code_coderumed" => $receptionrumed->code_coderumed,
             "name_coderumed" => $receptionrumed->name_coderumed,
             "date_reception" => $receptionrumed->date_reception,
             "operator" => $receptionrumed->operator,
@@ -69,7 +69,7 @@ class receptionrumedController extends Controller
     public function update(Request $request, receptionrumed $receptionrumed)
     {
         $validated = $request->validate([
-            'coderumed_id' => 'required|string|max:255',
+            'code_coderumed' => 'required|string|max:255',
             'name_coderumed' => 'required|string|max:255',
             'operator' => 'required|string|max:255',
             'delivery_staff' => 'required|string|max:255',
@@ -82,7 +82,7 @@ class receptionrumedController extends Controller
         receptionrumedActivityLog::create([
             "user_id" => auth()->id(),
             "receptionrumed_id" => $receptionrumed->id,
-            "coderumed_id" => $receptionrumed->coderumed_id,
+            "code_coderumed" => $receptionrumed->code_coderumed,
             "name_coderumed" => $receptionrumed->name_coderumed,
             "date_reception" => $receptionrumed->date_reception,
             "operator" => $receptionrumed->operator,

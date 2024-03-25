@@ -29,7 +29,7 @@
                     <div class="row filter-row">
                         <div class="col-sm-6 col-md-2">
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" id="machine_id" name="machine_id">
+                                <input type="text" class="form-control floating" id="machine_name" name="machine_name">
                                 <label class="focus-label">Equipo</label>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group form-focus select-focus">
-                                        <select class="select floating" id="machine_id" name="machine_id">
+                                        <select class="select floating" id="machine_name" name="machine_name">
                                             <option selected disabled>-- SELECCIONAR EL EQUIPO--</option>
 
                                             <option value="MATACHANA V1"> MATACHANA V1</option>
@@ -117,7 +117,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label>Lote a esterilizar</label>
-                                    <input class="form-control" type="text" id="e_lote_machine" name="lote_machine"
+                                    <input class="form-control" type="number" id="e_lote_machine" name="lote_machine"
                                         value="{{ old('lote_machine') }}" placeholDeleteder="Ingrese el LOTE del equipo">
                                 </div>
                                 <div class="col-sm-6">
@@ -141,9 +141,13 @@
                                 <div class="col-sm-6">
                                     <label>Temperatura Ambiente</label>
                                     <div>
-                                        <button id="increment" onclick="increase()">+</button>
-                                        <input type="text" value="0" id="temp_ambiente">
-                                        <button id="decrement" onclick="decrease()">-</button>
+                                        <input type="number"
+                                                 label="temperatura Ambiente"
+                                                 name="temp_ambiente"
+                                                 id="temp_ambiente"
+                                                 placeholder="20"
+                                                 value="{{ old('temp_ambiente') }}"
+                                        />
                                     </div>
                                    
 

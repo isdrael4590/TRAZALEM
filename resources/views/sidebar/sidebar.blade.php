@@ -62,8 +62,8 @@
                         <li><a class="{{ Request::is('zneManagement' ? 'active' : '') }}"
                                 href="{{ route('zneManagement/testbowie') }}">Prueba de BOWIE & DICK </a></li>
 
-                        <li><a class="{{ Request::is('zneManagement' ? 'active' : '') }}"
-                                href="{{ route('zneManagement/generatorqr') }}"> GENERADOR DE QR
+                        <li class="nav-item {{ request()->is('generators*') ? 'active' : null }}">
+                            <a class="nav-link" href="{{ route('generators.index') }}"> GENERADOR DE QR
                             </a>
                         </li>
                         <li><a class="{{ Request::is('zneManagement' ? 'active' : '') }}"

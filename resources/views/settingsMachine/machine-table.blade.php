@@ -26,7 +26,7 @@
                             {{ $Machine->id }} </span>
                     </td>
                     <td>
-                        <span class="machine_id"> {{ $Machine->machine_id }} </span>
+                        <span class="machine_name"> {{ $Machine->machine_name }} </span>
                     </td>
                     <td>
                         <a  class="machine_model">

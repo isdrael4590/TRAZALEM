@@ -15,12 +15,12 @@ class MachineDashboard extends Controller
     {
         //
     
-        $machine_id = $request->input('machine_id'); // TODO: Verificar porque cambiar id_machine a  hace que no se renderice el dato
+        $machine_name = $request->input('machine_name'); // TODO: Verificar porque cambiar id_machine a  hace que no se renderice el dato
         $machine_model = $request->input('machine_model');
         $serial = $request->input('serial');
         $search_date = $request->input('search_date');
-        $machines = machine::when($machine_id, function($query, $machine_id){
-            return $query->where('machine_id', $machine_id);
+        $machines = machine::when($machine_name, function($query, $machine_name){
+            return $query->where('machine_name', $machine_name);
         })->when($machine_model, function($query, $machine_model){
             return $query->where('machine_model', 'like', '%' . $machine_model . '%');
         })->when($serial, function($query, $serial){

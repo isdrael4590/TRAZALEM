@@ -14,8 +14,15 @@ return new class extends Migration
         Schema::create('receptionrumed_activity_logs', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('receptionrumed_id');
-            $table->string('coderumed_id');
+       
+            $table->foreignIdFor(\App\Models\receptionrumed::class)
+                ->constrained()
+                ->cascadeOnDelete();
+
+            $table->foreignIdFor(\App\Models\coderumed::class)
+                ->nullable()
+                ->constrained()
+                ->nullOnDelete();
             $table->string('name_coderumed');
             $table->string('date_reception');
             $table->string('operator');

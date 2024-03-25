@@ -27,6 +27,7 @@
 	<link rel="stylesheet" href="{{ URL::to('ssets/plugins/morris/morris.css') }}">
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="{{ URL::to('assets/css/style.css') }}">
+    <link href="{{ asset('dist/css/tabler.min.css') }}" rel="stylesheet" />
 
 	{{-- message toastr --}}
 	<link rel="stylesheet" href="{{ URL::to('assets/css/toastr.min.css') }}">
@@ -142,4 +143,18 @@
 	<script src="{{ URL::to('assets/js/app.js') }}"></script>
 	@yield('script')
 </body>
+<footer class="footer footer-transparent d-print-none">	
+	<div class="container-xl">
+		<div class="col-12 col-lg-auto mt-3 mt-lg-0">
+			<ul class="list-inline list-inline-dots mb-0">
+				<li class="list-inline-item">
+					Copyright &copy; {{ now()->year }}
+					<a href="#" class="link-secondary">trANDESoft</a>.
+					All rights reserved.
+				</li>
+			
+			</ul>
+		</div>
+	</div>
+</footer>
 </html>

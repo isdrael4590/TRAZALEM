@@ -20,7 +20,7 @@
                         </span>
                     </td>
                     <td>
-                        <span class="coderumed_id"> {{ $coderumed->coderumed_id }} </span>
+                        <span class="code_coderumed"> {{ $coderumed->code_coderumed }} </span>
                     </td>
                     <td>
                         <a href="{{ route('coderumed.show', $coderumed->id) }}" class="link-primary">

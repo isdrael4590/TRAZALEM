@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('machines', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('machine_id');
+            $table->string('machine_name');
             $table->string('machine_model');
             $table->string('serial');
             $table->string('capacity');

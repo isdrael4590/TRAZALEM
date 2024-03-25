@@ -31,7 +31,7 @@
                             {{ $receptionrumed->id }} </span>
                     </td>
                     <td>
-                        <span class="coderumed"> {{ $receptionrumed->coderumed }} </span>
+                        <span class="code_coderumed"> {{ $receptionrumed->code_coderumed }} </span>
                     </td>
                     <td>
                         <a href="{{ route('receptionrumed.show', $receptionrumed->name_coderumed) }}" class="link-primary">

@@ -39,13 +39,13 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="d-block">Equipo a esterilizar</label>
-                                @error('machine_id')
+                                @error('machine_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                                 <div class="form-group form-focus select-focus">
-                                    <select class="select floating" id="machine_id" name="machine_id">
+                                    <select class="select floating" id="machine_name" name="machine_name">
                                         <option selected disabled>-- Seleccionar el equipo --</option>
                                         <option value="MATACHANA V1"> MATACHANA V1</option>
                                         <option value="CISA V2"> CISA V2</option>
@@ -168,7 +168,7 @@
                                                 <td>1</td>
                                                 <td>
                                                     <div class="form-group form-focus select-focus">
-                                                        @error('coderumed_id', 'coderumed_name')
+                                                        @error('coderumed_id', 'name_coderumed')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
                                                             </span>

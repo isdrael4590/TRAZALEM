@@ -30,8 +30,8 @@
                                 </div>
                                 <div class="col">
                                     <label>Código rumed</label>
-                                    <input class="form-control" type="text" name="coderumed_id" id="e_coderumed_id"
-                                        value="{{ $coderumed->coderumed_id }}" />
+                                    <input class="form-control" type="text" name="code_coderumed" id="e_code_coderumed"
+                                        value="{{ $coderumed->code_coderumed }}" />
                                 </div>
                             </div>
 

@@ -12,10 +12,13 @@ return new class extends Migration
     public function up()
     {
             Schema::create('receptionrumeds', function (Blueprint $table) {
-                $table->id()->autoIncrement();
+                $table->id();
                 $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-               
-                $table->string('coderumed_id');
+                $table->foreignIdFor(\App\Models\coderumed::class)
+                ->nullable()
+                ->constrained()
+                ->nullOnDelete();
+                $table->string('code_coderumed');
                 $table->string('name_coderumed');
                 $table->string('date_reception');
                 $table->string('operator');

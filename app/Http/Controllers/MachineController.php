@@ -20,7 +20,7 @@ class MachineController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'machine_id' => 'required|string|max:255',
+            'machine_name' => 'required|string|max:255',
             'machine_model' => 'required|string|max:255',
             'serial' => 'required|string|max:255',
             'capacity' => 'required|string|max:255',
@@ -57,7 +57,7 @@ class MachineController extends Controller
     public function update(Request $request, machine $machine)
     {
         $validated = $request->validate([
-            'machine_id' => 'required|string|max:255',
+            'machine_name' => 'required|string|max:255',
             'machine_model' => 'required|string|max:255',
             'serial' => 'required|string|max:255',
             'capacity' => 'required|string|max:255',

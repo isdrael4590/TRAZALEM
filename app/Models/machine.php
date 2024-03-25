@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class machine extends Model
 {
+    protected $guarded =['id'];
+
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'machine_id',
+        'machine_name',
         'machine_model',
         'serial',
         'capacity',

@@ -13,24 +13,28 @@ return new class extends Migration
     {
       
 
-        Schema::create('generatorqrs', function (Blueprint $table) {
-            $table->id()->autoIncrement();
+        Schema::create('generators', function (Blueprint $table) {
+            $table->id();
+
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('ref_qr');
-            $table->string('qr_info');
-            $table->string('coderumed_id');
-            $table->string('name_coderumed');
-            $table->string('machine_id');
-            $table->string('lote_machine');
+            $table->foreignIdFor(\App\Models\machine::class)
+            ->nullable()
+            ->constrained()
+            ->nullOnDelete();
+            $table->string('reference');
+            $table->date('date');
+            $table->string('machine_name');
+            $table->integer('lote_machine')->default(0);
             $table->string('lote_biologic');
-            $table->string('temp_machine');
+            $table->integer('temp_machine');
             $table->string('type_program');
-            $table->string('temp_ambiente');
-            $table->string('datatime_expiration');
+            $table->integer('temp_ambiente');
+            $table->date('datatime_expiration');
             $table->string('operator');
-            $table->string('validation_biologic');
+            $table->tinyInteger('status')->comment('0-En curso /1-Validado /2-Rechazado/3-Falla');
             $table->string('observation');
-            $table->string('package_wrap');
+           
+            $table->uuid();
             $table->timestamps();
         });
     }

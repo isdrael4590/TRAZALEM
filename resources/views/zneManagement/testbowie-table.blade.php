@@ -36,7 +36,7 @@
                             {{ $testbowie->id }} </span>
                     </td>
                     <td>
-                        <span class="machine_id"> {{ $testbowie->machine_id }} </span>
+                        <span class="machine_name"> {{ $testbowie->machine_name }} </span>
                     </td>
                     <td>
                         <a href="{{ route('testbowie.show', $testbowie->lote_machine) }}" class="link-primary">

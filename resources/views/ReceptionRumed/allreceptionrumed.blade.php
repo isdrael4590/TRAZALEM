@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-sm-6 col-md-2">
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" id="coderumed" name="coderumed">
+                                <input type="text" class="form-control floating" id="code_coderumed" name="code_coderumed">
                                 <label class="focus-label">CODIGO RUMED</label>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                                     <select class="select" id="name_coderumed" name="name_coderumed">
                                         @foreach ($coderumeds as $coderumed)
                                             <option value="{{ $coderumed->name_coderumed }}">(
-                                                {{ $coderumed->coderumed_id }}) -> {{ $coderumed->name_coderumed }}
+                                                {{ $coderumed->code_coderumed }}) -> {{ $coderumed->name_coderumed }}
                                             </option>
                                         @endforeach
 
@@ -100,10 +100,10 @@
                                 </div>
                                 <div class="col-sm-6 ">
                                     <label>CÓDIGO CODERUMED</label>
-                                    <select class="select" id="coderumed_id" name="coderumed_id">
+                                    <select class="select" id="code_coderumed" name="code_coderumed">
                                         @foreach ($coderumeds as $coderumed)
-                                            <option value="{{ $coderumed->coderumed_id }}">(
-                                                {{ $coderumed->coderumed_id }}) -> {{ $coderumed->name_coderumed }}
+                                            <option value="{{ $coderumed->code_coderumed }}">(
+                                                {{ $coderumed->code_coderumed }}) -> {{ $coderumed->name_coderumed }}
                                             </option>
                                         @endforeach
 

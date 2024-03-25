@@ -29,7 +29,7 @@
                     <div class="row filter-row">
                         <div class="col-sm-6 col-md-3">
                             <div class="form-group form-focus">
-                                <input type="text" class="form-control floating" id="machine_id" name="machine_id">
+                                <input type="text" class="form-control floating" id="machine_name" name="machine_name">
                                 <label class="focus-label">Nombre del Equipo</label>
                             </div>
                         </div>
@@ -80,9 +80,9 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="machine_id">Descripción del Equipo</label>
-                                        <input class="form-control" type="text" id="" name="machine_id"
-                                            value="{{ old('machine_id') }}" placeholder="Ingrese la descripcion">
+                                        <label for="machine_name">Descripción del Equipo</label>
+                                        <input class="form-control" type="text" id="" name="machine_name"
+                                            value="{{ old('machine_name') }}" placeholder="Ingrese la descripcion">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

@@ -40,7 +40,7 @@
                                 @foreach ($testbowie_activity_log as $key => $item)
                                     <tr>
                                         <td>{{ ++$key }}</td>
-                                        <td>{{ $item->machine_id }}</td>
+                                        <td>{{ $item->machine_name }}</td>
                                         <td>{{ $item->lote_machine }}</td>
                                         <td>{{ $item->lote_bd }}</td>
                                         <td>{{ $item->validation_bd }}</td>

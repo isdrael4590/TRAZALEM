@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <strong>Identificacion del Equipo--</strong>
-                        <span> {{ $testbowie->machine_id }} </span>
+                        <span> {{ $testbowie->machine_name }} </span>
                     </div>
                     <div class="col-sm-6">
                         <strong>Lote del Ciclo del Equipo/strong>
@@ -73,7 +73,7 @@
             <h1>Historial Versiones</h1>
             @foreach ($testbowie->history as $history)
                 <p>
-                    <strong>ID:</strong> {{ $history->id }} <strong>Equipo:</strong> {{ $history->machine_id }},
+                    <strong>ID:</strong> {{ $history->id }} <strong>Equipo:</strong> {{ $history->machine_name }},
                     <strong>Lote de equipo:</strong>: {{ $history->lote_machine }}, <strong>Lote de Insumo:</strong>: {{ $history->lote_bd }},
                     <strong>Validacion:</strong>: {{ $history->validation_bd }},
                     <strong>Observaciones:</strong>: {{ $history->observation }}, <strong>Modificado por:</strong>

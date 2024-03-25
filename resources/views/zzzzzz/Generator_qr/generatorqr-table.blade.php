@@ -2,6 +2,7 @@
     <table class="table table-striped custom-table" id="generatorqrDataList" style="width: 100%">
         <thead>
             <tr>
+                <th></th>
                 <th>No</th>
                 <th>Ref. QR</th>
                 <th>Codigo Paquete</th>
@@ -24,6 +25,13 @@
             @foreach ($generatorqrs as $generatorqr)
                 <tr class="odd">
                     <td>
+                        <div>
+                            <a class="btn-sm"href="#">
+                                <i class="fa fa-print rm-1"></i>
+
+                        </div>
+                    </td>
+                    <td>
                         <a class="id">
                             {{ $generatorqr->id }} </span>
                     </td>
@@ -32,7 +40,7 @@
                             {{ $generatorqr->ref_qr }} </a>
                     </td>
                     <td>
-                        <span class="coderumed_id"> {{ $generatorqr->coderumed_id }} </span>
+                        <span class="code_coderumed"> {{ $generatorqr->code_coderumed }} </span>
                     </td>
                     <td>
                         <span class="name_coderumed"> {{ $generatorqr->name_coderumed }} </span>
@@ -41,7 +49,7 @@
                         <span class="package_wrap"> {{ $generatorqr->package_wrap }} </span>
                     </td>
                     <td>
-                        <span class="machine_id"> {{ $generatorqr->machine_id }} </span>
+                        <span class="machine_name"> {{ $generatorqr->machine_name }} </span>
                     </td>
                     <td>
                         <span class="lote_machine"> {{ $generatorqr->lote_machine }} </span>

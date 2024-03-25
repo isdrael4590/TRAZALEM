@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <strong>Equipo</strong>
-                        <span> {{ $generatorqr->machine_id }} </span>
+                        <span> {{ $generatorqr->machine_name }} </span>
                     </div>
                     <div class="col-sm-12">
                         <strong>Lote Equipo</strong>
@@ -107,7 +107,7 @@
                     <strong>Referencia QR:</strong> {{ $history->ref_qr }},
                     <strong>Codigo Paquete:</strong>: {{ $history->coderumed_id }}, <strong>Descripcion Paquete:</strong>: {{ $history->name_coderumed }},
                     <strong>Envoltura Paquete:</strong>: {{ $history->package_wrap }},
-                    <strong>Equipo:</strong>: {{ $history->machine_id }}, 
+                    <strong>Equipo:</strong>: {{ $history->machine_name }}, 
                     <strong>Lote Equipo:</strong>: {{ $history->lote_machine }}, <strong>Temp. Equipo:</strong>: {{ $history->temp_machine }},
                     <strong>Lote Biologico:</strong>: {{ $history->lote_biologico }},
                     <strong>Tipo de carga:</strong>: {{ $history->type_program }}, 

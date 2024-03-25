@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('testbowie_id')->constrained()->cascadeOnDelete();
-            $table->string('machine_id')->nullable();
+            $table->string('machine_name')->nullable();
             $table->string('lote_machine')->nullable();
             $table->string('temp_machine')->nullable();
             $table->string('lote_bd')->nullable();

@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\CodeRumedController;
 use App\Http\Controllers\CodeRumedDashboard;
-use App\Http\Controllers\generatorqrController;
+
 use App\Http\Controllers\Reportref_qrController;
 use App\Http\Controllers\Reportref_qrDashboard;
 use App\Http\Controllers\testbowieController;
 use App\Http\Controllers\TestbowieDashboard;
-use App\Http\Controllers\generatorqrDashboard;
+/*use App\Http\Controllers\generatorqrDashboard;
+use App\Http\Controllers\generatorqrController;*/
 use App\Http\Controllers\MachineController;
 use App\Http\Controllers\MachineDashboard;
 use App\Http\Controllers\InstitutionController;
@@ -19,7 +20,7 @@ use App\Http\Controllers\rumedSelecprevqrDashboard;
 use App\Http\Controllers\liberarqrDashboard;
 use App\Http\Controllers\liberarqrController;
 
-
+use App\Http\Controllers\generator\generatorController;
 
 
 
@@ -38,6 +39,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::resource('/generators', generatorController::class);
 
 /** for side bar menu active */
 function set_active($route)
@@ -169,14 +172,22 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     //----------------------GENERADOR QR-------------------//
     // Solo muestra el dashboard, filtra y nada más
 
-    Route::get("Generatorqr-dashboard", generatorqrDashboard::class)->name("zneManagement/generatorqr")->middleware('auth');
+    /*Route::get("Generatorqr-dashboard", generatorqrDashboard::class)->name("zneManagement/generatorqr")->middleware('auth');
     // generar paquetes previos al qr
     Route::resource("generatorqr", rumedSelecprevqrDashboard::class)->except(['create', 'index'])->middleware('auth');
     Route::resource("generatorqr", rumedSelecprevqrDashboard::class)->only(['index']);
-//generar reporte de la generacion de QR.
+    //generar reporte de la generacion de QR.*/
     Route::resource("Reportref_qr", Reportref_qrController::class)->except(['create', 'show', 'index'])->middleware('auth');
     Route::resource("Reportref_qr", Reportref_qrController::class)->only(['show']);
     Route::get("Reportref_qr-dashboard", Reportref_qrDashboard::class)->name("zneManagement/Reportref_qr")->middleware('auth');
+
+
+  //----------------------GENERADOR QR livewire-------------------//
+     Route::get('/generators/{generator}/edit', [generatorController::class, 'edit'])->name('generators.edit');
+    Route::post('/generators/complete/{generator}', [generatorController::class, 'update'])->name('generators.update');
+    Route::delete('/generators/delete/{generator}', [generatorController::class, 'destroy'])->name('generators.delete');
+
+
 
     // ---------------------LIBERAR Y VALIDAR QR----------------------//
     Route::get("Liberarqr-dashboard", liberarqrDashboard::class)->name("ZEsterilManagement/LiberarCiclo")->middleware('auth');

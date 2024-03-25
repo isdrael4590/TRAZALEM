@@ -6,7 +6,7 @@ use App\Models\coderumedActivityLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
-
+use Str;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Models\coderumed;
 use Carbon\Carbon;
@@ -29,11 +29,12 @@ class CodeRumedController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'coderumed_id' => 'required|string|max:255',
+            'code_coderumed' => 'required|string|max:255',
             'name_coderumed' => 'required|string|max:255',
             'category' => 'required|string|max:255',
             'area' => 'required|string|max:255',
             'detalls' => 'nullable|string|max:255',
+            'uuid'=> Str::uuid()
         ]);
         $dt = Carbon::now();
         $todayDate = $dt->toDayDateTimeString();
@@ -46,6 +47,7 @@ class CodeRumedController extends Controller
             "user_id" => auth()->id(),
             "coderumed_id" => $coderumed->id,
             "name_coderumed" => $coderumed->name_coderumed,
+            "code_coderumed" => $coderumed->code_coderumed,
             "area" => $coderumed->area,
             "category" => $coderumed->category,
             "detalls" => $coderumed->detalls,
@@ -69,8 +71,8 @@ class CodeRumedController extends Controller
     public function update(Request $request, coderumed $coderumed)
     {
         $validated = $request->validate([
-            'coderumed_id' => 'required|string|max:255',
             'name_coderumed' => 'required|string|max:255',
+            'code_coderumed' => 'required|string|max:255',
             'category' => 'required|string|max:255',
             'area' => 'required|string|max:255',
             'detalls' => 'nullable|string|max:255',
@@ -81,6 +83,7 @@ class CodeRumedController extends Controller
             "user_id" => auth()->id(),
             "coderumed_id" => $coderumed->id,
             "name_coderumed" => $coderumed->name_coderumed,
+            "code_coderumed" => $coderumed->code_coderumed,
             "area" => $coderumed->area,
             "category" => $coderumed->category,
             "detalls" => $coderumed->detalls,

@@ -24,9 +24,9 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group form-focus select-focus">
-                                    <select class="select floating" id="e_machine_id" name="machine_id">
-                                        <option value="MATACHANA V1" @if($testbowie->machine_id === 'MATACHANA V1') selected @endif> MATACHANA V1</option>
-                                        <option value="CISA V2" @if($testbowie->machine_id === 'CISA V2') selected @endif> CISA V2</option>
+                                    <select class="select floating" id="e_machine_name" name="machine_name">
+                                        <option value="MATACHANA V1" @if($testbowie->machine_name === 'MATACHANA V1') selected @endif> MATACHANA V1</option>
+                                        <option value="CISA V2" @if($testbowie->machine_name === 'CISA V2') selected @endif> CISA V2</option>
                                     </select>
                                 </div>
                             </div>

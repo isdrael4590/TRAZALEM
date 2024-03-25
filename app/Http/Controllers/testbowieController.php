@@ -26,12 +26,12 @@ class testbowieController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'machine_id' => 'required|string|max:255',
-            'lote_machine' => 'required|string|max:255',
+            'machine_name' => 'required|string|max:255',
+            'lote_machine' => 'required|integer|max:255',
             'temp_machine'=> 'required|string|max:255',
             'lote_bd' => 'required|string|max:255',
             'validation_bd' => 'required|string|max:255',
-            'temp_ambiente'=> 'required|string|max:255',
+            'temp_ambiente'=> 'integer|string|max:255',
             'operator' => 'required|string|max:255',
             'observation' => 'nullable|string|max:255',
         ]);
@@ -44,7 +44,7 @@ class testbowieController extends Controller
         testbowieActivityLog::create([
             "user_id" => auth()->id(),
             "testbowie_id" => $testbowie->id,
-            "machine_id" => $testbowie->machine_id,
+            "machine_name" => $testbowie->machine_name,
             "lote_machine" => $testbowie->lote_machine,
             "temp_machine" => $testbowie->temp_machine,
             "lote_bd" => $testbowie->lote_bd,
@@ -70,9 +70,9 @@ class testbowieController extends Controller
     public function update(Request $request, testbowie $testbowie)
     {
         $validated = $request->validate([
-            'machine_id' => 'required|string|max:255',
-            'lote_machine' => 'required|string|max:255',
-            'temp_machine'=> 'required|string|max:255',
+            'machine_name' => 'required|string|max:255',
+            'lote_machine' => 'integer|string|max:255',
+            'temp_machine'=> 'integer|string|max:255',
             'lote_bd' => 'required|string|max:255',
             'validation_bd' => 'required|string|max:255',
             'temp_ambiente'=> 'required|string|max:255',
@@ -84,7 +84,7 @@ class testbowieController extends Controller
         testbowieActivityLog::create([
             "user_id" => auth()->id(),
             "testbowie_id" => $testbowie->id,
-            "machine_id" => $testbowie->machine_id,
+            "machine_name" => $testbowie->machine_name,
             "lote_machine" => $testbowie->lote_machine,
             "temp_machine" => $testbowie->temp_machine,
             "lote_bd" => $testbowie->lote_bd,

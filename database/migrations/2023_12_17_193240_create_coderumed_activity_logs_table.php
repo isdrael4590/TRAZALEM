@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('coderumed_activity_logs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('coderumed_id')->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\coderumed::class)
+            ->nullable()
+            ->constrained()
+            ->nullOnDelete();
+            $table->string('code_coderumed')->nullable();
             $table->string('name_coderumed')->nullable();
             $table->string('area')->nullable();
             $table->string('category')->nullable();

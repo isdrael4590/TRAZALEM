@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class institution extends Model
 {
+    protected $guarded =['id'];
+
     use HasFactory;
     protected $fillable = [
         'user_id',
