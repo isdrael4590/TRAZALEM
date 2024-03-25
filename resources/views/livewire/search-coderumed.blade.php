@@ -25,7 +25,7 @@
                     <ul class="list-group list-group-flush">
                         @foreach($search_results as $result)
                             <li class="list-group-item list-group-item-action">
-                                <a wire:click="resetQuery" wire:click.prevent="selectCoderumed({{ $result }})" href="#">
+                                <a wire:click="resetQuery" wire:click.prevent="SelectCoderumed({{ $result }})" href="#">
                                     {{ $result->name_coderumed }} | {{ $result->code_coderumed }}
                                 </a>
                             </li>
